@@ -5,6 +5,7 @@ Créé le 22 avr 2020
 
 @author: semuadmin
 '''
+# pylint: disable=line-too-long
 
 WIKIURL = "https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot"
 GITHUBURL = "https://github.com/semuconsulting/PyMandel"
@@ -36,7 +37,6 @@ HELPTXT = "Entrez les paramètres manuellement (ou importez-les à partir d'un f
     +"Aide..À propos - afficher la boîte de dialogue À propos."
 
 ABOUTTXT = "PyMandel est une application GUI open-source gratuite entièrement écrite en Python et tkinter avec des améliorations de performances Numba.\n\n" \
-    +"Version" + VERSION + "\n\n" \
     +"Les instructions et le code source sont disponibles sur Github au lien ci-dessous."
 
 # Texte du message

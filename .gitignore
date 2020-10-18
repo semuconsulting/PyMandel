@@ -5,10 +5,11 @@
 .dbeaver/
 build/
 dist/
-Mandelpy.egg-info/
+PyMandel.egg-info/
+PyMandel-*/
 _pycache_/
 .mypy_cache/
-mandelpy/_pycache_/
+pymandel/_pycache_/
 colormaps/_pycache_/
 .settings
 *.pyc

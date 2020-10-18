@@ -5,6 +5,7 @@ Erstellt am 22. April 2020
 
 @author: semuadmin
 '''
+# pylint: disable=line-too-long
 
 WIKIURL = "https://de.wikipedia.org/wiki/Mandelbrot-Menge"
 GITHUBURL = "https://github.com/semuconsulting/PyMandel"
@@ -36,7 +37,6 @@ HELPTXT = "Geben Sie die Einstellungen manuell ein (oder importieren Sie sie aus
     +"Hilfe..Über - Dialogfeld Info anzeigen"
 
 ABOUTTXT = "PyMandel ist eine kostenlose Open-Source-GUI-Anwendung, die vollständig in Python und tkinter mit Numba-Leistungsverbesserungen geschrieben wurde.\n\n" \
-    +"Version " + VERSION + "\n\n" \
     +"Anweisungen und Quellcode sind auf Github unter dem folgenden Link verfügbar."
 
 # Nachrichtentext

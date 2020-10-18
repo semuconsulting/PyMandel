@@ -5,6 +5,7 @@ Created on 22 Apr 2020
 
 @author: semuadmin
 '''
+# pylint: disable=line-too-long
 
 WIKIURL = "https://en.wikipedia.org/wiki/Mandelbrot_set"
 GITHUBURL = "https://github.com/semuconsulting/PyMandel"
@@ -39,7 +40,6 @@ HELPTXT = "Enter settings manually (or import them from a metadata file) and cli
     +"Help..About - display About dialog."
 
 ABOUTTXT = "PyMandel is a free, open-source GUI application written entirely in Python and tkinter with Numba performance enhancements.\n\n" \
-    +"Version " + VERSION + "\n\n" \
     +"Instructions and source code are available on Github at the link below."
 
 # Message text

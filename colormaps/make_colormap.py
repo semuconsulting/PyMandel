@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Command line utility to create numpy color map arrays suitable for use by Mandelpy
+Command line utility to create numpy color map arrays suitable for use by PyMandel
 from image files containing suitable color gradients e.g. created using GIMP's gradient tool.
 It currently only handles RGB or RGBA formats.
 
@@ -14,6 +14,7 @@ Created on 24 Apr 2020
 import sys
 
 from PIL import Image
+
 
 def make_colormap(**kwargs):
     '''
@@ -38,7 +39,7 @@ def make_colormap(**kwargs):
     file = open(outfile, 'a')
     file.write("from numpy import array\n\n")
     file.write("'''\n" + str(levels) + "-level colormap created by gen_colormap" \
-               + " utility from file " + infile + "\n'''\n")
+               +" utility from file " + infile + "\n'''\n")
     file.write(mapname + " = array([ \\\n")
 
     for x_axis in range(levels):
@@ -60,6 +61,7 @@ def make_colormap(**kwargs):
     file.close()
 
     print(str(levels) + "-level colormap file " + outfile + " created")
+
 
 if __name__ == "__main__":
 

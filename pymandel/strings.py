@@ -5,6 +5,7 @@ Created on 22 Apr 2020
 
 @author: semuadmin
 '''
+# pylint: disable=line-too-long
 
 WIKIURL = "https://en.wikipedia.org/wiki/Mandelbrot_set"
 GITHUBURL = "https://github.com/semuconsulting/PyMandel"

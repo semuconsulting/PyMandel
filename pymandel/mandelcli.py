@@ -29,7 +29,7 @@ def help_text():
     Print help text
     '''
 
-    print("Mandelbrot Generator command line utility\n (c) SEMU Consulting - BSD 2 License\n\n",
+    print("Mandelbrot Generator command line utility\n (c) SEMU Consulting - BSD 3 License\n\n",
           "The following keyword parameters can be passed (default):\n\n",
           "settype - 'Mandelbrot' or 'Julia' ('Mandelbrot')\n",
           "width - the width of the image(s) in pixels (1920)\n",
@@ -58,7 +58,7 @@ class BatchMandelbrot():
     Main class of command line utility
     '''
 
-    #pylint: disable=R0902
+    # pylint: disable=R0902
     def __init__(self, **kwargs):
         '''
         Command line utility class

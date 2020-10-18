@@ -1,6 +1,6 @@
 # PyMandel
 
-A Mandelbrot and Julia Set (*and variants*) rendering application written entirely in Python 3.8 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via Numba JIT compilation, parallelisation and caching.
+PyMandel is a graphical Mandelbrot and Julia Set (*and variants*) rendering application written entirely in Python 3.8 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via Numba JIT compilation, parallelisation and caching.
 
 ![Windows screenshot](/images/Windows_Screenshot.png)
 
