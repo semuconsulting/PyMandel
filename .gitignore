@@ -1,0 +1,16 @@
+.DS_Store
+.dropbox
+.project
+.pydevproject
+.dbeaver/
+build/
+dist/
+Mandelpy.egg-info/
+_pycache_/
+.mypy_cache/
+mandelpy/_pycache_/
+colormaps/_pycache_/
+.settings
+*.pyc
+*.nbi
+*.nbc
