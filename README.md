@@ -115,6 +115,8 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 **NB:** The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
+**NB:** While the Numba function decorators do afford a dramatic performance improvement over standard Python, we're not in the Ultra Fractal &copy; league here. But, hey, it's free and open source so have fun!
+
 ## How To Use
 
 * Settings can be entered manually (or imported from a previously saved metadata file) to plot a fractal image using the specified parameters.
@@ -129,7 +131,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Right-clicking anywhere in the plot area will centre the image at that point using the currently specified zoom level.
 
-* **NB:** Alt-L or Ctrl-L & Left-click in Mandelbrot mode will automatically switch to Julia mode and plot the Julia Set corresponding to the cx, cy offset at the cursor location. Useful points of interest can be found anywhere around the perimeter of the Mandelbrot set.
+* **NB:** Pressing Alt-L (left-hand Alt key) or Ctrl-L (left-hand Ctrl key) while left-clicking in Mandelbrot mode will automatically switch to Julia mode and plot the Julia Set corresponding to the cx, cy offset at the cursor location. Useful points of interest can be found anywhere around the perimeter of the Mandelbrot set.
 
 * Pressing the Left &#9664; or Right &#9654; arrow keys in Julia mode will rotate the Julia Set clockwise or anti-clockwise about its origin (*the SPIN animation function does this automatically*).
 
@@ -145,7 +147,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Zoom button - automatically create and save a sequence of images at increasing zoom levels, which can be converted externally into an animation (e.g. GIF or short video).
 
-* Spin button - in Julia mode only, automatically creates and saves a 'spinning Julia Set' sequence.
+* Spin button - in Julia mode only, automatically creates and saves a 'spinning Julia Set' sequence. Increasing the number of frames will result in a slower but more detailed spin animation.
 
 * Options..Hide/Show Status - toggles the Status Bar on or off.
 
@@ -191,16 +193,18 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 ### mandelcli.py
 
-mandelcli.py is a command line equivalent to the GUI's Animate function. It can be invoked using keyword parameters 
+`mandelcli.py` is a command line equivalent to the GUI's Animate function. It can be invoked using keyword parameters 
 e.g. `python mandelcli.py width=480 height=480 frames=20` to produce a sequence of .png images. Pass `-h` or `-help` for a list of available parameters.
 
 It can import settings from a previously saved metadata file using the import parameter e.g. `import=filename.json`.
 
 In addition to producing animated sequences, the command line utility can be used to create single images at a much higher pixel resolution than would be available via the GUI application on a standard monitor, though render time may be significant.
 
+** Suggestion ** Use the PyMandel GUI at moderate resolutions to explore fractals and find a location and configuration you like, save the image & metadata, and then use the `mandelcli.py` command line utility to import the metadata and create a much higher resolution version of the same image e.g for desktop wallpaper, printing or sharing.
+
 ### make_colormap.py
 
-make_colormap.py is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. It takes the following optional keyword parameters:
+`make_colormap.py` is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. It takes the following optional keyword parameters:
 
 `python gen_colormap.py mapname=mymap input=image.png output=mymap_colormap.py levels=256`
 
