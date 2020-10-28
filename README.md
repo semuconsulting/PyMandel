@@ -64,7 +64,10 @@ Constructive feedback welcome.
 
 ## <a name="installation">Installation</a>
 
-![Python version](https://img.shields.io/pypi/pyversions/PyGPSClient.svg?style=flat)
+![Python version](https://img.shields.io/pypi/pyversions/PyMandel.svg?style=flat)
+
+**NB**: At time of writing, there appears to be an issue installing `numba` on Python3.9 (specifically with `llvmlite`), so for
+the time being users are recommended to use Python3.8.
 
 In the following, `python` & `pip` refer to the python3 executables. You may need to type 
 `python3` or `pip3`, depending on your particular environment.
