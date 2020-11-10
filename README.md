@@ -53,6 +53,7 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 ### Current Status
 
 ![Release](https://img.shields.io/github/v/release/semuconsulting/PyMandel?include_prereleases)
+![Build](https://img.shields.io/travis/semuconsulting/PyMandel)
 ![Release Date](https://img.shields.io/github/release-date-pre/semuconsulting/PyMandel)
 ![Last Commit](https://img.shields.io/github/last-commit/semuconsulting/PyMandel)
 ![Contributors](https://img.shields.io/github/contributors/semuconsulting/PyMandel.svg)
