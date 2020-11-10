@@ -2,15 +2,24 @@
 
 PyMandel is a graphical Mandelbrot and Julia Set (*and variants*) rendering application written entirely in Python 3.8 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via Numba JIT compilation, parallelisation and caching.
 
-![Windows screenshot](/images/Windows_Screenshot.png)
-
 ![MacOS screenshot](/images/MacOS_Screenshot.png)
-
-![Ubuntu screenshot](/images/Ubuntu_Screenshot.png)
 
 The application plots fractals in an expandable window and allows the user to save the image as a .png file. It automatically saves the metadata (settings) associated with an image and provides a facility to import that metadata at a later date to reproduce it.
 
 It also includes both GUI and command line facilities to automatically create sequences of 'deep zoom' or 'spinning Julia Set' images which can be converted into animated GIF files or short videos (e.g. using external tools like GIMP or OpenShot).
+
+### Current Status
+
+![Release](https://img.shields.io/github/v/release/semuconsulting/PyMandel?include_prereleases)
+![Build](https://img.shields.io/travis/semuconsulting/PyMandel)
+![Release Date](https://img.shields.io/github/release-date-pre/semuconsulting/PyMandel)
+![Last Commit](https://img.shields.io/github/last-commit/semuconsulting/PyMandel)
+![Contributors](https://img.shields.io/github/contributors/semuconsulting/PyMandel.svg)
+![Open Issues](https://img.shields.io/github/issues-raw/semuconsulting/PyMandel)
+
+Beta. Application is fully functional.
+
+Constructive feedback welcome.
 
 #### Animated Mandelbrot Zoom sequence
 
@@ -49,19 +58,6 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
     }
 }
 ```
-
-### Current Status
-
-![Release](https://img.shields.io/github/v/release/semuconsulting/PyMandel?include_prereleases)
-![Build](https://img.shields.io/travis/semuconsulting/PyMandel)
-![Release Date](https://img.shields.io/github/release-date-pre/semuconsulting/PyMandel)
-![Last Commit](https://img.shields.io/github/last-commit/semuconsulting/PyMandel)
-![Contributors](https://img.shields.io/github/contributors/semuconsulting/PyMandel.svg)
-![Open Issues](https://img.shields.io/github/issues-raw/semuconsulting/PyMandel)
-
-Beta. Application is fully functional.
-
-Constructive feedback welcome.
 
 ## <a name="installation">Installation</a>
 
