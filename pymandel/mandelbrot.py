@@ -104,8 +104,6 @@ def plot(
 
 
 @jit(nopython=True, cache=True)
-# pylint: disable=R0913
-# pylint: disable=R0914
 def fractal(
     settype,
     width,
