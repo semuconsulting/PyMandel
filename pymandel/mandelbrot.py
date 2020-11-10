@@ -1,4 +1,4 @@
-'''
+"""
 Mandelbrot & Julia set class for tkinter application
 
 This handles the computation of the Mandelbrot or Julia set as a numpy rgb array
@@ -11,10 +11,9 @@ For more information refer to http://numba.pydata.org.
 Created on 29 Mar 2020
 
 @author: semuadmin
-'''
+"""
+# pylint: disable=invalid-name
 
-# pylint: disable=E0401
-# pylint: disable=C0103
 from math import log, sin, sqrt, pi
 
 from PIL import Image
@@ -33,31 +32,72 @@ JULIA = 1
 TRICORN = 2
 BURNINGSHIP = 3
 
-THEMES = ["Default", "Monochrome", "BasicGrayscale", "BasicHue", \
-    "NormalizedHue", "SqrtHue", "LogHue", "SinHue", "SinSqrtHue", \
-    "BandedRGB", "BlueBrown16", "Tropical16", "Tropical256", \
-    "Pastels256", "Metallic256", "Twilight256", "Landscape256", \
-    "Colorcet_CET_C1", "Colorcet_CET_CBC1", "Colorcet_CET_CBTC1", \
-    "Colorcet_CET_C4s"]
+THEMES = [
+    "Default",
+    "Monochrome",
+    "BasicGrayscale",
+    "BasicHue",
+    "NormalizedHue",
+    "SqrtHue",
+    "LogHue",
+    "SinHue",
+    "SinSqrtHue",
+    "BandedRGB",
+    "BlueBrown16",
+    "Tropical16",
+    "Tropical256",
+    "Pastels256",
+    "Metallic256",
+    "Twilight256",
+    "Landscape256",
+    "Colorcet_CET_C1",
+    "Colorcet_CET_CBC1",
+    "Colorcet_CET_CBTC1",
+    "Colorcet_CET_C4s",
+]
 
 
 @jit(nopython=True, parallel=True, cache=True)
-# pylint: disable=R0913
-# pylint: disable=R0914
-def plot(imagemap, settype, width, height, zoom, radius, exponent,
-         zxoff, zyoff, maxiter, theme, shift, cxoff, cyoff):
-    '''
+def plot(
+    imagemap,
+    settype,
+    width,
+    height,
+    zoom,
+    radius,
+    exponent,
+    zxoff,
+    zyoff,
+    maxiter,
+    theme,
+    shift,
+    cxoff,
+    cyoff,
+):
+    """
     Plots selected fractal type in the numpy rgb array 'imagemap'
-    '''
+    """
 
     # For each pixel in array
-    # pylint: disable=E1133
     for x_axis in prange(width):
         for y_axis in prange(height):
 
             # Invoke core algorithm to calculate escape scalars
-            i, z = fractal(settype, width, height, x_axis, y_axis, zxoff, zyoff,
-                           zoom, maxiter, radius, exponent, cxoff, cyoff)
+            i, z = fractal(
+                settype,
+                width,
+                height,
+                x_axis,
+                y_axis,
+                zxoff,
+                zyoff,
+                zoom,
+                maxiter,
+                radius,
+                exponent,
+                cxoff,
+                cyoff,
+            )
 
             # Look up color for these escape scalars and set pixel in imagemap
             imagemap[y_axis, x_axis] = get_color(i, z, maxiter, theme, shift)
@@ -66,12 +106,25 @@ def plot(imagemap, settype, width, height, zoom, radius, exponent,
 @jit(nopython=True, cache=True)
 # pylint: disable=R0913
 # pylint: disable=R0914
-def fractal(settype, width, height, x_axis, y_axis, zxoff, zyoff, zoom, maxiter,
-            radius, exponent, cxoff, cyoff):
-    '''
+def fractal(
+    settype,
+    width,
+    height,
+    x_axis,
+    y_axis,
+    zxoff,
+    zyoff,
+    zoom,
+    maxiter,
+    radius,
+    exponent,
+    cxoff,
+    cyoff,
+):
+    """
     Calculates fractal escape scalars i, z for each image pixel
     and returns them for use in color rendering routines.
-    '''
+    """
 
     zx_coord, zy_coord = ptoc(width, height, x_axis, y_axis, zxoff, zyoff, zoom)
 
@@ -97,12 +150,11 @@ def fractal(settype, width, height, x_axis, y_axis, zxoff, zyoff, zoom, maxiter,
 
 
 @jit(nopython=True, cache=True)
-# pylint: disable=R0913
 def ptoc(width, height, x, y, zxoff, zyoff, zoom):
-    '''
+    """
     Converts actual pixel coordinates to complex space coordinates
     (zxoff, zyoff are always the complex offsets).
-    '''
+    """
 
     zx_coord = zxoff + ((width / height) * (x - width / 2) / (zoom * width / 2))
     zy_coord = zyoff + (-1 * (y - height / 2) / (zoom * height / 2))
@@ -110,12 +162,11 @@ def ptoc(width, height, x, y, zxoff, zyoff, zoom):
 
 
 @jit(nopython=True, cache=True)
-# pylint: disable=R0913
 def ctop(width, height, zx_coord, zy_coord, zxoff, zyoff, zoom):
-    '''
+    """
     Converts complex space coordinates to actual pixel coordinates
     (zxoff, zyoff are always the complex offsets).
-    '''
+    """
 
     x_coord = (zx_coord + zxoff) * zoom * width / 2 / (width / height)
     y_coord = (zy_coord + zyoff) * zoom * height / 2
@@ -123,17 +174,19 @@ def ctop(width, height, zx_coord, zy_coord, zxoff, zyoff, zoom):
 
 
 @jit(nopython=True, cache=True)
-def get_color(i, z, maxiter, theme, shift):  # pylint: disable=R0912
-    '''
+def get_color(i, z, maxiter, theme, shift):
+    """
     Uses escape scalars i, z from the fractal algorithm to drive a variety
     of color rendering algorithms or 'themes'.
 
     NB: If you want to add more rendering algorithms, this is where to add them,
     but you'll need to ensure they are 'Numba friendly' (i.e. limited to
     Numba-recognised data types and suitably decorated library functions).
-    '''
+    """
 
-    if i == maxiter - 1 and theme != "BasicGrayscale":  # Inside Mandelbrot set, so black
+    if (
+        i == maxiter - 1 and theme != "BasicGrayscale"
+    ):  # Inside Mandelbrot set, so black
         return 0, 0, 0
 
     if theme == "Default":
@@ -141,20 +194,20 @@ def get_color(i, z, maxiter, theme, shift):  # pylint: disable=R0912
 
     if theme == "Monochrome":
         if shift == 0:
-            h = 0.
-            s = 0.
+            h = 0.0
+            s = 0.0
         else:
-            h = .5 + shift / -200
-            s = 1.
-        r, g, b = hsv_to_rgb(h, s, 1.)
+            h = 0.5 + shift / -200
+            s = 1.0
+        r, g, b = hsv_to_rgb(h, s, 1.0)
     elif theme == "BasicGrayscale":
         if i == maxiter - 1:
             return 255, 255, 255
-        r = (256 * i / maxiter)
+        r = 256 * i / maxiter
         b = g = r
     elif theme == "BasicHue":
         h = ((i / maxiter) + (shift / 100)) % 1
-        r, g, b = hsv_to_rgb(h, .75, 1)
+        r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "BandedRGB":
         bands = [0, 32, 96, 192]
         r = bands[(i // 4) % 4]
@@ -162,20 +215,20 @@ def get_color(i, z, maxiter, theme, shift):  # pylint: disable=R0912
         b = bands[(i // 16) % 4]
     elif theme == "NormalizedHue":
         h = ((normalize(i, z) / maxiter) + (shift / 100)) % 1
-        r, g, b = hsv_to_rgb(h, .75, 1)
+        r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "SqrtHue":
         h = ((normalize(i, z) / sqrt(maxiter)) + (shift / 100)) % 1
-        r, g, b = hsv_to_rgb(h, .75, 1)
+        r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "LogHue":
         h = ((normalize(i, z) / log(maxiter)) + (shift / 100)) % 1
-        r, g, b = hsv_to_rgb(h, .75, 1)
+        r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "SinHue":
-        h = (normalize(i, z) * sin(((shift + 1) / 100) * pi / 2))
-        r, g, b = hsv_to_rgb(h, .75, 1)
+        h = normalize(i, z) * sin(((shift + 1) / 100) * pi / 2)
+        r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "SinSqrtHue":
         steps = 1 + shift / 100
         h = 1 - (sin((normalize(i, z) / sqrt(maxiter) * steps) + 1) / 2)
-        r, g, b = hsv_to_rgb(h, .75, 1)
+        r, g, b = hsv_to_rgb(h, 0.75, 1)
     else:  # Indexed colormap arrays
         r, g, b = sel_colormap(i, z, shift, theme)
     return r, g, b
@@ -183,9 +236,9 @@ def get_color(i, z, maxiter, theme, shift):  # pylint: disable=R0912
 
 @jit(nopython=True, cache=True)
 def sel_colormap(i, z, shift, theme):
-    '''
+    """
     Select from indexed colormap theme
-    '''
+    """
 
     if theme == "Colorcet_CET_CBC1":
         r, g, b = get_colormap(i, z, shift, cet_CBC1)
@@ -215,9 +268,9 @@ def sel_colormap(i, z, shift, theme):
 
 @jit(nopython=True, cache=True)
 def get_colormap(i, z, shift, colmap):
-    '''
+    """
     Get pixel color from colormap
-    '''
+    """
 
     col = int((normalize(i, z)) + (shift * len(colmap) / 100)) % len(colmap)
     return colmap[col]
@@ -225,28 +278,28 @@ def get_colormap(i, z, shift, colmap):
 
 @jit(nopython=True, cache=True)
 def normalize(i, z):
-    '''
+    """
     Normalize iteration count from escape scalars.
     (NB: should ideally be (log(log2(abs(z))) but Numba doesn't currently handle log2)
-    '''
+    """
 
     return i + 1 - (log(log(abs(z))) / log(2.0))
 
 
 @jit(nopython=True, cache=True)
 def hsv_to_rgb(h, s, v):
-    '''
+    """
     Convert HSV values (in range 0-1) to RGB (in range 0-255).
-    '''
+    """
 
     if s == 0.0:
         v = int(v * 255)
         return v, v, v
-    i = int(h * 6.)
-    f = (h * 6.) - i
-    p = v * (1. - s)
-    q = v * (1. - s * f)
-    t = v * (1. - s * (1. - f))
+    i = int(h * 6.0)
+    f = (h * 6.0) - i
+    p = v * (1.0 - s)
+    q = v * (1.0 - s * f)
+    t = v * (1.0 - s * (1.0 - f))
     i %= 6
     if i == 0:
         r, g, b = v, t, p
@@ -265,52 +318,79 @@ def hsv_to_rgb(h, s, v):
     return r, g, b
 
 
-class Mandelbrot():
-    '''
+class Mandelbrot:
+    """
     Main computation and imaging class.
-    '''
+    """
 
     def __init__(self, master):
-        '''
+        """
         Constructor
-        '''
+        """
 
         self.__master = master
         self._kill = False
         self._image = None
 
-    # pylint: disable=R0913
-    def plot_image(self, settype, width, height, zoom, radius, exp, zxoff, zyoff,
-                   maxiter, theme, shift, cxoff, cyoff):
-        '''
+    def plot_image(
+        self,
+        settype,
+        width,
+        height,
+        zoom,
+        radius,
+        exp,
+        zxoff,
+        zyoff,
+        maxiter,
+        theme,
+        shift,
+        cxoff,
+        cyoff,
+    ):
+        """
         Creates empty numpy rgb array, passes it to fractal calculation routine for
         populating, then loads populated array into an ImageTk.PhotoImage.
-        '''
+        """
 
         self._kill = False
         imagemap = np.zeros((height, width, 3), dtype=np.uint8)
-        plot(imagemap, settype, width, height, zoom, radius, exp, zxoff, zyoff,
-             maxiter, theme, shift, cxoff, cyoff)
-        self._image = Image.fromarray(imagemap, 'RGB')
+        plot(
+            imagemap,
+            settype,
+            width,
+            height,
+            zoom,
+            radius,
+            exp,
+            zxoff,
+            zyoff,
+            maxiter,
+            theme,
+            shift,
+            cxoff,
+            cyoff,
+        )
+        self._image = Image.fromarray(imagemap, "RGB")
 
     def get_image(self):
-        '''
+        """
         Return populated PhotoImage for display or saving.
-        '''
+        """
 
         return self._image
 
     def get_cancel(self):
-        '''
+        """
         Return kill flag.
-        '''
+        """
 
         return self._kill
 
     def cancel_plot(self):
-        '''
+        """
         Cancel in-flight plot operation (plot is normally so quick this is
         largely redundant).
-        '''
+        """
 
         self._kill = True

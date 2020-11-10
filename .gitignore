@@ -15,3 +15,5 @@ colormaps/_pycache_/
 *.pyc
 *.nbi
 *.nbc
+/.pytest_cache/
+pylint_report.txt
