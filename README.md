@@ -10,6 +10,7 @@ It also includes both GUI and command line facilities to automatically create se
 
 ### Current Status
 
+![Status](https://img.shields.io/pypi/status/PyMandel)
 ![Release](https://img.shields.io/github/v/release/semuconsulting/PyMandel?include_prereleases)
 ![Build](https://img.shields.io/travis/semuconsulting/PyMandel)
 ![Release Date](https://img.shields.io/github/release-date-pre/semuconsulting/PyMandel)
@@ -61,8 +62,6 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 
 ## <a name="installation">Installation</a>
 
-![Python version](https://img.shields.io/pypi/pyversions/PyMandel.svg?style=flat)
-
 **NB**: At time of writing, there appears to be an issue installing `numba` on Python3.9 (specifically with `llvmlite`), so for
 the time being users are recommended to use Python3.8.
 
@@ -84,6 +83,7 @@ The following python libraries are required (these will be installed automatical
 
 ### 1. Install using pip
 
+![Python version](https://img.shields.io/pypi/pyversions/PyMandel.svg?style=flat)
 [![PyPI version](https://img.shields.io/pypi/v/PyMandel.svg?style=flat)](https://pypi.org/project/PyMandel/)
 ![PyPI downloads](https://img.shields.io/pypi/dm/PyMandel.svg?style=flat)
 
@@ -113,11 +113,9 @@ e.g. if you downloaded and unzipped to a folder named `PyMandel-0.9.5`, run:
 
 ### Performance Optimisations
 
-The application makes use of [Numba](http://numba.pydata.org/) just in time (jit) compilation, caching and parallelisation techniques, in conjunction with Numpy image arrays, to dramatically improve calculation and rendering times. 
+The application makes use of [Numba](http://numba.pydata.org/) just in time (jit) compilation, caching and parallelisation techniques, in conjunction with Numpy image arrays, to dramatically improve calculation and rendering times relative to standard Python. 
 
 **NB:** The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
-
-**NB:** While the Numba function decorators do afford a dramatic performance improvement over standard Python, we're not in the Ultra Fractal &copy; league here. But, hey, it's free and open source so have fun!
 
 ## How To Use
 
