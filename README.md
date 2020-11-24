@@ -62,8 +62,11 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 
 ## <a name="installation">Installation</a>
 
-**NB**: At time of writing, there appears to be an issue installing `numba` on Python3.9 (specifically with `llvmlite`), so for
+**NB**: At time of writing, `numba` is not fully supported on Python3.9, so for
 the time being users are recommended to use Python3.8.
+
+Refer to [numba issue 6345](https://github.com/numba/numba/issues/6345) for latest updates on 
+numba python 3.9 support.
 
 In the following, `python` & `pip` refer to the python3 executables. You may need to type 
 `python3` or `pip3`, depending on your particular environment.
