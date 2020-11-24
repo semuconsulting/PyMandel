@@ -132,8 +132,7 @@ def fractal(
     else:  # Mandelbrot or variant
         c = z
 
-    # pylint: disable=E1133
-    for i in prange(maxiter):
+    for i in prange(maxiter):  # pylint: disable=not-an-iterable
         # Iterate till the point c is outside the escape radius.
         if settype == BURNINGSHIP:
             z = complex(abs(z.real), -abs(z.imag))
@@ -144,7 +143,7 @@ def fractal(
         if abs(z) > radius ** 2:
             break
 
-    return i, z  # pylint: disable=W0631
+    return i, z
 
 
 @jit(nopython=True, cache=True)

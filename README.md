@@ -150,7 +150,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Zoom button - automatically create and save a sequence of images at increasing zoom levels, which can be converted externally into an animation (e.g. GIF or short video).
 
-* Spin button - in Julia mode only, automatically creates and saves a 'spinning Julia Set' sequence. Increasing the number of frames will result in a slower but more detailed spin animation.
+* Spin button - in Julia mode only, automatically creates and saves a 360 degree 'spinning Julia Set' sequence. Increasing the number of frames will result in a slower but more detailed spin animation.
 
 * Options..Hide/Show Status - toggles the Status Bar on or off.
 
