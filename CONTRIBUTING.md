@@ -21,7 +21,7 @@ Please help us keep our issue list small by adding fixes: #{$ISSUE_NO} to the co
 
 ## Testing
 
-We use python's native unittest framework for local unit testing, complemented by the Travis CI automated build and testing workflow. Code coverage is extremely limited at present so we welcome improvements.
+We use python's native unittest framework for local unit testing, complemented by the Github Actions automated build and testing workflow. Code coverage is extremely limited at present so we welcome improvements.
 
 Please write unittest examples for new code you create and add them to the /tests folder following the naming convention test_*.py.
 
