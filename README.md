@@ -77,11 +77,15 @@ See [requirements.txt](requirements.txt).
 
 On Windows and MacOS, pip, tkinter and the necessary imaging libraries are generally packaged with Python.  On some Linux distributions like Ubuntu 18+ and Raspberry Pi OS, they may need to be installed separately, e.g.:
 
-`sudo apt-get install python3-pip python3-tk python3-pil python3-pil.imagetk`
+```shell
+>>> sudo apt-get install python3-pip python3-tk python3-pil python3-pil.imagetk
+```
 
 The following python libraries are required (these will be installed automatically if using pip to install PyMandel):
 
-`python -m pip install numba numpy Pillow`
+```shell
+>>> python -m pip install numba numpy Pillow
+```
 
 
 ### 1. Install using pip
@@ -92,7 +96,18 @@ The following python libraries are required (these will be installed automatical
 
 The easiest way to install the latest version of PyMandel is via [pip](http://pypi.python.org/pypi/pip/):
 
-`python -m pip install --upgrade PyMandel`
+```shell
+>>> python -m pip install --upgrade PyMandel
+```
+
+If required, `PyMandel` can also be installed using virtualenv (this may be useful if you need to run several versions of Python on the same platform), e.g.
+
+```shell
+>>> python -m pip install --user --upgrade virtualenv
+>>> python -m venv env
+>>> source env/bin/activate
+(env) >>> python -m pip install --upgrade PyMandel
+```
 
 To run the application, if the python3 site_packages are in your PATH, simply type `python -m pymandel` (lowercase).
 
