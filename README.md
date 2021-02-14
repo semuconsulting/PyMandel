@@ -18,9 +18,8 @@ It also includes both GUI and command line facilities to automatically create se
 ![Contributors](https://img.shields.io/github/contributors/semuconsulting/PyMandel.svg)
 ![Open Issues](https://img.shields.io/github/issues-raw/semuconsulting/PyMandel)
 
-Beta. Application is fully functional.
 
-Contributions and constructive feedback welcome.
+Contributions welcome - please refer to [CONTRIBUTING.MD](https://github.com/semuconsulting/PyMandel/blob/master/CONTRIBUTING.md).
 
 #### Animated Mandelbrot Zoom sequence
 
