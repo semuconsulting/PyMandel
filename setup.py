@@ -20,7 +20,7 @@ setup(
     name="PyMandel",
     version=VERSION,
     packages=find_packages(),
-    install_requires=["numba>=0.52.0", "numpy>=1.18.3", "Pillow>=7.1.2"],
+    install_requires=["numba>=0.51.0", "numpy>=1.18.3", "Pillow>=7.1.2"],
     package_data={
         "pymandel": ["resources/*.gif", "resources/*.png",
                      "resources/*.ico", "resources/*.icns",
