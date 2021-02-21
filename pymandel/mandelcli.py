@@ -20,7 +20,7 @@ from time import time
 
 from mandelbrot import Mandelbrot, MANDELBROT, JULIA
 
-sys.path.append("mandelpy")
+sys.path.append("pymandel")
 sys.path.append("colormaps")
 
 
