@@ -1,18 +1,18 @@
-'''
-Some of these RGB colormaps are derived from HoloViz Colorcet color maps, 
-available under Creative Commons Attribution (CC_BY) license.
-https://github.com/holoviz/colorcet
-
-For full license terms see https://github.com/holoviz/colorcet/blob/master/LICENSE.txt
-'''
+#****************************************************************************************
+# Some of these RGB colormaps are derived from HoloViz Colorcet color maps,
+# available under Creative Commons Attribution (CC_BY) license.
+# https://github.com/holoviz/colorcet
+#
+# For full license terms see https://github.com/holoviz/colorcet/blob/master/LICENSE.txt
+#****************************************************************************************
 
 from numpy import array
-    
+
 BlueBrown16 = array([ \
 [66, 30, 15], [25, 7, 26], [9, 1, 47], [4, 4, 73],
 [0, 7, 100], [12, 44, 138], [24, 82, 177], [57, 125, 209],
 [134, 181, 229], [211, 236, 248], [241, 233, 191], [248, 201, 95],
-[255, 170, 0], [204, 128, 0], [153, 87, 0], [106, 52, 3]]) 
+[255, 170, 0], [204, 128, 0], [153, 87, 0], [106, 52, 3]])
 
 cet_CBC1 = array([[62, 135, 234],
 [65, 136, 236],

@@ -1,9 +1,15 @@
 <?xml version = "1.0"?>
 <project name="PyMandel" default="build">
-	<condition property="python" value="python" else="/Library/Frameworks/Python.framework/Versions/3.8/bin/python3">
+	<property name="version" value="1.0.1" />
+	<condition property="python" value="C:\Users\steve\AppData\Local\Programs\Python\Python38\python.exe" else="/Library/Frameworks/Python.framework/Versions/3.8/bin/python3">
 		<os family="windows" />
 	</condition>
-	<property name="version" value="1.0.1" />
+	<condition property="make" value="docs/make.bat" else="docs/make">
+		<os family="windows" />
+	</condition>
+	<condition property="sphinx" value="C:\Users\steve\AppData\Local\Programs\Python\Python38\Scripts\sphinx-apidoc.exe" else="/Library/Frameworks/Python.framework/Versions/3.8/bin/sphinx-apidoc">
+		<os family="windows" />
+	</condition>
 	<property name="test_args" value="tests/testsuite.py" />
 	<property name="analyse_args" value="-m pylint --reports=y ${ant.project.name}" />
 	<property name="format_args" value="-m black ${ant.project.name}" />
@@ -12,6 +18,9 @@
 	<property name="install_args" value="-m pip install dist/${ant.project.name}-${version}.tar.gz --user" />
 	<property name="coverage_args" value="-m coverage run --source=${ant.project.name} -m pytest" />
 	<property name="coverage_html_args" value="-m coverage html" />
+	<property name="apidoc_args" value="-f -o docs pymandel" />
+	<property name="apidoc_color_args" value="-f -o docs colormaps" />
+	<property name="html_args" value="html" />
 	<target name="clean">
 		<echo>Cleaning...</echo>
 		<delete includeEmptyDirs="true" quiet="true" failonerror="false">
@@ -48,6 +57,18 @@
 			<arg line="${test_args}" />
 		</exec>
 	</target>
+	<target name = "sphinx">
+		<echo>Documenting...</echo>
+		<exec executable="${sphinx}">
+			<arg line="${apidoc_args}"/>
+  		</exec>
+		<exec executable="${sphinx}">
+			<arg line="${apidoc_color_args}"/>
+	  	</exec>
+  		<exec executable="${make}">
+			<arg line="${html_args}"/>
+  		</exec>
+   	</target>
 	<target name = "deploy" depends="test">
 		<echo>Deploying...</echo>
 		<exec executable="${python}">

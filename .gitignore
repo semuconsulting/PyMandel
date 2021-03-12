@@ -7,6 +7,7 @@
 /build
 /dist
 /htmlcov
+/docs
 PyMandel.egg-info/
 PyMandel-*/
 /_pycache_

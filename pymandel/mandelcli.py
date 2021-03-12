@@ -18,7 +18,7 @@ from math import log, sqrt
 import sys
 from time import time
 
-from mandelbrot import Mandelbrot, MANDELBROT, JULIA
+from pymandel.mandelbrot import Mandelbrot, MANDELBROT, JULIA
 
 sys.path.append("pymandel")
 sys.path.append("colormaps")

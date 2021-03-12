@@ -1,8 +1,8 @@
 from numpy import array
 
-'''
-Colormap created by make_colormap utility from file pastels256.png
-'''
+#****************************************************************************************
+# 256-level colormap created by make_colormap utility from file pastels256.png
+#****************************************************************************************
 pastels256 = array([ \
 [245, 220, 183],
 [244, 218, 187],
@@ -260,6 +260,4 @@ pastels256 = array([ \
 [255, 198, 224],
 [255, 195, 223],
 [255, 192, 222]])
-'''
-End of colormap from pastels256.png
-'''
+

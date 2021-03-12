@@ -9,6 +9,8 @@ Created on 3 Apr 2020
 import os
 from tkinter import Toplevel, Canvas, Label, Button, PhotoImage, NW
 from webbrowser import open_new_tab
+from numba import __version__ as numba_ver
+from numpy import __version__ as numpy_ver
 
 from .strings import (
     ABOUTTXT,
@@ -66,7 +68,9 @@ class AboutDialog:
         )
         self.can.create_image(0, 0, image=self.thumb, anchor=NW)
         self.lbl_desc = Label(self._dialog, text=ABOUTTXT, wraplength=300)
-        self.lbl_version = Label(self._dialog, text="Version: " + VERSION)
+        self.lbl_version = Label(self._dialog, text=f"PyMandel Version: {VERSION}")
+        self.lbl_numba_version = Label(self._dialog, text=f"Numba Version: {numba_ver}")
+        self.lbl_numpy_version = Label(self._dialog, text=f"Numpy Version: {numpy_ver}")
         self.lbl_copyright = Label(
             self._dialog, text=COPYRIGHTTXT, fg="blue", cursor="hand2"
         )
@@ -79,10 +83,12 @@ class AboutDialog:
         self.lbl_title.grid(column=0, row=0, padx=5, pady=5)
         self.can.grid(column=0, row=1, padx=5, pady=5)
         self.lbl_desc.grid(column=0, row=2, padx=5, pady=5)
-        self.lbl_version.grid(column=0, row=3, padx=5, pady=5)
-        self.lbl_copyright.grid(column=0, row=4, padx=5, pady=5)
-        self.lbl_colorcet.grid(column=0, row=5, padx=5, pady=5)
-        self.btn_ok.grid(column=0, row=6, ipadx=3, ipady=3, padx=5, pady=5)
+        self.lbl_version.grid(column=0, row=3, padx=5)
+        self.lbl_numba_version.grid(column=0, row=4, padx=5)
+        self.lbl_numpy_version.grid(column=0, row=5, padx=5)
+        self.lbl_copyright.grid(column=0, row=6, padx=5, pady=5)
+        self.lbl_colorcet.grid(column=0, row=7, padx=5, pady=5)
+        self.btn_ok.grid(column=0, row=8, ipadx=3, ipady=3, padx=5, pady=5)
 
         # Bind commands and hotkeys
         self.can.bind("<Button-1>", lambda e: open_new_tab(WIKIURL))

@@ -75,7 +75,7 @@ See [requirements.txt](requirements.txt).
 On Windows and MacOS, pip, tkinter and the necessary imaging libraries are generally packaged with Python.  On some Linux distributions like Ubuntu 18+ and Raspberry Pi OS, they may need to be installed separately, e.g.:
 
 ```shell
-sudo apt-get install python3-pip python3-tk python3-pil python3-pil.imagetk
+sudo apt install python3-pip python3-tk python3-pil python3-pil.imagetk
 ```
 
 The following python libraries are required (these will be installed automatically if using pip to install PyMandel):
@@ -101,9 +101,11 @@ If required, `PyMandel` can also be installed using virtualenv (this may be usef
 
 ```shell
 python -m pip install --user --upgrade virtualenv
-python -m venv env
-source env/bin/activate
+python -m virtualenv env
+source env/bin/activate (or env\Scripts\activate on Windows)
 (env) python -m pip install --upgrade PyMandel
+...
+deactivate
 ```
 
 To run the application, if the python3 site_packages are in your PATH, simply type `python -m pymandel` (lowercase).
@@ -114,7 +116,7 @@ If not, type `python -m \full_path_to_site_packages\pymandel`.
 
 - Linux: `Location: /home/username/.local/lib/python3.8/site-packages`
 - MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages`
-- Windows: `Location: c:\users\username\appdata\local\programs\python\python38\lib\site-packages`
+- Windows: `Location: c:\users\username\appdata\roaming\python\python38\lib\site-packages`
 
 ### 2. Manual installation
 

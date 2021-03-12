@@ -1,5 +1,5 @@
 """
-Entry point for PyGPSClient Application.
+Entry point for PyMandel Application.
 
 Created on 12 Sep 2020
 

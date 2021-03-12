@@ -122,6 +122,8 @@ def fractal(
     """
     Calculates fractal escape scalars i, z for each image pixel
     and returns them for use in color rendering routines.
+
+    YES! - just 10 lines of codes produces such infinite complexity - cool, huh?
     """
 
     zx_coord, zy_coord = ptoc(width, height, x_axis, y_axis, zxoff, zyoff, zoom)

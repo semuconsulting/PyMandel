@@ -10,8 +10,7 @@ Created on 5 Apr 2020
 '''
 
 from setuptools import setup, find_packages
-
-from pymandel._version import VERSION
+from pymandel import version as VERSION
 
 with open("README.md", "r") as fh:
     long_description = fh.read()

@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 currdir = os.path.dirname(__file__)
 import pymandel
 import colormaps
-print(f"Testing Local Version: {pymandel.VERSION}")
+print(f"Testing Local Version: {pymandel.version}")
 
 if sys.platform == "win32":
     PORT = 'COM6'

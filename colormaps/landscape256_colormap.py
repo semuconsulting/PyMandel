@@ -1,9 +1,10 @@
 from numpy import array
 
-'''
-256-level colormap created by make_colormap utility from file landscape256.png
-Actually taken from a slice of a photograph of the Pyrenees
-'''
+#****************************************************************************************
+# 256-level colormap created by make_colormap utility from file landscape256.png
+# Actually taken from a slice of a photograph of the Pyrenees
+#****************************************************************************************
+
 landscape256 = array([ \
 [62, 90, 44], [65, 91, 57], [29, 53, 27], [59, 78, 52],
 [69, 92, 52], [66, 87, 56], [18, 31, 16], [3, 2, 8],
@@ -69,6 +70,4 @@ landscape256 = array([ \
 [89, 141, 220], [87, 142, 220], [88, 143, 221], [88, 140, 222],
 [88, 139, 223], [88, 138, 224], [87, 139, 226], [85, 139, 227],
 [83, 139, 226], [83, 140, 226], [82, 138, 224], [82, 138, 223]])
-'''
-End of colormap from file landscape256.png
-'''
+
