@@ -3,6 +3,8 @@
 .project
 .coverage
 .pydevproject
+*.code-workspace
+.vscode
 .settings
 /build
 /dist

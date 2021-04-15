@@ -134,6 +134,8 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 **NB:** The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
+If desired, the application can be run as a pure Python3 application *without* Numba optimisation by simply removing the Numba `@jit()` decorators in the `mandelprot.py` module. Rendering times will, however, be several orders of magnitude slower.
+
 ## How To Use
 
 * Settings can be entered manually (or imported from a previously saved metadata file) to plot a fractal image using the specified parameters.
