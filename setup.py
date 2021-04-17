@@ -19,7 +19,7 @@ setup(
     name="PyMandel",
     version=VERSION,
     packages=find_packages(),
-    install_requires=["numba>=0.51.0", "numpy>=1.18.3", "Pillow>=7.1.2"],
+    install_requires=["numba>=0.53.0", "numpy>=1.18.3", "Pillow>=7.1.2"],
     package_data={
         "pymandel": ["resources/*.gif", "resources/*.png",
                      "resources/*.ico", "resources/*.icns",
@@ -54,6 +54,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Desktop Environment',
         'Topic :: Education',
         'Topic :: Games/Entertainment'
