@@ -1,6 +1,6 @@
 # PyMandel
 
-PyMandel is a graphical Mandelbrot and Julia Set (*and variants*) rendering application written entirely in Python 3.8 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
+PyMandel is a graphical Mandelbrot and Julia Set (*and variants*) rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
 
 ![MacOS screenshot](/images/MacOS_Screenshot.png)
 
@@ -125,11 +125,15 @@ e.g. if you downloaded and unzipped to a folder named `PyMandel-0.9.5`, run:
 
 ### Performance Optimisations
 
-The application makes use of [Numba](http://numba.pydata.org/) just in time (jit) compilation, caching and parallelisation techniques, in conjunction with Numpy image arrays, to dramatically improve calculation and rendering times relative to standard Python. 
+The application makes use of [Numba](http://numba.pydata.org/) just in time (jit) compilation, caching and parallelisation techniques, in conjunction with Numpy image arrays, to dramatically improve calculation and rendering times relative to standard Python, particularly on multi-core CPUs. 
 
-**NB:** The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
+**NB:**
 
-If desired, the application can be run as a pure Python3 application *without* Numba optimisation by simply removing the Numba `@jit()` decorators in the `mandelprot.py` module. Rendering times will, however, be several orders of magnitude slower.
+1. Numba is still officially in Beta.
+1. Numba does not currently support ARM platforms.
+1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
+
+If desired, the application can be run as a pure Python3 application *without* Numba optimisation by simply removing the Numba `@jit()` decorators in the `mandelprot.py` module, in which case it will run on *any* platform that supports a Python 3 interpreter. Rendering times will, however, be several orders of magnitude slower.
 
 ## How To Use
 
