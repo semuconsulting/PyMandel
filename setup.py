@@ -25,6 +25,11 @@ setup(
                      "resources/*.ico", "resources/*.icns",
                      "images/*.png"],
     },
+    entry_points={
+        "console_scripts": [
+            "pymandel = pymandel.__main__:main",
+        ]
+    },
     include_package_data=True,
     author="semuadmin",
     author_email="semuadmin@semuconsulting.com",

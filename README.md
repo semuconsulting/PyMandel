@@ -92,7 +92,7 @@ The easiest way to install the latest version of PyMandel is via [pip](http://py
 python -m pip install --upgrade PyMandel
 ```
 
-If required, `PyMandel` can also be installed using virtualenv (this may be useful if you need to run several versions of Python on the same platform), e.g.
+If required, `PyMandel` can also be installed using virtualenv, e.g.
 
 ```shell
 python -m pip install --user --upgrade virtualenv
@@ -103,9 +103,25 @@ source env/bin/activate (or env\Scripts\activate on Windows)
 deactivate
 ```
 
-To run the application, if the python3 site_packages are in your PATH, simply type `python -m pymandel` (lowercase).
+To run the application, if the Python 3 scripts (bin) directory is in your PATH, simply type (all lowercase):
+```shell
+pymandel
+```
 
-If not, type `python -m \full_path_to_site_packages\pymandel`.
+If not, type:
+```shell
+\full_path_to_scripts_directory\pymandel
+```
+
+Alternatively, if the Python 3 site_packages are in your PATH, you can type (all lowercase):
+```shell
+python -m pymandel
+```
+
+If not, type:
+```shell
+python -m \full_path_to_site_packages\pymandel
+```
 
 **Tip**: to find the site_packages location, type `pip show PyMandel` and look for the `Location:` entry in the response, e.g.
 
@@ -117,11 +133,15 @@ If not, type `python -m \full_path_to_site_packages\pymandel`.
 
 To install manually, download and unzip this repository and run:
 
-`python -m /path_to_folder/foldername/pymandel` (lowercase)
+```shell
+python -m /path_to_folder/foldername/pymandel
+```
 
-e.g. if you downloaded and unzipped to a folder named `PyMandel-0.9.5`, run: 
+e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.1`, run: 
 
-`python -m /path_to_folder/PyMandel-0.9.5/pymandel`.
+```shell
+python -m /path_to_folder/PyMandel-1.0.2/pymandel
+```
 
 ### Performance Optimisations
 
