@@ -1,5 +1,11 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.3
+
+ENHANCEMENTS:
+
+1. Console script entry point added to `setup.py`, so application can now be launched via a simple `pymandel` command as an alternative to `python -m pymandel`, provided the Python 3 scripts/bin folder is in the user's PATH.
+
 ### RELEASE 1.0.2
 
 ENHANCEMENTS:
