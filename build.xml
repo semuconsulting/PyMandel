@@ -1,21 +1,30 @@
 <?xml version = "1.0"?>
 <project name="PyMandel" default="build">
 	<property name="version" value="1.0.2" />
-	<condition property="python" value="C:\Users\steve\AppData\Local\Programs\Python\Python39\python.exe" else="/Library/Frameworks/Python.framework/Versions/3.9/bin/python3">
+	<condition property="python" value="python">
 		<os family="windows" />
 	</condition>
-	<condition property="make" value="docs/make.bat" else="docs/make">
+	<condition property="python" value="/Library/Frameworks/Python.framework/Versions/3.9/bin/python3">
+		<os family="mac" />
+	</condition>
+	<condition property="python" value="python" else="/usr/bin/python3">
+		<os family="unix" />
+	</condition>
+	<condition property="make" value="docs/make.bat">
 		<os family="windows" />
 	</condition>
-	<condition property="sphinx" value="C:\Users\steve\AppData\Local\Programs\Python\Python39\Scripts\sphinx-apidoc.exe" else="/Library/Frameworks/Python.framework/Versions/3.9/bin/sphinx-apidoc">
-		<os family="windows" />
+	<condition property="make" value="/usr/bin/make">
+		<os family="mac" />
+	</condition>
+	<condition property="make" value="/usr/bin/make">
+		<os family="unix" />
 	</condition>
 	<property name="test_args" value="tests/testsuite.py" />
 	<property name="analyse_args" value="-m pylint --reports=y ${ant.project.name}" />
 	<property name="format_args" value="-m black ${ant.project.name}" />
 	<property name="build_args" value="setup.py sdist bdist_wheel" />
 	<property name="deploy_args" value="-m twine upload --config-file .pypirc dist/*" />
-	<property name="install_args" value="-m pip install dist/${ant.project.name}-${version}.tar.gz --user" />
+	<property name="install_args" value="-m pip install dist/${ant.project.name}-${version}.tar.gz --user --force-reinstall" />
 	<property name="coverage_args" value="-m coverage run --source=${ant.project.name} -m pytest" />
 	<property name="coverage_html_args" value="-m coverage html" />
 	<property name="apidoc_args" value="-f -o docs pymandel" />

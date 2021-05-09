@@ -110,7 +110,7 @@ pymandel
 
 If not, type:
 ```shell
-\full_path_to_scripts_directory\pymandel
+\full_path_to_python_scripts_directory\pymandel
 ```
 
 Alternatively, if the Python 3 site_packages are in your PATH, you can type (all lowercase):
@@ -120,7 +120,7 @@ python -m pymandel
 
 If not, type:
 ```shell
-python -m \full_path_to_site_packages\pymandel
+python -m \full_path_to_python_site_packages\pymandel
 ```
 
 **Tip**: to find the site_packages location, type `pip show PyMandel` and look for the `Location:` entry in the response, e.g.
