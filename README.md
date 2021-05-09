@@ -113,7 +113,7 @@ If not, type:
 \full_path_to_python_scripts_directory\pymandel
 ```
 
-Alternatively, if the Python 3 site_packages directory is your PATH, you can type (all lowercase):
+Alternatively, if the Python 3 site_packages directory is in your PATH, you can type (all lowercase):
 ```shell
 python -m pymandel
 ```
@@ -137,10 +137,10 @@ To install manually, download and unzip this repository and type:
 python -m /path_to_folder/foldername/pymandel
 ```
 
-e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.1`, type: 
+e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.3`, type: 
 
 ```shell
-python -m /path_to_folder/PyMandel-1.0.2/pymandel
+python -m /path_to_folder/PyMandel-1.0.3/pymandel
 ```
 
 ### Performance Optimisations
