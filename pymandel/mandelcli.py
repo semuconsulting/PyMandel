@@ -51,7 +51,7 @@ def help_text():
         "filepath - the path for saved files ($cwd)\n",
         "filename - the name prefix for saved files ('frame')\n\n",
         "import - the full path to a previously saved metadata file ('')\n\n",
-        "e.g. python mandelcli.py width=1920 height=1080 import='test.json'",
+        "e.g. mandelcli width=1920 height=1080 import='test.json'",
     )
 
 
@@ -188,7 +188,8 @@ class BatchMandelbrot:
         return True
 
 
-if __name__ == "__main__":
+def main(args=None):
+    """ Entry point for CLI. """
 
     if len(sys.argv) > 1:
         if sys.argv[1] in {"-h", "--h", "help", "-help", "--help", "-H"}:
@@ -196,3 +197,7 @@ if __name__ == "__main__":
             sys.exit()
 
     BatchMandelbrot(**dict(arg.split("=") for arg in sys.argv[1:]))
+
+
+if __name__ == "__main__":
+    sys.exit(main())

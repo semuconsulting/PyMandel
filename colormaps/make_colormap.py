@@ -21,30 +21,37 @@ from PIL import Image
 def make_colormap(**kwargs):
     """
     Scan image file and create array of rgb values
-    
+
     :param kwargs: optional keyword args
     """
 
     print("Parameters passed: ", kwargs)
 
-    mapname = kwargs.get('mapname', 'mymap')
-    infile = kwargs.get('input', mapname + '.png')
+    mapname = kwargs.get("mapname", "mymap")
+    infile = kwargs.get("input", mapname + ".png")
 
-    image = Image.open(infile)
+    try:
+        image = Image.open(infile)
+    except FileNotFoundError as err:
+        print(f"Input file {infile} not found \n{err}")
+        return
+
     mode = image.mode
     if mode not in ("RGB", "RGBA"):
-        print("Image must be RGB or RGBA")
+        print(f"Invalid image mode {mode} - must be RGB or RGBA")
 
-    levels = int(kwargs.get('levels', image.width))
+    levels = int(kwargs.get("levels", image.width))
     if levels > image.width:
         levels = image.width
-    outfile = kwargs.get('output', mapname + str(levels) + "_colormap.py")
+    outfile = kwargs.get("output", mapname + str(levels) + "_colormap.py")
 
-    file = open(outfile, 'a')
+    file = open(outfile, "a")
     file.write("from numpy import array\n\n")
-    file.write("#****************************************************************************************\n"
-               f"# {str(levels)}-level colormap created by make_colormap utility from file {infile}\n"
-               "#****************************************************************************************\n")
+    file.write(
+        "#****************************************************************************************\n"
+        f"# {str(levels)}-level colormap created by make_colormap utility from file {infile}\n"
+        "#****************************************************************************************\n"
+    )
     file.write(mapname + " = array([ \\\n")
 
     for x_axis in range(levels):
@@ -67,15 +74,20 @@ def make_colormap(**kwargs):
     print(str(levels) + "-level colormap file " + outfile + " created")
 
 
-if __name__ == "__main__":
+def main(args=None):
+    """ CLI entry point. """
 
     if len(sys.argv) > 1:
         if sys.argv[1] in {"-h", "--h", "help", "-help", "--help", "-H"}:
             print(
                 " make_colormap.py is a simple command line utility to create",
                 "a numpy RGB colormap suitable for importing into PyMandel.\n\n",
-                "Usage: make_colormap.py mapname=mymap input=mymap.png output=mymap_colormap.py levels=256",
+                "Usage: make_colormap mapname=mymap input=mymap.png output=mymap_colormap.py levels=256",
             )
             sys.exit()
 
-    make_colormap(**dict(arg.split('=') for arg in sys.argv[1:]))
+    make_colormap(**dict(arg.split("=") for arg in sys.argv[1:]))
+
+
+if __name__ == "__main__":
+    sys.exit(main())

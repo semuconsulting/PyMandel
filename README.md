@@ -231,8 +231,12 @@ If desired, the application can be run as a pure Python3 application *without* N
 
 ### mandelcli.py
 
-`mandelcli.py` is a command line equivalent to the GUI's Animate function. It can be invoked using keyword parameters 
-e.g. `python mandelcli.py width=480 height=480 frames=20` to produce a sequence of .png images. Pass `-h` or `-help` for a list of available parameters.
+`mandelcli.py` is a command line equivalent to the GUI's Animate function. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
+
+```shell
+mandelcli width=480 height=480 frames=20
+``` 
+This will produce a sequence of 20 .png images. Pass `-h` or `-help` for a list of available parameters.
 
 It can import settings from a previously saved metadata file using the import parameter e.g. `import=filename.json`.
 
@@ -242,9 +246,13 @@ In addition to producing animated sequences, the command line utility can be use
 
 ### make_colormap.py
 
-`make_colormap.py` is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. It takes the following optional keyword parameters:
+`make_colormap.py` is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
 
-`python gen_colormap.py mapname=mymap input=image.png output=mymap_colormap.py levels=256`
+```shell
+make_colormap mapname=mymap input=image.png output=mymap_colormap.py levels=256
+```
+
+Pass `-h` or `-help` for a list of available parameters.
 
 ## License
 
