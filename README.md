@@ -61,7 +61,9 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 ## <a name="installation">Installation</a>
 
 In the following, `python` & `pip` refer to the Python 3 executables. You may need to type 
-`python3` or `pip3`, depending on your particular environment.
+`python3` or `pip3`, depending on your particular environment. It is also recommended that you ensure
+the Python 3 scripts (bin) and site_packages directories are in your PATH (*most standard Python installation
+packages should do this automatically*).
 
 ### Dependencies
 
@@ -92,7 +94,7 @@ The easiest way to install the latest version of PyMandel is via [pip](http://py
 python -m pip install --upgrade PyMandel
 ```
 
-If required, `PyMandel` can also be installed using virtualenv, e.g.
+If required, `PyMandel` can also be installed into a virtual environment, e.g.
 
 ```shell
 python -m pip install --user --upgrade virtualenv
@@ -108,20 +110,14 @@ To run the application, if the Python 3 scripts (bin) directory is in your PATH,
 pymandel
 ```
 
-If not, type:
-```shell
-\full_path_to_python_scripts_directory\pymandel
-```
+If desired, you can add a shortcut to this command to your desktop or favourites menu.
 
 Alternatively, if the Python 3 site_packages directory is in your PATH, you can type (all lowercase):
 ```shell
 python -m pymandel
 ```
-
-If not, type:
-```shell
-python -m \full_path_to_python_site_packages\pymandel
-```
+**NB:** if the Python 3 scripts (bin) or site_packages directories are *not* in your PATH, you will need
+to add the fully-qualified path to `pymandel` in the commands above.
 
 **Tip**: to find the site_packages location, type `pip show PyMandel` and look for the `Location:` entry in the response, e.g.
 
