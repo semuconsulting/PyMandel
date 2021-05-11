@@ -32,7 +32,7 @@ setup(
     entry_points={
         "console_scripts": [
             "pymandel = pymandel.__main__:main",
-            "mandelcli = pymandel.mandelcli:main",
+            "pymandelcli = pymandel.mandelcli:main",
             "make_colormap = colormaps.make_colormap:main",
         ]
     },

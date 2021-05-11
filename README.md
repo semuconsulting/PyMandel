@@ -22,9 +22,9 @@ Contributions welcome - please refer to [CONTRIBUTING.MD](https://github.com/sem
 
 #### Animated Mandelbrot Zoom sequence
 
-This 178 frame, 10 fps sequence was automatically generated using the `mandelcli.py` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
+This 178 frame, 10 fps sequence was automatically generated using the `pymandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
 
-`python3 mandelcli.py filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
+`pymandelcli.py filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
 
 ![Zoom Animation](/images/zoom.gif)
 
@@ -61,7 +61,7 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 ## <a name="installation">Installation</a>
 
 In the following, `python` & `pip` refer to the Python 3 executables. You may need to type 
-`python3` or `pip3`, depending on your particular environment. It is also recommended that you ensure
+`python3` or `pip3`, depending on your particular environment. It is also recommended that 
 the Python 3 scripts (bin) and site_packages directories are in your PATH (*most standard Python installation
 packages should do this automatically*).
 
@@ -149,7 +149,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 1. Numba does not currently support ARM platforms.
 1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
-If desired, the application can be run as a pure Python3 application *without* Numba optimisation by simply removing the Numba `@jit()` decorators in the `mandelprot.py` module, in which case it will run on *any* platform that supports a Python 3 interpreter. Rendering times will, however, be several orders of magnitude slower.
+If desired, the application can be run as a pure Python3 application *without* Numba optimisation by simply removing the Numba `@jit()` decorators in the `mandelprot.py` module, in which case it will run on *any* platform that supports Python 3 / tkinter. Rendering times will, however, be significantly slower.
 
 ## How To Use
 
@@ -227,10 +227,10 @@ If desired, the application can be run as a pure Python3 application *without* N
 
 ### mandelcli.py
 
-`mandelcli.py` is a command line equivalent to the GUI's Animate function. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
+`pymandelcli` is a command line equivalent to the GUI's Animate function. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
 
 ```shell
-mandelcli width=480 height=480 frames=20
+pymandelcli width=480 height=480 frames=20
 ``` 
 This will produce a sequence of 20 .png images. Pass `-h` or `-help` for a list of available parameters.
 
@@ -242,7 +242,7 @@ In addition to producing animated sequences, the command line utility can be use
 
 ### make_colormap.py
 
-`make_colormap.py` is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
+`make_colormap` is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
 
 ```shell
 make_colormap mapname=mymap input=image.png output=mymap_colormap.py levels=256

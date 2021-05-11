@@ -51,7 +51,7 @@ def help_text():
         "filepath - the path for saved files ($cwd)\n",
         "filename - the name prefix for saved files ('frame')\n\n",
         "import - the full path to a previously saved metadata file ('')\n\n",
-        "e.g. mandelcli width=1920 height=1080 import='test.json'",
+        "e.g. pymandelcli width=1920 height=1080 import='test.json'",
     )
 
 

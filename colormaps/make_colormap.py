@@ -4,7 +4,7 @@ Command line utility to create numpy color map arrays suitable for use by PyMand
 from image files containing suitable color gradients e.g. created using GIMP's gradient tool.
 It currently only handles RGB or RGBA formats.
 
-python make_colormap.py mapname=mymap input=mymap.png output=mymap_colormap.py levels=256
+make_colormap mapname=mymap input=mymap.png output=mymap_colormap.py levels=256
 
 Created on 24 Apr 2020
 
