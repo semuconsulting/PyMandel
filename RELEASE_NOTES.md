@@ -1,5 +1,12 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.4
+
+ENHANCEMENTS:
+
+1. Further console script entry points added for pymandelcli and make_colormap CLI utilities. These utilities
+can now be launched via simple `pymandelcli` and `make_colormap` commands.
+
 ### RELEASE 1.0.3
 
 ENHANCEMENTS:
