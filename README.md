@@ -62,25 +62,15 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 
 In the following, `python` & `pip` refer to the Python 3 executables. You may need to type 
 `python3` or `pip3`, depending on your particular environment. It is also recommended that 
-the Python 3 scripts (bin) and site_packages directories are in your PATH (*most standard Python installation
-packages should do this automatically*).
+the Python 3 scripts (bin) and site_packages directories are included in your PATH (*most standard Python installation packages should do this automatically*).
 
 ### Dependencies
-
-See [requirements.txt](requirements.txt).
 
 On Windows and MacOS, pip, tkinter and the necessary imaging libraries are generally packaged with Python.  On some Linux distributions like Ubuntu 18+ and Raspberry Pi OS, they may need to be installed separately, e.g.:
 
 ```shell
 sudo apt install python3-pip python3-tk python3-pil python3-pil.imagetk
 ```
-
-The following python libraries are required (these will be installed automatically if using pip to install PyMandel):
-
-```shell
-python -m pip install numba numpy Pillow
-```
-
 
 ### 1. Install using pip
 
@@ -127,7 +117,15 @@ to add the fully-qualified path to `pymandel` in the commands above.
 
 ### 2. Manual installation
 
-To install manually, download and unzip this repository and type:
+See [requirements.txt](requirements.txt).
+
+The following Python libraries are required (these will be installed automatically if using pip to install PyMandel):
+
+```shell
+python -m pip install --upgrade numba numpy Pillow
+```
+
+To install PyMandel manually, download and unzip this repository and type:
 
 ```shell
 python -m /path_to_folder/foldername/pymandel
