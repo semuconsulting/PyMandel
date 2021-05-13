@@ -31,7 +31,6 @@ for modulename in [
     except ImportError as err:
         print(f"skipping {modulename}, {err}")
     else:
-        module.PORT = PORT
         testsuite = unittest.findTestCases(module)
         print(f"found {testsuite.countTestCases()} tests in {modulename}")
         mainsuite.addTest(testsuite)

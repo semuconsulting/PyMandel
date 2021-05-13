@@ -189,7 +189,7 @@ class BatchMandelbrot:
 
 
 def main(args=None):
-    """ Entry point for CLI. """
+    """Entry point for CLI."""
 
     if len(sys.argv) > 1:
         if sys.argv[1] in {"-h", "--h", "help", "-help", "--help", "-H"}:
