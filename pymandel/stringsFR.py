@@ -10,6 +10,7 @@ Créé le 22 avr 2020
 WIKIURL = "https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot"
 GITHUBURL = "https://github.com/semuconsulting/PyMandel"
 CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
+MODULENAME = "pymandel"
 
 COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020\nBSD 2 Clause License. Tous droits réservés"
 

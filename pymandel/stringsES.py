@@ -10,6 +10,7 @@ Creado el 22 abr 2020
 WIKIURL = "https://en.wikipedia.org/wiki/Mandelbrot_set"
 GITHUBURL = "https://github.com/semuconsulting/PyMandel"
 CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
+MODULENAME = "pymandel"
 
 COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020 \nBSD 2 Cláusula Licencia. Todos los derechos reservados"
 
