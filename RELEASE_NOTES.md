@@ -1,5 +1,14 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.5
+
+FIXES:
+
+1. Fixed bug in `mandelpycli` command line utility that was skewing the zyoffset coordinate. Also minor improvements to metadata import. 
+
+**NB:** If you have old (pre 0v1.0.0) metadata json files, they'll need amending to change the 
+header element from `mandelpy` to `pymandel` - see examples in `images` folder.
+
 ### RELEASE 1.0.4
 
 ENHANCEMENTS:

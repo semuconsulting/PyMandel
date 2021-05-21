@@ -44,6 +44,7 @@ from json import dump, loads
 import os
 
 from .strings import (
+    MODULENAME,
     SAVETITLE,
     VALERROR,
     SAVEERROR,
@@ -740,7 +741,7 @@ class SettingsFrame(Frame):
         createtime = strftime("%b %d %Y %H:%M:%S %Z", gmtime())
 
         jsondata = {
-            "mandelpy": {
+            MODULENAME: {
                 "filename": fqname + ".png",
                 "created": createtime,
                 "settype": self._settype.get(),
@@ -793,7 +794,7 @@ class SettingsFrame(Frame):
         # Parse file
         try:
 
-            settings = loads(jsondata).get("mandelpy")
+            settings = loads(jsondata).get(MODULENAME)
 
             # Set plot parameters
             self._settype.set(settings.get("settype", "Mandelbrot"))

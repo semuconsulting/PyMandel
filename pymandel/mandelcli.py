@@ -19,6 +19,7 @@ import sys
 from time import time
 
 from pymandel.mandelbrot import Mandelbrot, MANDELBROT, JULIA
+from pymandel.strings import MODULENAME
 
 sys.path.append("pymandel")
 sys.path.append("colormaps")
@@ -66,10 +67,6 @@ class BatchMandelbrot:
         """
 
         print("Parameters passed: ", kwargs)
-        self._importfile = kwargs.get("import", "")
-        if self._importfile != "":
-            if not self.import_metadata(self._importfile):
-                return
         self._setmode = kwargs.get("settype", "Mandelbrot")
         if self._setmode == "Julia":
             self._settype = JULIA
@@ -80,7 +77,7 @@ class BatchMandelbrot:
         self._radius = int(kwargs.get("escradius", 2))
         self._exponent = int(kwargs.get("exponent", 2))
         self._zx_off = float(kwargs.get("zxoffset", -0.5))
-        self._zy_off = float(kwargs.get("cyoffset", 0.0))
+        self._zy_off = float(kwargs.get("zyoffset", 0.0))
         self._cx_off = float(kwargs.get("cxoffset", 0.0))
         self._cy_off = float(kwargs.get("cyoffset", 0.0))
         self._filepath = kwargs.get("filepath", ".")
@@ -102,6 +99,11 @@ class BatchMandelbrot:
         self._maxiter = int(
             kwargs.get("maxiter", abs(1000 * log(1 / sqrt(self._zoom))))
         )
+
+        self._importfile = kwargs.get("import", "")
+        if self._importfile != "":
+            if not self.import_metadata(self._importfile):
+                return
 
         start = time()
 
@@ -130,6 +132,7 @@ class BatchMandelbrot:
             fqname = self._filepath + "/" + self._filename + "_" + str(i + 1).zfill(3)
             print("Creating file " + fqname + " ...")
 
+            print(f"DEBUG zxoffset {self._zx_off} zyoffset {self._zy_off}")
             self.mandelbrot.plot_image(
                 self._settype,
                 self._width,
@@ -173,17 +176,18 @@ class BatchMandelbrot:
 
         # Parse file
         settings = loads(jsondata)
-        self._settype = settings["mandelbrot"]["settype"]
-        self._zoom = settings["mandelbrot"]["zoom"]
-        self._radius = settings["mandelbrot"]["escradius"]
-        self._exponent = settings["mandelbrot"]["exponent"]
-        self._maxiter = settings["mandelbrot"]["maxiter"]
-        self._zx_off = settings["mandelbrot"]["zxoffset"]
-        self._zy_off = settings["mandelbrot"]["zyoffset"]
-        self._cx_off = settings["mandelbrot"]["cxoffset"]
-        self._cy_off = settings["mandelbrot"]["cyoffset"]
-        self._theme = settings["mandelbrot"]["theme"]
-        self._shift = settings["mandelbrot"]["shift"]
+        self._settype = settings[MODULENAME]["settype"]
+        self._zoom = float(settings[MODULENAME]["zoom"])
+        self._radius = float(settings[MODULENAME]["escradius"])
+        self._exponent = int(settings[MODULENAME]["exponent"])
+        self._maxiter = int(settings[MODULENAME]["maxiter"])
+        self._zx_off = float(settings[MODULENAME]["zxoffset"])
+        self._zy_off = float(settings[MODULENAME]["zyoffset"])
+        self._cx_off = float(settings[MODULENAME]["cxoffset"])
+        self._cy_off = float(settings[MODULENAME]["cyoffset"])
+        self._theme = settings[MODULENAME]["theme"]
+        self._shift = int(settings[MODULENAME]["shift"])
+        self._frames = int(settings[MODULENAME]["frames"])
 
         return True
 

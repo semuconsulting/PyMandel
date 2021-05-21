@@ -24,7 +24,7 @@ Contributions welcome - please refer to [CONTRIBUTING.MD](https://github.com/sem
 
 This 178 frame, 10 fps sequence was automatically generated using the `pymandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
 
-`pymandelcli.py filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
+`pymandelcli filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
 
 ![Zoom Animation](/images/zoom.gif)
 
@@ -38,7 +38,7 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 #### Sample Metadata
 
 ```
-{"PyMandel": {
+{"pymandel": {
     "filename": "C:/Users/myuser/Downloads/mandela.png", 
     "created": "Apr 08 2020 19:43:41 GMT Standard Time", 
     "settype: "Mandelbrot",
@@ -175,7 +175,7 @@ If desired, the application can be run as a pure Python3 application *without* N
 
 * Save button - save the currently displayed image as a PNG file. You will be prompted for a directory on first use. A corresponding metadata json file will also be saved containing the parameters that were used to create the image, allowing it to be reproduced at a later date.
 
-* File..Import Settings - import previously saved metadata. You will be prompted to select a json file to import.
+* File..Import Settings - import previously saved metadata. You will be prompted to select a json file to import. Some sample *.json files can be found in the [Images](https://github.com/semuconsulting/PyMandel/tree/master/images) folder
 
 * Zoom button - automatically create and save a sequence of images at increasing zoom levels, which can be converted externally into an animation (e.g. GIF or short video).
 

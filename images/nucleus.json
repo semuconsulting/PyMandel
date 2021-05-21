@@ -1,1 +1,19 @@
-{"mandelpy": {"filename": "/Users/stevensmith/Dropbox/Development/semurepo/Mandelpy/images/nucleus.png", "created": "Apr 30 2020 18:12:07 UTC", "settype": "Mandelbrot", "zoom": 1313431539167.5203, "zoominc": 2.0, "frames": 10, "escradius": 2.0, "exponent": 2, "maxiter": 13951, "zxoffset": -0.671161669372537, "zyoffset": 0.4583741617161786, "cxoffset": 0.0, "cyoffset": 0.0, "theme": "Twilight256", "shift": 40}}
+{
+    "pymandel": {
+        "filename": "/Users/myuser/Downloads/nucleus.png",
+        "created": "Apr 30 2020 18:12:07 UTC",
+        "settype": "Mandelbrot",
+        "zoom": 1313431539167.5203,
+        "zoominc": 2.0,
+        "frames": 10,
+        "escradius": 2.0,
+        "exponent": 2,
+        "maxiter": 13951,
+        "zxoffset": -0.671161669372537,
+        "zyoffset": 0.4583741617161786,
+        "cxoffset": 0.0,
+        "cyoffset": 0.0,
+        "theme": "Twilight256",
+        "shift": 40
+    }
+}
