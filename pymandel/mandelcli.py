@@ -132,7 +132,6 @@ class BatchMandelbrot:
             fqname = self._filepath + "/" + self._filename + "_" + str(i + 1).zfill(3)
             print("Creating file " + fqname + " ...")
 
-            print(f"DEBUG zxoffset {self._zx_off} zyoffset {self._zy_off}")
             self.mandelbrot.plot_image(
                 self._settype,
                 self._width,
