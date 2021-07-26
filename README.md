@@ -113,7 +113,7 @@ to add the fully-qualified path to `pymandel` in the commands above.
 **Tip**: to find the site_packages location, type `pip show PyMandel` and look for the `Location:` entry in the response, e.g.
 
 - Linux: `Location: /home/username/.local/lib/python3.9/site-packages`
-- MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.9/site-packages`
+- MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages`
 - Windows: `Location: c:\users\username\appdata\roaming\python\python39\lib\site-packages`
 
 **Tip:** To create an application launcher for linux distributions like Ubuntu, create a text file named `pymandel.desktop` with the following content (*edited for your particular environment*) and copy this to the `/home/user/.local/share/applications` folder, e.g.
