@@ -291,14 +291,14 @@ def hsv_to_rgb(h, s, v):
     Convert HSV values (in range 0-1) to RGB (in range 0-255).
     """
 
+    v = int(v * 255)
     if s == 0.0:
-        v = int(v * 255)
         return v, v, v
     i = int(h * 6.0)
     f = (h * 6.0) - i
-    p = v * (1.0 - s)
-    q = v * (1.0 - s * f)
-    t = v * (1.0 - s * (1.0 - f))
+    p = int(v * (1.0 - s))
+    q = int(v * (1.0 - s * f))
+    t = int(v * (1.0 - s * (1.0 - f)))
     i %= 6
     if i == 0:
         r, g, b = v, t, p
@@ -313,7 +313,6 @@ def hsv_to_rgb(h, s, v):
     if i == 5:
         r, g, b = v, p, q
 
-    r, g, b = int(r * 255), int(g * 255), int(b * 255)
     return r, g, b
 
 

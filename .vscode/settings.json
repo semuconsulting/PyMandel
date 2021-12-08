@@ -10,7 +10,7 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "python.formatting.provider": "black",
-    "python.pythonPath": "python3",
+    "python.pythonPath": "python3.9",
     "editor.formatOnSave": true,
     "modulename": "pymandel",
     "distname": "PyMandel",
