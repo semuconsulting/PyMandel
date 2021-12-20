@@ -1,5 +1,5 @@
 """
-Mandelbrot & Julia set class for tkinter application
+Mandelbrot & Julia set class for tkinter application.
 
 This handles the computation of the Mandelbrot or Julia set as a numpy rgb array
 which is loaded into a ImageTk.PhotoImage (and ultimately into a Tk.Canvas
@@ -86,7 +86,7 @@ def plot(
         for y_axis in prange(height):  # pylint: disable=not-an-iterable
 
             # Invoke core algorithm to calculate escape scalars
-            i, z = fractal(
+            i, za = fractal(
                 settype,
                 setvar,
                 width,
@@ -104,7 +104,7 @@ def plot(
             )
 
             # Look up color for these escape scalars and set pixel in imagemap
-            imagemap[y_axis, x_axis] = get_color(i, z, radius, maxiter, theme, shift)
+            imagemap[y_axis, x_axis] = get_color(i, za, radius, maxiter, theme, shift)
 
 
 @jit(nopython=True, cache=True)
@@ -125,10 +125,8 @@ def fractal(
     cyoff,
 ):
     """
-    Calculates fractal escape scalars i, z for each image pixel
+    Calculates fractal escape scalars i, za for each image pixel
     and returns them for use in color rendering routines.
-
-    YES! - just 10 lines of codes produces such infinite complexity - cool, huh?
     """
 
     zx_coord, zy_coord = ptoc(width, height, x_axis, y_axis, zxoff, zyoff, zoom)
@@ -142,7 +140,7 @@ def fractal(
         c = z
 
     for i in prange(maxiter + 1):  # pylint: disable=not-an-iterable
-        # Iterate till the point c is outside the escape radius.
+        # Iterate till the value z is outside the escape radius.
         if setvar == BURNINGSHIP:
             z = complex(abs(z.real), -abs(z.imag))
         if setvar == TRICORN:
@@ -164,7 +162,7 @@ def fractal(
         if abs(z) > radius ** 2:
             break
 
-    return i, abs(z)
+    return i, abs(z)  # i, za
 
 
 @jit(nopython=True, cache=True)
@@ -192,9 +190,9 @@ def ctop(width, height, zx_coord, zy_coord, zxoff, zyoff, zoom):
 
 
 @jit(nopython=True, cache=True)
-def get_color(i, z, radius, maxiter, theme, shift):
+def get_color(i, za, radius, maxiter, theme, shift):
     """
-    Uses escape scalars i, z from the fractal algorithm to drive a variety
+    Uses escape scalars i, za from the fractal algorithm to drive a variety
     of color rendering algorithms or 'themes'.
 
     NB: If you want to add more rendering algorithms, this is where to add them,
@@ -230,54 +228,54 @@ def get_color(i, z, radius, maxiter, theme, shift):
         g = bands[i % 4]
         b = bands[(i // 16) % 4]
     elif theme == "NormalizedHue":
-        h = ((normalize(i, z, radius) / maxiter) + (shift / 100)) % 1
+        h = ((normalize(i, za, radius) / maxiter) + (shift / 100)) % 1
         r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "SqrtHue":
-        h = ((normalize(i, z, radius) / sqrt(maxiter)) + (shift / 100)) % 1
+        h = ((normalize(i, za, radius) / sqrt(maxiter)) + (shift / 100)) % 1
         r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "LogHue":
-        h = ((normalize(i, z, radius) / log(maxiter)) + (shift / 100)) % 1
+        h = ((normalize(i, za, radius) / log(maxiter)) + (shift / 100)) % 1
         r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "SinHue":
-        h = normalize(i, z, radius) * sin(((shift + 1) / 100) * pi / 2)
+        h = normalize(i, za, radius) * sin(((shift + 1) / 100) * pi / 2)
         r, g, b = hsv_to_rgb(h, 0.75, 1)
     elif theme == "SinSqrtHue":
         steps = 1 + shift / 100
-        h = 1 - (sin((normalize(i, z, radius) / sqrt(maxiter) * steps) + 1) / 2)
+        h = 1 - (sin((normalize(i, za, radius) / sqrt(maxiter) * steps) + 1) / 2)
         r, g, b = hsv_to_rgb(h, 0.75, 1)
     else:  # Indexed colormap arrays
-        r, g, b = sel_colormap(i, z, radius, shift, theme)
+        r, g, b = sel_colormap(i, za, radius, shift, theme)
     return r, g, b
 
 
 @jit(nopython=True, cache=True)
-def sel_colormap(i, z, radius, shift, theme):
+def sel_colormap(i, za, radius, shift, theme):
     """
     Select from indexed colormap theme
     """
 
     if theme == "Colorcet_CET_CBC1":
-        r, g, b = get_colormap(i, z, radius, shift, cet_CBC1)
+        r, g, b = get_colormap(i, za, radius, shift, cet_CBC1)
     if theme == "Colorcet_CET_CBTC1":
-        r, g, b = get_colormap(i, z, radius, shift, cet_CBTC1)
+        r, g, b = get_colormap(i, za, radius, shift, cet_CBTC1)
     if theme == "Colorcet_CET_C1":
-        r, g, b = get_colormap(i, z, radius, shift, cet_C1)
+        r, g, b = get_colormap(i, za, radius, shift, cet_C1)
     if theme == "Colorcet_CET_C4s":
-        r, g, b = get_colormap(i, z, radius, shift, cet_C4s)
+        r, g, b = get_colormap(i, za, radius, shift, cet_C4s)
     if theme == "BlueBrown16":
-        r, g, b = get_colormap(i, z, radius, shift, BlueBrown16)
+        r, g, b = get_colormap(i, za, radius, shift, BlueBrown16)
     if theme == "Tropical16":
-        r, g, b = get_colormap(i, z, radius, shift, tropical16)
+        r, g, b = get_colormap(i, za, radius, shift, tropical16)
     if theme == "Tropical256":
-        r, g, b = get_colormap(i, z, radius, shift, tropical256)
+        r, g, b = get_colormap(i, za, radius, shift, tropical256)
     if theme == "Pastels256":
-        r, g, b = get_colormap(i, z, radius, shift, pastels256)
+        r, g, b = get_colormap(i, za, radius, shift, pastels256)
     if theme == "Metallic256":
-        r, g, b = get_colormap(i, z, radius, shift, metallic256)
+        r, g, b = get_colormap(i, za, radius, shift, metallic256)
     if theme == "Twilight256":
-        r, g, b = get_colormap(i, z, radius, shift, twilight256)
+        r, g, b = get_colormap(i, za, radius, shift, twilight256)
     if theme == "Landscape256":
-        r, g, b = get_colormap(i, z, radius, shift, landscape256)
+        r, g, b = get_colormap(i, za, radius, shift, landscape256)
 
     return r, g, b
 
@@ -287,9 +285,6 @@ def get_colormap(i, za, radius, shift, colmap):
     """
     Get pixel color from colormap
     """
-
-    # col = int((normalize(i, z, radius)) + (shift * len(colmap) / 100)) % len(colmap)
-    # return colmap[col]
 
     ni = normalize(i, za, radius)  # normalised iteration count
     sh = ceil(shift * len(colmap) / 100)  # palette shift
@@ -301,11 +296,9 @@ def get_colormap(i, za, radius, shift, colmap):
 @jit(nopython=True, cache=True)
 def normalize(i, za, radius):
     """
-    Normalize iteration count from escape scalars.
-    (NB: should ideally be (log(log2(abs(z))) but Numba doesn't currently handle log2)
+    Normalize iteration count from escape scalars to produce
+    smoother color gradients.
     """
-
-    # return i + 1 - (log(log(abs(z))) / log(2.0))
 
     lzn = log(za ** 2) / 2
     nu = log(lzn / log(radius)) / log(2)
@@ -315,7 +308,7 @@ def normalize(i, za, radius):
 @jit(nopython=True, cache=True)
 def interpolate(col1, col2, ni):
     """
-    Linear interpolation between two colours.
+    Linear interpolation between two adjacent colors in color palette.
     """
 
     f = ni % 1  # fractional part of ni
