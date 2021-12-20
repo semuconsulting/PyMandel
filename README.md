@@ -161,7 +161,7 @@ python -m /path_to_folder/foldername/pymandel
 e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.6`, type: 
 
 ```shell
-python -m /path_to_folder/PyMandel-1.0.3/pymandel
+python -m /path_to_folder/PyMandel-1.0.6/pymandel
 ```
 
 ### Performance Optimisations
@@ -171,7 +171,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 **NB:**
 
 1. Numba is still officially in Beta.
-1. Python 3.10 is not yet fully supported.
+1. Python 3.10 is not yet fully supported (*due to llvmlite compatibility issues*), and Python 3.6 only supports version <=0.53.1.
 1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
 ## How To Use
