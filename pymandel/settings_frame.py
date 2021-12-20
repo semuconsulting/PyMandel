@@ -583,7 +583,7 @@ class SettingsFrame(Frame):
         self._cx_off.set(0.0)
         self._cy_off.set(0.0)
         self._maxiter.set(128)
-        self._radius.set(1 << 8)
+        self._radius.set(2)
         self._exponent.set(2)
         self._frames.set(10)
         self._zoominc.set(2.0)
