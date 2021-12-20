@@ -16,7 +16,16 @@ from tkinter import Frame, Canvas, NW, BOTH, YES
 
 from PIL import ImageTk
 
-from .mandelbrot import Mandelbrot, ptoc, ctop, MANDELBROT, JULIA, TRICORN, BURNINGSHIP
+from .mandelbrot import (
+    Mandelbrot,
+    ptoc,
+    ctop,
+    MANDELBROT,
+    JULIA,
+    TRICORN,
+    BURNINGSHIP,
+    STANDARD,
+)
 from .strings import COMPLETETXT, INPROGTXT, OPCANTXT, SAVEERROR, COORDTXT, FRMTXT
 
 ZOOM = 0
@@ -44,6 +53,7 @@ class FractalFrame(Frame):
         self._fractal = None  # Must be instance variable to persist after use
         self._animating = False
         self._setmode = MANDELBROT
+        self._setvar = STANDARD
         self._leftclickmode = ZOOMIN
         self._show_axes = False
         self._zoom_rect = None
@@ -97,12 +107,15 @@ class FractalFrame(Frame):
         setmode = settings.get("settype")
         if setmode == "Julia":
             self._setmode = JULIA
-        elif setmode == "Tricorn":
-            self._setmode = TRICORN
-        elif setmode == "BurningShip":
-            self._setmode = BURNINGSHIP
         else:
             self._setmode = MANDELBROT
+        setvar = settings.get("setvar")
+        if setvar == "Tricorn":
+            self._setvar = TRICORN
+        elif setvar == "BurningShip":
+            self._setvar = BURNINGSHIP
+        else:
+            self._setvar = STANDARD
         zoom = settings.get("zoom")
         radius = settings.get("radius")
         exponent = settings.get("exponent")
@@ -126,6 +139,7 @@ class FractalFrame(Frame):
         self.mandelbrot = Mandelbrot(self)
         self.mandelbrot.plot_image(
             self._setmode,
+            self._setvar,
             width,
             height,
             zoom,
@@ -221,10 +235,10 @@ class FractalFrame(Frame):
         """
 
         settype = self.__app.frm_settings.get_settings().get("settype")
-        if settype == "Julia":
-            miniter = 128
+        if settype == JULIA:
+            miniter = 500
         else:
-            miniter = 128
+            miniter = 100
         maxiter = max(miniter, int(abs(1000 * log(1 / sqrt(zoom)))))
         return maxiter
 

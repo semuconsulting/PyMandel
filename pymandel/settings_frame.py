@@ -63,6 +63,7 @@ from .strings import (
     BTNZOOM,
     BTNSPIN,
     LBLMODE,
+    LBLVAR,
     LBLAUTO,
     LBLTHEME,
     LBLEXP,
@@ -103,6 +104,7 @@ class SettingsFrame(Frame):
         self._image_num = 0
         self._image_name = "image"
         self._settype = StringVar()
+        self._setvar = StringVar()
         self._zoom = DoubleVar()
         self._radius = DoubleVar()
         self._exponent = IntVar()
@@ -136,11 +138,20 @@ class SettingsFrame(Frame):
         self.lbl_settype = Label(self, text=LBLMODE)
         self.spn_settype = Spinbox(
             self,
-            values=("BurningShip", "Tricorn", "Julia", "Mandelbrot"),
+            values=("Julia", "Mandelbrot"),
             width=8,
             bg=GOOD,
             wrap=True,
             textvariable=self._settype,
+        )
+        self.lbl_setvar = Label(self, text=LBLVAR)
+        self.spn_setvar = Spinbox(
+            self,
+            values=("Tricorn", "BurningShip", "Standard"),
+            width=8,
+            bg=GOOD,
+            wrap=True,
+            textvariable=self._setvar,
         )
         self.lbl_zoom = Label(self, text=LBLZOOM)
         self.ent_zoom = Entry(
@@ -357,41 +368,45 @@ class SettingsFrame(Frame):
         self.spn_settype.grid(
             column=1, row=6, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_zoom.grid(column=0, row=7, sticky=(W))
-        self.ent_zoom.grid(column=1, row=7, columnspan=2, sticky=(W, E), padx=3, pady=3)
-        self.lbl_zoominc.grid(column=0, row=8, sticky=(W))
-        self.ent_zoominc.grid(column=1, row=8, sticky=(W), padx=3, pady=3)
-        self.lbl_zx_off.grid(column=0, row=9, sticky=(W))
-        self.ent_zx_off.grid(
-            column=1, row=9, columnspan=2, sticky=(W, E), padx=3, pady=3
+        self.lbl_setvar.grid(column=0, row=7, sticky=(W))
+        self.spn_setvar.grid(
+            column=1, row=7, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_zy_off.grid(column=0, row=10, sticky=(W))
-        self.ent_zy_off.grid(
+        self.lbl_zoom.grid(column=0, row=8, sticky=(W))
+        self.ent_zoom.grid(column=1, row=8, columnspan=2, sticky=(W, E), padx=3, pady=3)
+        self.lbl_zoominc.grid(column=0, row=9, sticky=(W))
+        self.ent_zoominc.grid(column=1, row=9, sticky=(W), padx=3, pady=3)
+        self.lbl_zx_off.grid(column=0, row=10, sticky=(W))
+        self.ent_zx_off.grid(
             column=1, row=10, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_cx_off.grid(column=0, row=11, sticky=(W))
-        self.ent_cx_off.grid(
+        self.lbl_zy_off.grid(column=0, row=11, sticky=(W))
+        self.ent_zy_off.grid(
             column=1, row=11, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_cy_off.grid(column=0, row=12, sticky=(W))
-        self.ent_cy_off.grid(
+        self.lbl_cx_off.grid(column=0, row=12, sticky=(W))
+        self.ent_cx_off.grid(
             column=1, row=12, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_niter.grid(column=0, row=13, sticky=(W))
-        self.ent_maxiter.grid(column=1, row=13, sticky=(W), padx=3, pady=3)
-        self.chk_autoiter.grid(column=2, row=13, sticky=(W), padx=3, pady=3)
-        self.lbl_radius.grid(column=0, row=14, sticky=(W))
-        self.ent_radius.grid(column=1, row=14, sticky=(W), padx=3, pady=3)
-        self.lbl_exp.grid(column=0, row=15, sticky=(W))
-        self.spn_exp.grid(column=1, row=15, sticky=(W), padx=3, pady=3)
-        self.lbl_theme.grid(column=0, row=16, sticky=(W))
-        self.lbx_theme.grid(
-            column=1, row=16, padx=3, pady=3, columnspan=2, sticky=(N, S, W, E)
+        self.lbl_cy_off.grid(column=0, row=13, sticky=(W))
+        self.ent_cy_off.grid(
+            column=1, row=13, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.scrollbar.grid(column=2, row=16, sticky=(N, S, E))
-        self.lbl_shift.grid(column=0, row=17, sticky=(W))
+        self.lbl_niter.grid(column=0, row=14, sticky=(W))
+        self.ent_maxiter.grid(column=1, row=14, sticky=(W), padx=3, pady=3)
+        self.chk_autoiter.grid(column=2, row=14, sticky=(W), padx=3, pady=3)
+        self.lbl_radius.grid(column=0, row=15, sticky=(W))
+        self.ent_radius.grid(column=1, row=15, sticky=(W), padx=3, pady=3)
+        self.lbl_exp.grid(column=0, row=16, sticky=(W))
+        self.spn_exp.grid(column=1, row=16, sticky=(W), padx=3, pady=3)
+        self.lbl_theme.grid(column=0, row=17, sticky=(W))
+        self.lbx_theme.grid(
+            column=1, row=17, padx=3, pady=3, columnspan=2, sticky=(N, S, W, E)
+        )
+        self.scrollbar.grid(column=2, row=17, sticky=(N, S, E))
+        self.lbl_shift.grid(column=0, row=18, sticky=(W))
         self.scl_shift.grid(
-            column=1, row=17, columnspan=2, padx=3, pady=3, sticky=(W, E)
+            column=1, row=18, columnspan=2, padx=3, pady=3, sticky=(W, E)
         )
         self.lbx_theme.bind("<<ListboxSelect>>", self.get_sel_theme)
 
@@ -490,7 +505,7 @@ class SettingsFrame(Frame):
             flg = BAD
         self.flag_entry(self.ent_save, flg)
 
-        if self.spn_settype.get() in {"Mandelbrot", "Tricorn", "BurningShip"}:
+        if self.spn_settype.get() == "Mandelbrot":
             self.btn_autospin.config(state=DISABLED)
             self.ent_cx_off.config(state=DISABLED)
             self.ent_cy_off.config(state=DISABLED)
@@ -505,6 +520,12 @@ class SettingsFrame(Frame):
         else:
             flg = BAD
         self.flag_entry(self.spn_settype, flg)
+
+        if self.spn_setvar.get() in {"Standard", "Tricorn", "BurningShip"}:
+            flg = GOOD
+        else:
+            flg = BAD
+        self.flag_entry(self.spn_setvar, flg)
 
     def flag_entry(self, ent, flag):
         """
@@ -555,13 +576,14 @@ class SettingsFrame(Frame):
         """
 
         self._settype.set("Mandelbrot")
+        self._setvar.set("Standard")
         self._zoom.set(0.75)
         self._zx_off.set(-0.5)
         self._zy_off.set(0.0)
         self._cx_off.set(0.0)
         self._cy_off.set(0.0)
         self._maxiter.set(128)
-        self._radius.set(2.0)
+        self._radius.set(1 << 8)
         self._exponent.set(2)
         self._frames.set(10)
         self._zoominc.set(2.0)
@@ -608,6 +630,7 @@ class SettingsFrame(Frame):
 
         settings = {
             "settype": self._settype.get(),
+            "setvar": self._setvar.get(),
             "zoom": self._zoom.get(),
             "zxoffset": self._zx_off.get(),
             "zyoffset": self._zy_off.get(),
@@ -635,6 +658,8 @@ class SettingsFrame(Frame):
 
         if "settype" in kwargs:
             self._settype.set(kwargs["settype"])
+        if "setvar" in kwargs:
+            self._setvar.set(kwargs["setvar"])
         if "zoom" in kwargs:
             self._zoom.set(kwargs["zoom"])
         if "zxoffset" in kwargs:
@@ -745,6 +770,7 @@ class SettingsFrame(Frame):
                 "filename": fqname + ".png",
                 "created": createtime,
                 "settype": self._settype.get(),
+                "setvar": self._setvar.get(),
                 "zoom": self._zoom.get(),
                 "zoominc": self._zoominc.get(),
                 "frames": self._frames.get(),
@@ -798,6 +824,7 @@ class SettingsFrame(Frame):
 
             # Set plot parameters
             self._settype.set(settings.get("settype", "Mandelbrot"))
+            self._setvar.set(settings.get("setvar", "Standard"))
             self._zoom.set(settings.get("zoom", 1))
             self._zoominc.set(settings.get("zoominc", 2.0))
             self._frames.set(settings.get("frames", 10))
