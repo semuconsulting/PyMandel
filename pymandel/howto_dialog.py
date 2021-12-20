@@ -9,7 +9,7 @@ Created on 19 Apr 2020
 from tkinter import Toplevel, Label, Button, LEFT
 from webbrowser import open_new_tab
 
-from .strings import HELPTXT, COPYRIGHTTXT, DLGHOWTO, GITHUBURL
+from pymandel.strings import HELPTXT, COPYRIGHTTXT, DLGHOWTO, GITHUBURL
 
 
 class HowtoDialog:

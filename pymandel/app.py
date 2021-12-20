@@ -9,13 +9,13 @@ Created on 29 Mar 2020
 import os
 from tkinter import N, S, E, W, PhotoImage
 
-from .about_dialog import AboutDialog
-from .fractal_frame import FractalFrame
-from .howto_dialog import HowtoDialog
-from .menu_bar import MenuBar
-from .settings_frame import SettingsFrame
-from .status_frame import StatusFrame
-from .strings import (
+from pymandel.about_dialog import AboutDialog
+from pymandel.fractal_frame import FractalFrame
+from pymandel.howto_dialog import HowtoDialog
+from pymandel.menu_bar import MenuBar
+from pymandel.settings_frame import SettingsFrame
+from pymandel.status_frame import StatusFrame
+from pymandel.strings import (
     INTROTXT,
     MENUHIDESE,
     MENUSHOWSE,

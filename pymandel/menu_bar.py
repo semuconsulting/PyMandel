@@ -10,7 +10,7 @@ Created on 27 Mar 2020
 
 from tkinter import Menu
 
-from .strings import (
+from pymandel.strings import (
     MENUFILE,
     MENUOPTIONS,
     MENUSAVE,

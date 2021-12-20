@@ -13,7 +13,7 @@ from webbrowser import open_new_tab
 from numba import __version__ as numba_ver
 from numpy import __version__ as numpy_ver
 
-from .strings import (
+from pymandel.strings import (
     ABOUTTXT,
     COPYRIGHTTXT,
     COLORCETTXT,
@@ -23,7 +23,7 @@ from .strings import (
     CETURL,
 )
 
-from ._version import __version__
+from pymandel._version import __version__
 
 VERSION = __version__
 DIRNAME = os.path.dirname(__file__)
