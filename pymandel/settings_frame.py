@@ -43,7 +43,7 @@ from json import dump, loads
 
 import os
 
-from .strings import (
+from pymandel.strings import (
     MODULENAME,
     SAVETITLE,
     VALERROR,
@@ -79,7 +79,7 @@ from .strings import (
     FRMSTXT,
 )
 
-from .mandelbrot import THEMES
+from pymandel.mandelbrot import MODES, VARIANTS, THEMES, MANDELBROT, JULIA
 
 # Global variables for Entry widget validation
 GOOD = "azure"
@@ -107,7 +107,7 @@ class SettingsFrame(Frame):
         self._setvar = StringVar()
         self._zoom = DoubleVar()
         self._radius = DoubleVar()
-        self._exponent = IntVar()
+        self._exponent = DoubleVar()
         self._zx_off = DoubleVar()
         self._zy_off = DoubleVar()
         self._cx_off = DoubleVar()
@@ -138,7 +138,7 @@ class SettingsFrame(Frame):
         self.lbl_settype = Label(self, text=LBLMODE)
         self.spn_settype = Spinbox(
             self,
-            values=("Julia", "Mandelbrot"),
+            values=MODES,
             width=8,
             bg=GOOD,
             wrap=True,
@@ -147,7 +147,7 @@ class SettingsFrame(Frame):
         self.lbl_setvar = Label(self, text=LBLVAR)
         self.spn_setvar = Spinbox(
             self,
-            values=("Tricorn", "BurningShip", "Standard"),
+            values=VARIANTS,
             width=8,
             bg=GOOD,
             wrap=True,
@@ -234,15 +234,13 @@ class SettingsFrame(Frame):
             textvariable=self._radius,
         )
         self.lbl_exp = Label(self, text=LBLEXP)
-        self.spn_exp = Spinbox(
+        self.ent_exp = Entry(
             self,
             border=2,
             relief="sunken",
             bg=GOOD,
-            width=4,
-            from_=2,
-            to=20,
-            wrap=True,
+            width=8,
+            justify=RIGHT,
             textvariable=self._exponent,
         )
         self.sep_1 = ttk.Separator(
@@ -398,7 +396,7 @@ class SettingsFrame(Frame):
         self.lbl_radius.grid(column=0, row=15, sticky=(W))
         self.ent_radius.grid(column=1, row=15, sticky=(W), padx=3, pady=3)
         self.lbl_exp.grid(column=0, row=16, sticky=(W))
-        self.spn_exp.grid(column=1, row=16, sticky=(W), padx=3, pady=3)
+        self.ent_exp.grid(column=1, row=16, sticky=(W), padx=3, pady=3)
         self.lbl_theme.grid(column=0, row=17, sticky=(W))
         self.lbx_theme.grid(
             column=1, row=17, padx=3, pady=3, columnspan=2, sticky=(N, S, W, E)
@@ -417,6 +415,7 @@ class SettingsFrame(Frame):
 
         self._validsettings = True
         self._settype.trace("w", self.val_settings)
+        self._setvar.trace("w", self.val_settings)
         self._zoom.trace("w", self.val_settings)
         self._zx_off.trace("w", self.val_settings)
         self._zy_off.trace("w", self.val_settings)
@@ -481,11 +480,11 @@ class SettingsFrame(Frame):
             flg = BAD
         self.flag_entry(self.ent_radius, flg)
 
-        if self.is_integer(self.spn_exp.get()) and self._exponent.get() > 1:
+        if self.is_float(self.ent_exp.get()) and self._exponent.get() >= 1:
             flg = GOOD
         else:
             flg = BAD
-        self.flag_entry(self.spn_exp, flg)
+        self.flag_entry(self.ent_exp, flg)
 
         if self.is_integer(self.ent_frames.get()) and self._frames.get() > 0:
             flg = GOOD
@@ -505,14 +504,14 @@ class SettingsFrame(Frame):
             flg = BAD
         self.flag_entry(self.ent_save, flg)
 
-        if self.spn_settype.get() == "Mandelbrot":
+        if self.spn_settype.get() == MODES[MANDELBROT]:
             self.btn_autospin.config(state=DISABLED)
             self.ent_cx_off.config(state=DISABLED)
             self.ent_cy_off.config(state=DISABLED)
             self._cx_off.set(0)
             self._cy_off.set(0)
             flg = GOOD
-        elif self.spn_settype.get() == "Julia":
+        elif self.spn_settype.get() == MODES[JULIA]:
             self.btn_autospin.config(state=NORMAL)
             self.ent_cx_off.config(state=NORMAL)
             self.ent_cy_off.config(state=NORMAL)
@@ -521,7 +520,7 @@ class SettingsFrame(Frame):
             flg = BAD
         self.flag_entry(self.spn_settype, flg)
 
-        if self.spn_setvar.get() in {"Standard", "Tricorn", "BurningShip"}:
+        if self.spn_setvar.get() in VARIANTS:
             flg = GOOD
         else:
             flg = BAD
@@ -575,8 +574,8 @@ class SettingsFrame(Frame):
         Reset settings to defaults.
         """
 
-        self._settype.set("Mandelbrot")
-        self._setvar.set("Standard")
+        self._settype.set(MODES[0])
+        self._setvar.set(VARIANTS[0])
         self._zoom.set(0.75)
         self._zx_off.set(-0.5)
         self._zy_off.set(0.0)

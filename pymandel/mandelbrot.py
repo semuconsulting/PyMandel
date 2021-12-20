@@ -26,6 +26,8 @@ from colormaps.metallic256_colormap import metallic256
 from colormaps.pastels256_colormap import pastels256
 from colormaps.tropical_colormap import tropical16, tropical256
 from colormaps.twilight256_colormap import twilight256
+from colormaps.twilights512_colormap import twilights512
+from colormaps.hsv256_colormap import hsv256
 
 PERIODCHECK = True  # Turn periodicity check optimisation on/off
 MANDELBROT = 0
@@ -33,9 +35,23 @@ JULIA = 1
 STANDARD = 0
 BURNINGSHIP = 1
 TRICORN = 2
-
+MODES = ("Mandelbrot", "Julia")
+VARIANTS = ("Standard", "BurningShip", "Tricorn")
 THEMES = [
     "Default",
+    "BlueBrown16",
+    "Tropical16",
+    "Tropical256",
+    "Pastels256",
+    "Metallic256",
+    "Twilight256",
+    "Twilights512",
+    "Landscape256",
+    "Colorcet_CET_C1",
+    "Colorcet_CET_CBC1",
+    "Colorcet_CET_CBTC1",
+    "Colorcet_CET_C4s",
+    "HSV256",
     "Monochrome",
     "BasicGrayscale",
     "BasicHue",
@@ -45,17 +61,6 @@ THEMES = [
     "SinHue",
     "SinSqrtHue",
     "BandedRGB",
-    "BlueBrown16",
-    "Tropical16",
-    "Tropical256",
-    "Pastels256",
-    "Metallic256",
-    "Twilight256",
-    "Landscape256",
-    "Colorcet_CET_C1",
-    "Colorcet_CET_CBC1",
-    "Colorcet_CET_CBTC1",
-    "Colorcet_CET_C4s",
 ]
 
 
@@ -256,26 +261,30 @@ def sel_colormap(i, za, radius, shift, theme):
 
     if theme == "Colorcet_CET_CBC1":
         r, g, b = get_colormap(i, za, radius, shift, cet_CBC1)
-    if theme == "Colorcet_CET_CBTC1":
+    elif theme == "Colorcet_CET_CBTC1":
         r, g, b = get_colormap(i, za, radius, shift, cet_CBTC1)
-    if theme == "Colorcet_CET_C1":
+    elif theme == "Colorcet_CET_C1":
         r, g, b = get_colormap(i, za, radius, shift, cet_C1)
-    if theme == "Colorcet_CET_C4s":
+    elif theme == "Colorcet_CET_C4s":
         r, g, b = get_colormap(i, za, radius, shift, cet_C4s)
-    if theme == "BlueBrown16":
+    elif theme == "BlueBrown16":
         r, g, b = get_colormap(i, za, radius, shift, BlueBrown16)
-    if theme == "Tropical16":
+    elif theme == "Tropical16":
         r, g, b = get_colormap(i, za, radius, shift, tropical16)
-    if theme == "Tropical256":
+    elif theme == "Tropical256":
         r, g, b = get_colormap(i, za, radius, shift, tropical256)
-    if theme == "Pastels256":
+    elif theme == "Pastels256":
         r, g, b = get_colormap(i, za, radius, shift, pastels256)
-    if theme == "Metallic256":
+    elif theme == "Metallic256":
         r, g, b = get_colormap(i, za, radius, shift, metallic256)
-    if theme == "Twilight256":
+    elif theme == "Twilight256":
         r, g, b = get_colormap(i, za, radius, shift, twilight256)
-    if theme == "Landscape256":
+    elif theme == "Twilights512":
+        r, g, b = get_colormap(i, za, radius, shift, twilights512)
+    elif theme == "Landscape256":
         r, g, b = get_colormap(i, za, radius, shift, landscape256)
+    elif theme == "HSV256":
+        r, g, b = get_colormap(i, za, radius, shift, hsv256)
 
     return r, g, b
 

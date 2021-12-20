@@ -16,17 +16,26 @@ from tkinter import Frame, Canvas, NW, BOTH, YES
 
 from PIL import ImageTk
 
-from .mandelbrot import (
+from pymandel.mandelbrot import (
     Mandelbrot,
     ptoc,
     ctop,
+    MODES,
+    VARIANTS,
     MANDELBROT,
     JULIA,
     TRICORN,
     BURNINGSHIP,
     STANDARD,
 )
-from .strings import COMPLETETXT, INPROGTXT, OPCANTXT, SAVEERROR, COORDTXT, FRMTXT
+from pymandel.strings import (
+    COMPLETETXT,
+    INPROGTXT,
+    OPCANTXT,
+    SAVEERROR,
+    COORDTXT,
+    FRMTXT,
+)
 
 ZOOM = 0
 SPIN = 1
@@ -110,9 +119,9 @@ class FractalFrame(Frame):
         else:
             self._setmode = MANDELBROT
         setvar = settings.get("setvar")
-        if setvar == "Tricorn":
+        if setvar == VARIANTS[TRICORN]:
             self._setvar = TRICORN
-        elif setvar == "BurningShip":
+        elif setvar == VARIANTS[BURNINGSHIP]:
             self._setvar = BURNINGSHIP
         else:
             self._setvar = STANDARD
@@ -235,7 +244,7 @@ class FractalFrame(Frame):
         """
 
         settype = self.__app.frm_settings.get_settings().get("settype")
-        if settype == JULIA:
+        if settype == MODES[JULIA]:
             miniter = 500
         else:
             miniter = 100
@@ -361,7 +370,7 @@ class FractalFrame(Frame):
             )
         if self._leftclickmode == GOJULIA:
             self.__app.frm_settings.update_settings(
-                settype="Julia",
+                settype=MODES[JULIA],
                 zxoffset=0,
                 zyoffset=0,
                 cxoffset=zx_coord,

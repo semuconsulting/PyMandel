@@ -1,1 +1,20 @@
-{"pymandel": {"filename": "/Users/stevensmith/Downloads/image5.png", "created": "Dec 20 2021 10:49:14 UTC", "settype": "Mandelbrot", "setvar": "Standard", "zoom": 7500000000.0, "zoominc": 2.0, "frames": 10, "escradius": 2.0, "exponent": 2, "maxiter": 11369, "zxoffset": -0.7491649396736062, "zyoffset": 0.071803172645556, "cxoffset": 0.0, "cyoffset": 0.0, "theme": "Colorcet_CET_C1", "shift": 0}}
+{
+    "pymandel": {
+        "filename": "/Users/stevensmith/Downloads/image5.png",
+        "created": "Dec 20 2021 10:49:14 UTC",
+        "settype": "Mandelbrot",
+        "setvar": "Standard",
+        "zoom": 7500000000.0,
+        "zoominc": 2.0,
+        "frames": 1,
+        "escradius": 2.0,
+        "exponent": 2,
+        "maxiter": 11369,
+        "zxoffset": -0.7491649396736062,
+        "zyoffset": 0.071803172645556,
+        "cxoffset": 0.0,
+        "cyoffset": 0.0,
+        "theme": "Colorcet_CET_C1",
+        "shift": 0
+    }
+}
