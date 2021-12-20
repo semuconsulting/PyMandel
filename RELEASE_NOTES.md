@@ -1,5 +1,16 @@
 # PyMandel Release Notes
 
+
+### RELEASE 1.0.6
+
+ENHANCEMENTS:
+
+Number of significant enhancements in this release:
+1. Set mode and variant categories separated, allowing Mandelbrot and Julia modes for each variation Standard, Burning Ship and Tricorn. Julias mapped from the Burning Ship's 'keel' are particularly attractive.
+2. Linear color interpolation added to colormap rendering, producing much smoother color gradients.
+3. Periodicity checking added to fractal calculation routine, dramatically improving rendering times for plots
+which feature substantial 'in set' (black) points.
+
 ### RELEASE 1.0.5
 
 FIXES:

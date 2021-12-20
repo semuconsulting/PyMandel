@@ -27,6 +27,7 @@ from colormaps.pastels256_colormap import pastels256
 from colormaps.tropical_colormap import tropical16, tropical256
 from colormaps.twilight256_colormap import twilight256
 
+PERIODCHECK = True  # Turn periodicity check optimisation on/off
 MANDELBROT = 0
 JULIA = 1
 STANDARD = 0
@@ -131,6 +132,8 @@ def fractal(
     """
 
     zx_coord, zy_coord = ptoc(width, height, x_axis, y_axis, zxoff, zyoff, zoom)
+    lastz = complex(0, 0)
+    per = 0
 
     z = complex(zx_coord, zy_coord)
     if settype == JULIA:  # Julia or variant
@@ -138,13 +141,25 @@ def fractal(
     else:  # Mandelbrot or variant
         c = z
 
-    for i in prange(maxiter):  # pylint: disable=not-an-iterable
+    for i in prange(maxiter + 1):  # pylint: disable=not-an-iterable
         # Iterate till the point c is outside the escape radius.
         if setvar == BURNINGSHIP:
             z = complex(abs(z.real), -abs(z.imag))
         if setvar == TRICORN:
             z = z.conjugate()
         z = z ** exponent + c
+
+        # Optimisation - periodicity check speeds
+        # up processing of points within set
+        if PERIODCHECK:
+            if z == lastz:
+                i = maxiter
+                break
+            per += 1
+            if per > 20:
+                per = 0
+                lastz = z
+        # ... end of optimisation
 
         if abs(z) > radius ** 2:
             break
@@ -187,9 +202,7 @@ def get_color(i, z, radius, maxiter, theme, shift):
     Numba-recognised data types and suitably decorated library functions).
     """
 
-    if (
-        i == maxiter - 1 and theme != "BasicGrayscale"
-    ):  # Inside Mandelbrot set, so black
+    if i == maxiter and theme != "BasicGrayscale":  # Inside Mandelbrot set, so black
         return 0, 0, 0
 
     if theme == "Default":
@@ -204,7 +217,7 @@ def get_color(i, z, radius, maxiter, theme, shift):
             s = 1.0
         r, g, b = hsv_to_rgb(h, s, 1.0)
     elif theme == "BasicGrayscale":
-        if i == maxiter - 1:
+        if i == maxiter:
             return 255, 255, 255
         r = 256 * i / maxiter
         b = g = r
