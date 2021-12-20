@@ -216,7 +216,9 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 *Settings:*
 
-* Set Type. Select from Mandelbrot, Julia, Tricorn or BurningShip. 
+* Set Type (Mode). Select from Mandelbrot or Julia.
+
+* Set Variant. Select from Standard, Tricorn or BurningShip.
 
 * Zoom level. The application currently uses standard 64-bit double precision and the maximum practical zoom level before floating-point errors cause pixelation is around 2 x 10<sup>13</sup> (20 million million).
 
@@ -232,7 +234,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Auto. If checked, maximum iterations will be automatically calculated according to the current zoom level.
 
-* Escape Radius. The escape radius (normally 2.0).
+* Escape Radius. The escape radius (defaults to 256).
 
 * Exponent. The iteration exponent (normally 2 for the classic Mandelbrot, but higher exponents yield other radially symmetric forms at the cost of increased rendering time).
 
