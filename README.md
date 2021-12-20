@@ -234,7 +234,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Auto. If checked, maximum iterations will be automatically calculated according to the current zoom level.
 
-* Escape Radius. The escape radius (defaults to 256).
+* Escape Radius. The escape radius (defaults to 2, but higher values can produce more expansive color gradients).
 
 * Exponent. The iteration exponent (normally 2 for the classic Mandelbrot, but higher exponents yield other radially symmetric forms at the cost of increased rendering time).
 
@@ -263,7 +263,7 @@ It can import settings from a previously saved metadata file using the import pa
 
 In addition to producing animated sequences, the command line utility can be used to create single images at a much higher pixel resolution than would be available via the GUI application on a standard monitor, though render time may be significant.
 
-** Suggestion ** Use the PyMandel GUI at moderate resolutions to explore fractals and find a location and configuration you like, save the image & metadata, and then use the `mandelcli.py` command line utility to import the metadata and create a much higher resolution version of the same image e.g for desktop wallpaper, printing or sharing.
+** Suggestion ** Use the PyMandel GUI at moderate resolutions to explore fractals and find a location and configuration you like, save the image & metadata, and then use the `pymandelcli` command line utility to import the metadata and create a much higher resolution version of the same image e.g for desktop wallpaper, printing or sharing.
 
 ### make_colormap.py
 
