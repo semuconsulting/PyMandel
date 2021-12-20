@@ -3,6 +3,7 @@
         "filename": "./zoom.png",
         "created": "Apr 10 2020 11:43:41 GMT Standard Time",
         "settype": "Mandelbrot",
+        "setvar": "Standard",
         "zoom": 0.75,
         "zoominc": 1.2,
         "frames": 178,

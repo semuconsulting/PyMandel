@@ -34,6 +34,7 @@ def help_text():
         "Mandelbrot Generator command line utility\n (c) SEMU Consulting - BSD 3 License\n\n",
         "The following keyword parameters can be passed (default):\n\n",
         "settype - 'Mandelbrot' or 'Julia' ('Mandelbrot')\n",
+        "setvar - 'Standard', 'BurningShip' or 'Tricorn' ('Standard')\n",
         "width - the width of the image(s) in pixels (1920)\n",
         "height - the height of the image(s) in pixels (1080)\n",
         "zoom - the initial zoom level (0.75)\n",
@@ -72,6 +73,7 @@ class BatchMandelbrot:
             self._settype = JULIA
         else:
             self._settype = MANDELBROT
+        self._setvar = kwargs.get("setvar", "Standard")
         self._width = int(kwargs.get("width", 1920))
         self._height = int(kwargs.get("height", 1080))
         self._radius = int(kwargs.get("escradius", 2))
@@ -134,6 +136,7 @@ class BatchMandelbrot:
 
             self.mandelbrot.plot_image(
                 self._settype,
+                self._setvar,
                 self._width,
                 self._height,
                 self._zoom,
@@ -176,6 +179,7 @@ class BatchMandelbrot:
         # Parse file
         settings = loads(jsondata)
         self._settype = settings[MODULENAME]["settype"]
+        self._setvar = settings[MODULENAME]["setvar"]
         self._zoom = float(settings[MODULENAME]["zoom"])
         self._radius = float(settings[MODULENAME]["escradius"])
         self._exponent = int(settings[MODULENAME]["exponent"])

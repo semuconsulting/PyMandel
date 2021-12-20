@@ -1,10 +1,18 @@
 # PyMandel
 
-PyMandel is a graphical Mandelbrot and Julia Set (*and variants*) rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
+PyMandel is a graphical Mandelbrot and Julia Set rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
 
-![MacOS screenshot](/images/MacOS_Screenshot.png)
+![MacOS screenshot](/images/burning_julia.png)
 
-The application plots fractals in an expandable window and allows the user to save the image as a .png file. It automatically saves the metadata (settings) associated with an image and provides a facility to import that metadata at a later date to reproduce it.
+The application plots fractals in an expandable window and allows the user to save the image as a .png file. It automatically saves the metadata (settings) associated with an image and provides a facility to import that metadata at a later date to reproduce it. It supports popular variants such as 'Burning Ship' and 'Tricorn'.
+
+![image0](/images/image0.png)
+![image1](/images/image1.png)
+![image2](/images/image2.png)
+
+![image3](/images/image3.png)
+![image5](/images/image5.png)
+![image6](/images/image6.png)
 
 It also includes both GUI and command line facilities to automatically create sequences of 'deep zoom' or 'spinning Julia Set' images which can be converted into animated GIF files or short videos using external open source tools (e.g. GIMP or OpenShot).
 
@@ -41,7 +49,8 @@ These 400 frame, 20 fps sequences were automatically generated using the GUI's S
 {"pymandel": {
     "filename": "C:/Users/myuser/Downloads/mandela.png", 
     "created": "Apr 08 2020 19:43:41 GMT Standard Time", 
-    "settype: "Mandelbrot",
+    "settype": "Mandelbrot",
+    "setvar": "Standard",
     "zoom": 7500000000.0,
     "zoominc": 1.2,
     "frames": 10,
@@ -70,6 +79,12 @@ On Windows and MacOS, pip, tkinter and the necessary imaging libraries are gener
 
 ```shell
 sudo apt install python3-pip python3-tk python3-pil python3-pil.imagetk
+```
+
+If you're installing Python 3 from source, you may also need to install the tkinter development library (refer to http://wiki.python.org/moin/TkInter for further details):
+
+```shell
+sudo apt install tk-devel
 ```
 
 ### 1. Install using pip
@@ -143,7 +158,7 @@ To install PyMandel manually, download and unzip this repository and type:
 python -m /path_to_folder/foldername/pymandel
 ```
 
-e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.3`, type: 
+e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.6`, type: 
 
 ```shell
 python -m /path_to_folder/PyMandel-1.0.3/pymandel
@@ -156,9 +171,8 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 **NB:**
 
 1. Numba is still officially in Beta.
+1. Python 3.10 is not yet fully supported.
 1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
-
-If desired, the application can be run as a pure Python3 application *without* Numba optimisation by simply removing the Numba `@jit()` decorators in the `mandelprot.py` module, in which case it will run on *any* platform that supports Python 3 / tkinter. Rendering times will, however, be significantly slower.
 
 ## How To Use
 
