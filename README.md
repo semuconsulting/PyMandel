@@ -290,7 +290,11 @@ The HoloViz [Colorcet color maps](https://github.com/holoviz/colorcet) library h
 
 semuadmin@semuconsulting.com
 
-`PyMandel` is a voluntary project. If you find it useful, feel free to buy me a coffee!
+`PyMandel` is maintained entirely by volunteers. If you find it useful, a small donation would be greatly appreciated!
 
 [![Donations](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?business=UL24WUA4XHNRY&no_recurring=1&item_name=Any+donations%2C+however+small%2C+will+help+further+the+development+of+these+projects.+Many+thanks%21&currency_code=GBP)
 
+
+You may also like this - an online [JavaScript version of a Fractal Generator](https://github.com/Algol-Variables/fractal-generator) with similar functionality:
+
+https://www.algolvariables.com/fractals/
