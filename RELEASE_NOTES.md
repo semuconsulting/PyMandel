@@ -1,5 +1,14 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.7
+
+CHANGES:
+
+1. Minimum versions of numba, numpy and Pillow updated.
+2. shields.io build status badge URL updated.
+
+No other functional changes.
+
 
 ### RELEASE 1.0.6
 

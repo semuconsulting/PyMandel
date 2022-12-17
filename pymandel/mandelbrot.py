@@ -150,7 +150,7 @@ def fractal(
             z = complex(abs(z.real), -abs(z.imag))
         if setvar == TRICORN:
             z = z.conjugate()
-        z = z ** exponent + c
+        z = z**exponent + c
 
         # Optimisation - periodicity check speeds
         # up processing of points within set
@@ -164,7 +164,7 @@ def fractal(
                 lastz = z
         # ... end of optimisation
 
-        if abs(z) > radius ** 2:
+        if abs(z) > radius**2:
             break
 
     return i, abs(z)  # i, za
@@ -309,7 +309,7 @@ def normalize(i, za, radius):
     smoother color gradients.
     """
 
-    lzn = log(za ** 2) / 2
+    lzn = log(za**2) / 2
     nu = log(lzn / log(radius)) / log(2)
     return i + 1 - nu
 
