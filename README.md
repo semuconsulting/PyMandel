@@ -172,7 +172,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 **NB:**
 
-1. Python 3.11 is not yet supported (see [Numba Docs](https://numba.readthedocs.io/en/stable/user/installing.html) for latest information.
+1. Python 3.11 is not yet supported (see [Numba Docs](https://numba.readthedocs.io/en/stable/user/installing.html) for latest information).
 1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
 ## How To Use
