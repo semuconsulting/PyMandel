@@ -291,7 +291,7 @@ The HoloViz [Colorcet color maps](https://github.com/holoviz/colorcet) library h
 
 semuadmin@semuconsulting.com
 
-`PyMandel` is maintained entirely by volunteers. If you find it useful, a small donation would be greatly appreciated!
+`PyMandel` is maintained entirely by unpaid volunteers. If you find it useful, a small donation would be greatly appreciated!
 
 [![Donations](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?business=UL24WUA4XHNRY&no_recurring=1&item_name=Any+donations%2C+however+small%2C+will+help+further+the+development+of+these+projects.+Many+thanks%21&currency_code=GBP)
 
