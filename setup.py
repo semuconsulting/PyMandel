@@ -52,7 +52,7 @@ setup(
         "Source Code": "https://github.com/semuconsulting/PyMandel",
     },
     classifiers=[
-        "License :: OSI Approved :: BSD License",
+        "License :: OSI Approved :: GPL3 License",
         "Development Status :: 5 - Production/Stable",
         "Environment :: MacOS X",
         "Environment :: X11 Applications",
