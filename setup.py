@@ -43,7 +43,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/semuconsulting/PyMandel",
-    license="BSD 3-Clause 'Modified' License",
+    license="GPL3 License",
     keywords="PyMandel fractal mandelbrot julia numba",
     platforms="Windows, MacOS, Linux",
     project_urls={
