@@ -14,4 +14,4 @@ Fixes # (issue)
 - [ ] I have made corresponding changes to the documentation.
 - [ ] My changes generate no new warnings.
 - [ ] Any dependent changes have been merged and published in downstream modules.
-- [ ] I understand and acknowledge that the code will be published under a GPL3 license.
+- [ ] I understand and acknowledge that the code will be published under a GPLv3 license.

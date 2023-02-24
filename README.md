@@ -280,7 +280,7 @@ Pass `-h` or `-help` for a list of available parameters.
 
 ![License](https://img.shields.io/github/license/semuconsulting/PyMandel.svg)
 
-BSD 3-Clause License
+GPLv3 License
 
 Copyright (c) 2020, SEMU Consulting
 All rights reserved.

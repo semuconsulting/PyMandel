@@ -17,7 +17,7 @@ as published by the Free Software Foundation, either version 3 of the License, o
 PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
 of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with Foobar. If not, see <https://www.gnu.org/licenses/>. 
+You should have received a copy of the GNU General Public License along with PyMandel. If not, see <https://www.gnu.org/licenses/>. 
 """
 
 from tkinter import (
@@ -830,7 +830,6 @@ class SettingsFrame(Frame):
 
         # Parse file
         try:
-
             settings = loads(jsondata).get(MODULENAME)
 
             # Set plot parameters

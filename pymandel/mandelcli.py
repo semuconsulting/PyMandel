@@ -22,7 +22,7 @@ as published by the Free Software Foundation, either version 3 of the License, o
 PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
 of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with Foobar. If not, see <https://www.gnu.org/licenses/>. 
+You should have received a copy of the GNU General Public License along with PyMandel. If not, see <https://www.gnu.org/licenses/>. 
 """
 
 from json import loads
@@ -141,7 +141,6 @@ class BatchMandelbrot:
         self.mandelbrot.cancel_plot()  # Cancel any in-flight plot
 
         for i in range(self._frames):
-
             self._currframe = i
             fqname = self._filepath + "/" + self._filename + "_" + str(i + 1).zfill(3)
             print("Creating file " + fqname + " ...")

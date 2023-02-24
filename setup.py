@@ -43,7 +43,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/semuconsulting/PyMandel",
-    license="GPL3 License",
+    license="GPLv3 License",
     keywords="PyMandel fractal mandelbrot julia numba",
     platforms="Windows, MacOS, Linux",
     project_urls={
@@ -52,7 +52,7 @@ setup(
         "Source Code": "https://github.com/semuconsulting/PyMandel",
     },
     classifiers=[
-        "License :: OSI Approved :: GPL3 License",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3),
         "Development Status :: 5 - Production/Stable",
         "Environment :: MacOS X",
         "Environment :: X11 Applications",

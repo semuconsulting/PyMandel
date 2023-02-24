@@ -12,7 +12,7 @@ GITHUBURL = "https://github.com/semuconsulting/PyMandel"
 CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
 MODULENAME = "pymandel"
 
-COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020\nBSD 2 Clause License. All Rights Reserved"
+COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020\nGPL3 License. All Rights Reserved"
 
 COLORCETTXT = "HoloViz Colorcet color maps available under\nCreative Commons Attribution (CC_BY) license"
 
