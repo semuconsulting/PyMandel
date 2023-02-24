@@ -13,7 +13,7 @@ CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
 MODULENAME = "pymandel"
 
 COPYRIGHTTXT = (
-    "\u00A9 SEMU Consulting 2020 \nGLP3 Licencia. Todos los derechos reservados"
+    "\u00A9 SEMU Consulting 2020 \nGPLv3 Licencia. Todos los derechos reservados"
 )
 
 COLORCETTXT = "Mapas de color HoloViz Colorcet disponibles bajo licencia de\nCreative Commons Attribution (CC_BY)"
