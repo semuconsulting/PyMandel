@@ -101,7 +101,6 @@ def plot(
     # For each pixel in array
     for x_axis in prange(width):  # pylint: disable=not-an-iterable
         for y_axis in prange(height):  # pylint: disable=not-an-iterable
-
             # Invoke core algorithm to calculate escape scalars
             i, za = fractal(
                 settype,

@@ -10,9 +10,9 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.unittestEnabled": true,
     "python.formatting.provider": "black",
-    "python.pythonPath": "python3.10",
+    "python.defaultInterpreterPath": "python3.10",
     "editor.formatOnSave": true,
-    "modulename": "pymandel",
-    "distname": "PyMandel",
-    "moduleversion": "1.0.7"
+    "modulename": "${workspaceFolderBasename}",
+    "distname": "${workspaceFolderBasename}",
+    "moduleversion": "1.0.8"
 }

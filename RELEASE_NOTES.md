@@ -1,5 +1,11 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.8
+
+CHANGES:
+
+1. License changed to GPLv3. No other functional changes.
+
 ### RELEASE 1.0.7
 
 CHANGES:
