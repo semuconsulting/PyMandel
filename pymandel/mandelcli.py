@@ -98,58 +98,57 @@ class BatchMandelbrot:
 
         start = time()
 
-        self.animate()
+        i = self.animate()
 
         end = time()
-        print(
-            "Sequence of "
-            + str(self._frames - self._startframe + 1)
-            + " frames took "
-            + str(round(end - start, 2))
-            + " secs"
-        )
+        print(f"Sequence of {i+1} frames took {round(end - start, 2)} secs")
 
-    def animate(self):
+    def animate(self) -> int:
         """
         Generates and saves a series of frames at a specific point and zoom increment.
         """
 
-        self.mandelbrot = Mandelbrot(self)
-        self.mandelbrot.cancel_plot()  # Cancel any in-flight plot
+        i = 0
+        try:
+            self.mandelbrot = Mandelbrot(self)
+            self.mandelbrot.cancel_plot()  # Cancel any in-flight plot
 
-        for i in range(self._frames):
-            self._currframe = i
-            fqname = self._filepath + "/" + self._filename + "_" + str(i + 1).zfill(3)
-            print("Creating file " + fqname + " ...")
+            for i in range(self._frames):
+                self._currframe = i
+                fqname = f"{self._filepath}/{self._filename}_{(i + 1):03d}"
+                print(f"Creating file {fqname} ...")
 
-            self.mandelbrot.plot_image(
-                self._settype,
-                self._setvar,
-                self._width,
-                self._height,
-                self._zoom,
-                self._radius,
-                self._exponent,
-                self._zx_off,
-                self._zy_off,
-                self._maxiter,
-                self._theme,
-                self._shift,
-                self._cx_off,
-                self._cy_off,
-            )
-            image = self.mandelbrot.get_image()
+                self.mandelbrot.plot_image(
+                    self._settype,
+                    self._setvar,
+                    self._width,
+                    self._height,
+                    self._zoom,
+                    self._radius,
+                    self._exponent,
+                    self._zx_off,
+                    self._zy_off,
+                    self._maxiter,
+                    self._theme,
+                    self._shift,
+                    self._cx_off,
+                    self._cy_off,
+                )
+                image = self.mandelbrot.get_image()
 
-            try:
-                image.save(fqname + ".png", format="png")
-            except OSError:
-                print("ERROR! File " + fqname + "could not be saved to specified path")
-                return
+                try:
+                    image.save(f"{fqname}.png", format="png")
+                except OSError:
+                    print(f"ERROR! File {fqname} could not be saved to specified path")
+                    return i
 
-            self._zoom = self._zoom * self._zoominc
-            self._maxiter = self.get_autoiter(self._zoom)
+                self._zoom = self._zoom * self._zoominc
+                self._maxiter = self.get_autoiter(self._zoom)
+        except KeyboardInterrupt:
+            print("Animation interrupted by user")
 
         print("Animation complete")
+        return i
 
     def import_metadata(self, filepath):
         """
