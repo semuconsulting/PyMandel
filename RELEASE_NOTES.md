@@ -1,5 +1,15 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.9
+
+FIXES:
+
+1. Fixed maxiter error when zooming using pymandelcli. Fixes [#3](https://github.com/semuconsulting/PyMandel/issues/3)
+
+CHANGES:
+
+1. CLI utilities `pymandelcli.py` and `make_colormap.py` updated to use standard `argparse` library. Arguments should now be passed in the format `pymandelcli --width 800 --height 600` rather than `pymandelcli width=800 height=600`. Type `pymandelcli -h` for help.
+
 ### RELEASE 1.0.8
 
 CHANGES:
