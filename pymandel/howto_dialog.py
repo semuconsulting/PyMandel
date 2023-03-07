@@ -42,8 +42,7 @@ class HowtoDialog:
         self._dialog = Toplevel()
         self._dialog.title = DLGHOWTO
         self._dialog.geometry(
-            "+%d+%d"
-            % (self.__master.winfo_rootx() + 50, self.__master.winfo_rooty() + 50)
+            f"+{self.__master.winfo_rootx() + 50}+{self.__master.winfo_rooty() + 50}"
         )
         self._dialog.attributes("-topmost", "true")
 

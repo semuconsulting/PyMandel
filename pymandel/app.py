@@ -129,11 +129,11 @@ class App:
         """
 
         if self._show_axes:
-            self.frm_fractal._show_axes = False
+            self.frm_fractal.show_axes = False
             self._show_axes = False
             self.menu.option_menu.entryconfig(7, label=MENUSHOWAX)
         else:
-            self.frm_fractal._show_axes = True
+            self.frm_fractal.show_axes = True
             self._show_axes = True
             self.menu.option_menu.entryconfig(7, label=MENUHIDEAX)
 

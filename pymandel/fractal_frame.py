@@ -79,7 +79,7 @@ class FractalFrame(Frame):
         self._setmode = MANDELBROT
         self._setvar = STANDARD
         self._leftclickmode = ZOOMIN
-        self._show_axes = False
+        self.show_axes = False
         self._zoom_rect = None
         self._x_start = None
         self._y_start = None
@@ -182,7 +182,7 @@ class FractalFrame(Frame):
             0, 0, image=self._fractal, state="normal", anchor=NW
         )
 
-        if self._show_axes:
+        if self.show_axes:
             self.axes(width, height)
         self.can_fractal.update()
 
@@ -410,16 +410,14 @@ class FractalFrame(Frame):
             self._leftclickmode = ZOOMOUT
             self.can_fractal.config(cursor="sizing")
 
-        if event.keysym == "Alt_L" or event.keysym == "Control_L":
+        if event.keysym in ("Alt_L", "Control_L"):
             self._leftclickmode = GOJULIA
             self._setmode = JULIA
             self.can_fractal.config(cursor="target")
 
         # Pressing Left or Right button in Julia mode will rotate the Julia Set clockwise
         # or anti-clockwise about its origin
-        if (
-            event.keysym == "Left" or event.keysym == "Right"
-        ) and self._setmode == JULIA:
+        if (event.keysym in ("Left", "Right")) and self._setmode == JULIA:
             if event.keysym == "Left":
                 self.rotate_julia(0.01)
             else:
@@ -571,7 +569,7 @@ class FractalFrame(Frame):
 
             self.plot()
 
-            if self._show_axes:
+            if self.show_axes:
                 self.axes(width, height)
             self.can_fractal.update()
 

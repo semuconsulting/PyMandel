@@ -151,6 +151,7 @@ def fractal(
     zx_coord, zy_coord = ptoc(width, height, x_axis, y_axis, zxoff, zyoff, zoom)
     lastz = complex(0, 0)
     per = 0
+    i = 0
 
     z = complex(zx_coord, zy_coord)
     if settype == JULIA:  # Julia or variant

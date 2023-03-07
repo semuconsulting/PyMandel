@@ -582,7 +582,7 @@ class SettingsFrame(Frame):
         Validate if entry represents a valid filename using a regexp.
         """
 
-        return match("^[\w\-. ]+$", flag) and flag != ""
+        return match(r"^[\w\-. ]+$", flag) and flag != ""
 
     def reset(self):
         """
@@ -801,7 +801,7 @@ class SettingsFrame(Frame):
         }
 
         try:
-            with open(filename, "w") as outfile:
+            with open(filename, "w", encoding="utf-8") as outfile:
                 dump(jsondata, outfile)
         except OSError:
             self.__app.set_status(METASAVEERROR, "red")
@@ -825,7 +825,7 @@ class SettingsFrame(Frame):
             )
             if filepath == "":  # User cancelled
                 return
-            with open(filepath, "r") as infile:
+            with open(filepath, "r", encoding="utf-8") as infile:
                 jsondata = infile.read()
         except OSError:
             self.__app.set_status(OPENFILEERROR, "red")
