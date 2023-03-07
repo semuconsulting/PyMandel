@@ -16,13 +16,16 @@ Created on 29 Mar 2020
 
 This file is part of PyMandel.
 
-PyMandel is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+PyMandel is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
 
-PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with PyMandel. If not, see <https://www.gnu.org/licenses/>. 
+You should have received a copy of the GNU General Public License along with PyMandel.
+If not, see <https://www.gnu.org/licenses/>.
 """
 # pylint: disable=invalid-name
 
@@ -148,6 +151,7 @@ def fractal(
     zx_coord, zy_coord = ptoc(width, height, x_axis, y_axis, zxoff, zyoff, zoom)
     lastz = complex(0, 0)
     per = 0
+    i = 0
 
     z = complex(zx_coord, zy_coord)
     if settype == JULIA:  # Julia or variant

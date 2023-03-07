@@ -4,7 +4,7 @@ Command line utility to create numpy color map arrays suitable for use by PyMand
 from image files containing suitable color gradients e.g. created using GIMP's gradient tool.
 It currently only handles RGB or RGBA formats.
 
-make_colormap mapname=mymap input=mymap.png output=mymap_colormap.py levels=256
+make_colormap --mapname mymap --input mymap.png --output mymap_colormap.py --levels 256
 
 Created on 24 Apr 2020
 
@@ -14,8 +14,13 @@ Created on 24 Apr 2020
 """
 
 import sys
-
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, SUPPRESS
 from PIL import Image
+from pymandel._version import __version__ as VERSION
+
+EPILOG = (
+    "© 2021 SEMU Consulting GPLv3 license - https://github.com/semuconsulting/PyMandel/"
+)
 
 
 def make_colormap(**kwargs):
@@ -45,7 +50,7 @@ def make_colormap(**kwargs):
         levels = image.width
     outfile = kwargs.get("output", mapname + str(levels) + "_colormap.py")
 
-    file = open(outfile, "a")
+    file = open(outfile, "a", encoding="utf-8")
     file.write("from numpy import array\n\n")
     file.write(
         "#****************************************************************************************\n"
@@ -74,19 +79,22 @@ def make_colormap(**kwargs):
     print(str(levels) + "-level colormap file " + outfile + " created")
 
 
-def main(args=None):
-    """ CLI entry point. """
+def main():
+    """CLI entry point."""
 
-    if len(sys.argv) > 1:
-        if sys.argv[1] in {"-h", "--h", "help", "-help", "--help", "-H"}:
-            print(
-                " make_colormap.py is a simple command line utility to create",
-                "a numpy RGB colormap suitable for importing into PyMandel.\n\n",
-                "Usage: make_colormap mapname=mymap input=mymap.png output=mymap_colormap.py levels=256",
-            )
-            sys.exit()
+    arp = ArgumentParser(
+        epilog=EPILOG,
+        formatter_class=ArgumentDefaultsHelpFormatter,
+        argument_default=SUPPRESS,
+    )
+    arp.add_argument("-V", "--version", action="version", version="%(prog)s " + VERSION)
+    arp.add_argument("--mapname", help="Map name", default="mymap")
+    arp.add_argument("--input", help="Input image filename", default="mymap.png")
+    arp.add_argument("--levels", help="Color levels", type=int, default=256)
+    arp.add_argument("--output", help="Output filename", default="mymap_colormap.py")
 
-    make_colormap(**dict(arg.split("=") for arg in sys.argv[1:]))
+    kwargs = vars(arp.parse_args())
+    make_colormap(**kwargs)
 
 
 if __name__ == "__main__":

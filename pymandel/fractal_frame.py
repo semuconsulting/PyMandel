@@ -11,13 +11,16 @@ Created on 3 Apr 2020
 
 This file is part of PyMandel.
 
-PyMandel is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+PyMandel is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
 
-PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with PyMandel. If not, see <https://www.gnu.org/licenses/>. 
+You should have received a copy of the GNU General Public License along with PyMandel.
+If not, see <https://www.gnu.org/licenses/>.
 """
 
 from cmath import polar
@@ -76,7 +79,7 @@ class FractalFrame(Frame):
         self._setmode = MANDELBROT
         self._setvar = STANDARD
         self._leftclickmode = ZOOMIN
-        self._show_axes = False
+        self.show_axes = False
         self._zoom_rect = None
         self._x_start = None
         self._y_start = None
@@ -179,7 +182,7 @@ class FractalFrame(Frame):
             0, 0, image=self._fractal, state="normal", anchor=NW
         )
 
-        if self._show_axes:
+        if self.show_axes:
             self.axes(width, height)
         self.can_fractal.update()
 
@@ -407,16 +410,14 @@ class FractalFrame(Frame):
             self._leftclickmode = ZOOMOUT
             self.can_fractal.config(cursor="sizing")
 
-        if event.keysym == "Alt_L" or event.keysym == "Control_L":
+        if event.keysym in ("Alt_L", "Control_L"):
             self._leftclickmode = GOJULIA
             self._setmode = JULIA
             self.can_fractal.config(cursor="target")
 
         # Pressing Left or Right button in Julia mode will rotate the Julia Set clockwise
         # or anti-clockwise about its origin
-        if (
-            event.keysym == "Left" or event.keysym == "Right"
-        ) and self._setmode == JULIA:
+        if (event.keysym in ("Left", "Right")) and self._setmode == JULIA:
             if event.keysym == "Left":
                 self.rotate_julia(0.01)
             else:
@@ -568,7 +569,7 @@ class FractalFrame(Frame):
 
             self.plot()
 
-            if self._show_axes:
+            if self.show_axes:
                 self.axes(width, height)
             self.can_fractal.update()
 

@@ -16,15 +16,19 @@ Created on 29 Mar 2020
 
 This file is part of PyMandel.
 
-PyMandel is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+PyMandel is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
 
-PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with PyMandel. If not, see <https://www.gnu.org/licenses/>. 
+You should have received a copy of the GNU General Public License along with PyMandel.
+If not, see <https://www.gnu.org/licenses/>.
 """
 
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, SUPPRESS
 from json import loads
 from math import log, sqrt
 import sys
@@ -32,41 +36,14 @@ from time import time
 
 from pymandel.mandelbrot import Mandelbrot, MANDELBROT, JULIA
 from pymandel.strings import MODULENAME
+from pymandel._version import __version__ as VERSION
 
 sys.path.append("pymandel")
 sys.path.append("colormaps")
 
-
-def help_text():
-    """
-    Print help text
-    """
-
-    print(
-        "Mandelbrot Generator command line utility\n (c) SEMU Consulting - BSD 3 License\n\n",
-        "The following keyword parameters can be passed (default):\n\n",
-        "settype - 'Mandelbrot' or 'Julia' ('Mandelbrot')\n",
-        "setvar - 'Standard', 'BurningShip' or 'Tricorn' ('Standard')\n",
-        "width - the width of the image(s) in pixels (1920)\n",
-        "height - the height of the image(s) in pixels (1080)\n",
-        "zoom - the initial zoom level (0.75)\n",
-        "maxiter - the initial maximum iterations (256)\n",
-        "zxoffset - the x (Re) axis offset (-0.5)\n",
-        "zyoffset - the y (Im) axis offset (0.0)\n",
-        "cxoffset - the cx (Re) axis offset for Julia sets (0.0)\n",
-        "cyoffset - the cy (Im) axis offset for Julia sets (0.0)\n",
-        "escradius - the escape radius (2.0)\n",
-        "exponent - the iteration exponent (2)\n",
-        "frames - the number of frames to create (1)\n",
-        "startframe - the starting frame number (1)\n",
-        "zoominc - the zoom increment between frames (1.2)\n",
-        "theme - the color rendering theme ('Default')\n",
-        "shift - the color theme shift (0)\n",
-        "filepath - the path for saved files ($cwd)\n",
-        "filename - the name prefix for saved files ('frame')\n\n",
-        "import - the full path to a previously saved metadata file ('')\n\n",
-        "e.g. pymandelcli width=1920 height=1080 import='test.json'",
-    )
+EPILOG = (
+    "© 2021 SEMU Consulting GPLv3 license - https://github.com/semuconsulting/PyMandel/"
+)
 
 
 class BatchMandelbrot:
@@ -121,58 +98,57 @@ class BatchMandelbrot:
 
         start = time()
 
-        self.animate()
+        i = self.animate()
 
         end = time()
-        print(
-            "Sequence of "
-            + str(self._frames - self._startframe + 1)
-            + " frames took "
-            + str(round(end - start, 2))
-            + " secs"
-        )
+        print(f"Sequence of {i+1} frames took {round(end - start, 2)} secs")
 
-    def animate(self):
+    def animate(self) -> int:
         """
         Generates and saves a series of frames at a specific point and zoom increment.
         """
 
-        self.mandelbrot = Mandelbrot(self)
-        self.mandelbrot.cancel_plot()  # Cancel any in-flight plot
+        i = 0
+        try:
+            self.mandelbrot = Mandelbrot(self)
+            self.mandelbrot.cancel_plot()  # Cancel any in-flight plot
 
-        for i in range(self._frames):
-            self._currframe = i
-            fqname = self._filepath + "/" + self._filename + "_" + str(i + 1).zfill(3)
-            print("Creating file " + fqname + " ...")
+            for i in range(self._frames):
+                self._currframe = i
+                fqname = f"{self._filepath}/{self._filename}_{(i + 1):03d}"
+                print(f"Creating file {fqname} ...")
 
-            self.mandelbrot.plot_image(
-                self._settype,
-                self._setvar,
-                self._width,
-                self._height,
-                self._zoom,
-                self._radius,
-                self._exponent,
-                self._zx_off,
-                self._zy_off,
-                self._maxiter,
-                self._theme,
-                self._shift,
-                self._cx_off,
-                self._cy_off,
-            )
-            image = self.mandelbrot.get_image()
+                self.mandelbrot.plot_image(
+                    self._settype,
+                    self._setvar,
+                    self._width,
+                    self._height,
+                    self._zoom,
+                    self._radius,
+                    self._exponent,
+                    self._zx_off,
+                    self._zy_off,
+                    self._maxiter,
+                    self._theme,
+                    self._shift,
+                    self._cx_off,
+                    self._cy_off,
+                )
+                image = self.mandelbrot.get_image()
 
-            try:
-                image.save(fqname + ".png", format="png")
-            except OSError:
-                print("ERROR! File " + fqname + "could not be saved to specified path")
-                return
+                try:
+                    image.save(f"{fqname}.png", format="png")
+                except OSError:
+                    print(f"ERROR! File {fqname} could not be saved to specified path")
+                    return i
 
-            self._zoom = self._zoom * self._zoominc
-            self._maxiter = int(abs(1000 * log(1 / sqrt(self._zoom))))
+                self._zoom = self._zoom * self._zoominc
+                self._maxiter = self.get_autoiter(self._zoom)
+        except KeyboardInterrupt:
+            print("Animation interrupted by user")
 
         print("Animation complete")
+        return i
 
     def import_metadata(self, filepath):
         """
@@ -181,7 +157,7 @@ class BatchMandelbrot:
 
         # Read file
         try:
-            with open(filepath, "r") as infile:
+            with open(filepath, "r", encoding="utf-8") as infile:
                 jsondata = infile.read()
         except OSError:
             print("ERROR! Unable to read import file")
@@ -205,16 +181,75 @@ class BatchMandelbrot:
 
         return True
 
+    def get_autoiter(self, zoom):
+        """
+        Arbitrary algorithm to derive 'optimal' max iterations from zoom level.
+        """
 
-def main(args=None):
+        if self._settype == JULIA:
+            miniter = 500
+        else:
+            miniter = 100
+        maxiter = max(miniter, int(abs(1000 * log(1 / sqrt(zoom)))))
+        return maxiter
+
+
+def main():
     """Entry point for CLI."""
 
-    if len(sys.argv) > 1:
-        if sys.argv[1] in {"-h", "--h", "help", "-help", "--help", "-H"}:
-            help_text()
-            sys.exit()
+    arp = ArgumentParser(
+        epilog=EPILOG,
+        formatter_class=ArgumentDefaultsHelpFormatter,
+        argument_default=SUPPRESS,
+    )
+    arp.add_argument("-V", "--version", action="version", version="%(prog)s " + VERSION)
+    arp.add_argument(
+        "--settype",
+        help="Set Type",
+        choices=["Mandelbrot", "Julia"],
+        default="Mandelbrot",
+    )
+    arp.add_argument(
+        "--setvar",
+        help="Set Variant",
+        choices=["Standard", "BurningShip", "Tricorn"],
+        default="Standard",
+    )
+    arp.add_argument(
+        "--width", help="Width of the image(s) in pixels", type=int, default=1920
+    )
+    arp.add_argument(
+        "--height", help="Height of the image(s) in pixels", type=int, default=1080
+    )
+    arp.add_argument("--zoom", help="Initial zoom level", type=float, default=0.75)
+    arp.add_argument(
+        "--maxiter", help="Initial maximum iterations", type=int, default=256
+    )
+    arp.add_argument("--zxoffset", help="X (Re) axis offset", type=float, default=-0.5)
+    arp.add_argument("--zyoffset", help="Y (Im) axis offset", type=float, default=0.0)
+    arp.add_argument(
+        "--cxoffset", help="CX (Re) axis offset for Julia sets", type=float, default=0.0
+    )
+    arp.add_argument(
+        "--cyoffset", help="CY (Im) axis offset for Julia sets", type=float, default=0.0
+    )
+    arp.add_argument("--escradius", help="Escape radius", type=float, default=2.0)
+    arp.add_argument("--exponent", help="Iteration exponent", type=int, default=2)
+    arp.add_argument("--frames", help="Number of frames to create", type=int, default=1)
+    arp.add_argument("--startframe", help="Starting frame number", type=int, default=1)
+    arp.add_argument(
+        "--zoominc", help="Zoom increment between frames", type=float, default=1.2
+    )
+    arp.add_argument("--theme", help="Color rendering theme", default="Default")
+    arp.add_argument("--shift", help="Color theme shift", type=int, default=0)
+    arp.add_argument("--filepath", help="Path for saved files", default=".")
+    arp.add_argument("--filename", help="Name prefix for saved files", default="frame")
+    arp.add_argument(
+        "--import", help="Fully qualified path to a previously saved metadata file"
+    )
 
-    BatchMandelbrot(**dict(arg.split("=") for arg in sys.argv[1:]))
+    kwargs = vars(arp.parse_args())
+    BatchMandelbrot(**kwargs)
 
 
 if __name__ == "__main__":

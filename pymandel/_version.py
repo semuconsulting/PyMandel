@@ -1,1 +1,5 @@
-__version__ = "1.0.8"
+"""
+Version for PyMandel Application.
+"""
+
+__version__ = "1.0.9"

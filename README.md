@@ -256,11 +256,11 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 `pymandelcli` is a command line equivalent to the GUI's Animate function. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
 
 ```shell
-pymandelcli width=480 height=480 frames=20
+pymandelcli --width 480 --height 480 --frames 20
 ``` 
-This will produce a sequence of 20 .png images. Pass `-h` or `-help` for a list of available parameters.
+This will produce a sequence of 20 .png images. Type `pymandelcli -h` for a list of available parameters.
 
-It can import settings from a previously saved metadata file using the import parameter e.g. `import=filename.json`.
+It can import settings from a previously saved metadata file using the import parameter e.g. `--import filename.json`.
 
 In addition to producing animated sequences, the command line utility can be used to create single images at a much higher pixel resolution than would be available via the GUI application on a standard monitor, though render time may be significant.
 

@@ -11,13 +11,16 @@ Created on 3 Apr 2020
 
 This file is part of PyMandel.
 
-PyMandel is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+PyMandel is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3
+of the License, or (at your option) any later version.
 
-PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
-of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+PyMandel is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with PyMandel. If not, see <https://www.gnu.org/licenses/>. 
+You should have received a copy of the GNU General Public License along with PyMandel.
+If not, see <https://www.gnu.org/licenses/>.
 """
 
 from tkinter import (
@@ -579,7 +582,7 @@ class SettingsFrame(Frame):
         Validate if entry represents a valid filename using a regexp.
         """
 
-        return match("^[\w\-. ]+$", flag) and flag != ""
+        return match(r"^[\w\-. ]+$", flag) and flag != ""
 
     def reset(self):
         """
@@ -798,7 +801,7 @@ class SettingsFrame(Frame):
         }
 
         try:
-            with open(filename, "w") as outfile:
+            with open(filename, "w", encoding="utf-8") as outfile:
                 dump(jsondata, outfile)
         except OSError:
             self.__app.set_status(METASAVEERROR, "red")
@@ -822,7 +825,7 @@ class SettingsFrame(Frame):
             )
             if filepath == "":  # User cancelled
                 return
-            with open(filepath, "r") as infile:
+            with open(filepath, "r", encoding="utf-8") as infile:
                 jsondata = infile.read()
         except OSError:
             self.__app.set_status(OPENFILEERROR, "red")
