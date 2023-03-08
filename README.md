@@ -298,4 +298,4 @@ semuadmin@semuconsulting.com
 
 You may also like this - an online [JavaScript version of a Fractal Generator](https://github.com/Algol-Variables/fractal-generator) with similar functionality:
 
-https://www.algolvariables.com/fractals/
+https://www.algolvariables.com/fractals/index.html
