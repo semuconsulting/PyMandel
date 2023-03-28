@@ -353,71 +353,65 @@ class SettingsFrame(Frame):
         """
 
         # Position all widgets in their parent frames
-        self.btn_plot.grid(
-            column=0, row=1, ipadx=3, ipady=3, sticky=(W), padx=3, pady=3
-        )
+        self.btn_plot.grid(column=0, row=1, ipadx=3, ipady=3, sticky=W, padx=3, pady=3)
         self.btn_cancel.grid(
-            column=1, row=1, ipadx=3, ipady=3, sticky=(W), padx=3, pady=3
+            column=1, row=1, ipadx=3, ipady=3, sticky=W, padx=3, pady=3
         )
-        self.btn_reset.grid(
-            column=2, row=1, ipadx=3, ipady=3, sticky=(W), padx=3, pady=3
-        )
+        self.btn_reset.grid(column=2, row=1, ipadx=3, ipady=3, sticky=W, padx=3, pady=3)
         self.ent_save.grid(column=0, row=2, columnspan=2, sticky=(W, E), padx=3, pady=3)
-        self.btn_save.grid(
-            column=2, row=2, ipadx=3, ipady=3, sticky=(W), padx=3, pady=3
-        )
-        self.lbl_auto.grid(column=0, row=3, sticky=(W))
+        self.btn_save.grid(column=2, row=2, ipadx=3, ipady=3, sticky=W, padx=3, pady=3)
+        self.lbl_auto.grid(column=0, row=3, sticky=W)
         self.btn_autozoom.grid(
-            column=1, row=3, ipadx=3, ipady=3, sticky=(W), padx=3, pady=3
+            column=1, row=3, ipadx=3, ipady=3, sticky=W, padx=3, pady=3
         )
         self.btn_autospin.grid(
-            column=2, row=3, ipadx=3, ipady=3, sticky=(W), padx=3, pady=3
+            column=2, row=3, ipadx=3, ipady=3, sticky=W, padx=3, pady=3
         )
-        self.lbl_frames.grid(column=0, row=4, sticky=(W))
-        self.ent_frames.grid(column=1, row=4, sticky=(W), padx=3, pady=3)
-        self.chk_autosave.grid(column=2, row=4, sticky=(W), padx=3, pady=3)
+        self.lbl_frames.grid(column=0, row=4, sticky=W)
+        self.ent_frames.grid(column=1, row=4, sticky=W, padx=3, pady=3)
+        self.chk_autosave.grid(column=2, row=4, sticky=W, padx=3, pady=3)
         self.sep_1.grid(column=0, row=5, columnspan=3, pady=5, sticky=(W, E))
-        self.lbl_settype.grid(column=0, row=6, sticky=(W))
+        self.lbl_settype.grid(column=0, row=6, sticky=W)
         self.spn_settype.grid(
             column=1, row=6, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_setvar.grid(column=0, row=7, sticky=(W))
+        self.lbl_setvar.grid(column=0, row=7, sticky=W)
         self.spn_setvar.grid(
             column=1, row=7, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_zoom.grid(column=0, row=8, sticky=(W))
+        self.lbl_zoom.grid(column=0, row=8, sticky=W)
         self.ent_zoom.grid(column=1, row=8, columnspan=2, sticky=(W, E), padx=3, pady=3)
-        self.lbl_zoominc.grid(column=0, row=9, sticky=(W))
-        self.ent_zoominc.grid(column=1, row=9, sticky=(W), padx=3, pady=3)
-        self.lbl_zx_off.grid(column=0, row=10, sticky=(W))
+        self.lbl_zoominc.grid(column=0, row=9, sticky=W)
+        self.ent_zoominc.grid(column=1, row=9, sticky=W, padx=3, pady=3)
+        self.lbl_zx_off.grid(column=0, row=10, sticky=W)
         self.ent_zx_off.grid(
             column=1, row=10, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_zy_off.grid(column=0, row=11, sticky=(W))
+        self.lbl_zy_off.grid(column=0, row=11, sticky=W)
         self.ent_zy_off.grid(
             column=1, row=11, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_cx_off.grid(column=0, row=12, sticky=(W))
+        self.lbl_cx_off.grid(column=0, row=12, sticky=W)
         self.ent_cx_off.grid(
             column=1, row=12, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_cy_off.grid(column=0, row=13, sticky=(W))
+        self.lbl_cy_off.grid(column=0, row=13, sticky=W)
         self.ent_cy_off.grid(
             column=1, row=13, columnspan=2, sticky=(W, E), padx=3, pady=3
         )
-        self.lbl_niter.grid(column=0, row=14, sticky=(W))
-        self.ent_maxiter.grid(column=1, row=14, sticky=(W), padx=3, pady=3)
-        self.chk_autoiter.grid(column=2, row=14, sticky=(W), padx=3, pady=3)
-        self.lbl_radius.grid(column=0, row=15, sticky=(W))
-        self.ent_radius.grid(column=1, row=15, sticky=(W), padx=3, pady=3)
-        self.lbl_exp.grid(column=0, row=16, sticky=(W))
-        self.ent_exp.grid(column=1, row=16, sticky=(W), padx=3, pady=3)
-        self.lbl_theme.grid(column=0, row=17, sticky=(W))
+        self.lbl_niter.grid(column=0, row=14, sticky=W)
+        self.ent_maxiter.grid(column=1, row=14, sticky=W, padx=3, pady=3)
+        self.chk_autoiter.grid(column=2, row=14, sticky=W, padx=3, pady=3)
+        self.lbl_radius.grid(column=0, row=15, sticky=W)
+        self.ent_radius.grid(column=1, row=15, sticky=W, padx=3, pady=3)
+        self.lbl_exp.grid(column=0, row=16, sticky=W)
+        self.ent_exp.grid(column=1, row=16, sticky=W, padx=3, pady=3)
+        self.lbl_theme.grid(column=0, row=17, sticky=W)
         self.lbx_theme.grid(
             column=1, row=17, padx=3, pady=3, columnspan=2, sticky=(N, S, W, E)
         )
         self.scrollbar.grid(column=2, row=17, sticky=(N, S, E))
-        self.lbl_shift.grid(column=0, row=18, sticky=(W))
+        self.lbl_shift.grid(column=0, row=18, sticky=W)
         self.scl_shift.grid(
             column=1, row=18, columnspan=2, padx=3, pady=3, sticky=(W, E)
         )
