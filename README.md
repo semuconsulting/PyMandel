@@ -2,17 +2,17 @@
 
 PyMandel is a graphical Mandelbrot and Julia Set rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
 
-![MacOS screenshot](/images/burning_julia.png)
+![MacOS screenshot](https://github.com/semuconsulting/PyMandel/blob/master/images/burning_julia.png?raw=true)
 
 The application plots fractals in an expandable window and allows the user to save the image as a .png file. It automatically saves the metadata (settings) associated with an image and provides a facility to import that metadata at a later date to reproduce it. It supports popular variants such as 'Burning Ship' and 'Tricorn'.
 
-![image0](/images/image0.png)
-![image1](/images/image1.png)
-![image2](/images/image2.png)
+![image0](https://github.com/semuconsulting/PyMandel/blob/master/images/image0.png?raw=true)
+![image1](https://github.com/semuconsulting/PyMandel/blob/master/images/image1.png?raw=true)
+![image2](https://github.com/semuconsulting/PyMandel/blob/master/images/image2.png?raw=true)
 
-![image3](/images/image3.png)
-![image5](/images/image5.png)
-![image6](/images/image6.png)
+![image3](https://github.com/semuconsulting/PyMandel/blob/master/images/image3.png?raw=true)
+![image5](https://github.com/semuconsulting/PyMandel/blob/master/images/image5.png?raw=true)
+![image6](https://github.com/semuconsulting/PyMandel/blob/master/images/image6.png?raw=true)
 
 It also includes both GUI and command line facilities to automatically create sequences of 'deep zoom' or 'spinning Julia Set' images which can be converted into animated GIF files or short videos using external open source tools (e.g. GIMP or OpenShot).
 
@@ -34,14 +34,14 @@ This 178 frame, 10 fps sequence was automatically generated using the `pymandelc
 
 `pymandelcli filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
 
-![Zoom Animation](/images/zoom.gif)
+![Zoom Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/zoom.gif?raw=true)
 
 #### Animated Julia Spin sequences
 
 These 400 frame, 20 fps sequences were automatically generated using the GUI's SPIN function and converted into animated GIF files using GIMP. The second sequence illustrates a Julia Set with exponent = 3.
 
 
-![Spin Animation](/images/juliaspin.gif) ![Spin Animation Exponent = 3](/images/juliaspin_exp3.gif)
+![Spin Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/juliaspin.gif?raw=true) ![Spin Animation Exponent = 3](https://github.com/semuconsulting/PyMandel/blob/master/images/juliaspin_exp3.gif?raw=true)
 
 #### Sample Metadata
 
@@ -201,7 +201,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Save button - save the currently displayed image as a PNG file. You will be prompted for a directory on first use. A corresponding metadata json file will also be saved containing the parameters that were used to create the image, allowing it to be reproduced at a later date.
 
-* File..Import Settings - import previously saved metadata. You will be prompted to select a json file to import. Some sample *.json files can be found in the [Images](https://github.com/semuconsulting/PyMandel/tree/master/images) folder
+* File..Import Settings - import previously saved metadata. You will be prompted to select a json file to import. Some sample *.json files can be found in the [Images](https://github.com/semuconsulting/PyMandel/tree/masterhttps://github.com/semuconsulting/PyMandel/blob/master/images) folder
 
 * Zoom button - automatically create and save a sequence of images at increasing zoom levels, which can be converted externally into an animation (e.g. GIF or short video).
 

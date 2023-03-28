@@ -1,5 +1,5 @@
 include README.md
 include LICENSE
-include pymandel/resources/*.*
+include src/pymandel/resources/*.*
 global-exclude __pycache__
 global-exclude *.pyc
