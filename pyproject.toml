@@ -11,7 +11,7 @@ maintainers = [
   {name = "semuadmin", email = "semuadmin@semuconsulting.com"}
 ]
 description = "Fractal generation GUI application"
-version = "1.0.9"
+version = "1.0.10"
 license = {file = "LICENSE"}
 readme = "README.md"
 requires-python = ">=3.7"

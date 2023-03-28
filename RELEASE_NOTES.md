@@ -1,5 +1,11 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.10
+
+ENHANCEMENTS:
+
+1. Update project structure and test framework to use pyproject.toml (instead of setup.py) with pytest and pytest-cov. No functional changes to application.
+
 ### RELEASE 1.0.9
 
 FIXES:
