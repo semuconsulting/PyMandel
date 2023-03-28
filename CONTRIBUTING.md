@@ -14,7 +14,7 @@ Please help us keep our issue list small by adding fixes: #{$ISSUE_NO} to the co
 
 ## Coding conventions
 
-* This is open source software. We endeavour to make the code as transparent as possible.
+* This is open source software. We endeavour to make the code as transparent as possible. Favour clarity over brevity.
 * We use Visual Studio Code for development and testing, but you are at liberty to use your preferred IDE.
 * We use [pylint](https://pypi.org/project/pylint/) (>=2.6.0) for code analysis.
 * We use [black](https://pypi.org/project/black/) (>= 20.8) for code formatting and ask that you do the same.
@@ -23,14 +23,14 @@ performance enhancements over native interpreted Python, but does necessitate ce
 
 ## Testing
 
-We use python's native unittest framework for local unit testing, complemented by the Github Actions automated build and testing workflow. Code coverage is extremely limited at present so we welcome improvements.
+We use python's native pytest framework for local unit testing, complemented by the Github Actions automated build and testing workflow. Code coverage is extremely limited at present so we welcome improvements.
 
-Please write unittest examples for new code you create and add them to the /tests folder following the naming convention test_*.py.
+Please write pytest examples for new code you create and add them to the /tests folder following the naming convention test_*.py.
 
 We test on the following platforms:
-* Windows 10
-* MacOS (Big Sur)
-* Linux (Ubuntu Bionic)
+* Windows 11
+* MacOS (Ventura)
+* Linux (Ubuntu Jammy 22.04 LTS)
 * Raspberry Pi OS (32-bit)
 
 ## Submitting changes
