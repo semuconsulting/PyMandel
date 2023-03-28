@@ -679,18 +679,17 @@ License:                     GNU GENERAL PUBLIC LICENSE
         Public License instead of this License.  But first, please read
         <https://www.gnu.org/licenses/why-not-lgpl.html>.
         
-Project-URL: homepage, https://www.semuconsulting.com/pygpsclientgui/
-Project-URL: documentation, https://www.semuconsulting.com/pyubx2/
-Project-URL: repository, https://github.com/semuconsulting/pyubx2
-Project-URL: changelog, https://github.com/semuconsulting/pyubx2/blob/master/RELEASE_NOTES.md
+Project-URL: homepage, https://github.com/semuconsulting/pymandel
+Project-URL: documentation, https://www.semuconsulting.com/pymandel/
+Project-URL: repository, https://github.com/semuconsulting/pymandel
+Project-URL: changelog, https://github.com/semuconsulting/pymandel/blob/master/RELEASE_NOTES.md
+Keywords: PyMandel,fractal,Mandelbrot,Julia,Burning Ship,Tricorn,numba
 Classifier: Operating System :: OS Independent
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: MacOS X
 Classifier: Environment :: Win32 (MS Windows)
 Classifier: Environment :: X11 Applications
 Classifier: Environment :: Console
-Classifier: Intended Audience :: Developers
-Classifier: Intended Audience :: Science/Research
 Classifier: Intended Audience :: End Users/Desktop
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3.7
@@ -700,7 +699,9 @@ Classifier: Programming Language :: Python :: 3.10
 Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 Classifier: Topic :: Utilities
 Classifier: Topic :: Software Development :: Libraries :: Python Modules
-Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Education
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
 Provides-Extra: test

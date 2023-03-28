@@ -13,6 +13,15 @@ maintainers = [
 description = "Fractal generation GUI application"
 version = "1.0.10"
 license = {file = "LICENSE"}
+keywords= [
+    "PyMandel",
+    "fractal",
+    "Mandelbrot",
+    "Julia",
+    "Burning Ship",
+    "Tricorn",
+    "numba",
+    ]
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -22,8 +31,6 @@ classifiers = [
     "Environment :: Win32 (MS Windows)",
     "Environment :: X11 Applications",
     "Environment :: Console",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
     "Intended Audience :: End Users/Desktop",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.7",
@@ -31,9 +38,10 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Education",
     "Topic :: Utilities",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-    "Topic :: Scientific/Engineering :: GIS",
     ]
 
 dependencies = [
@@ -43,10 +51,10 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "https://www.semuconsulting.com/pygpsclientgui/"
-documentation = "https://www.semuconsulting.com/pyubx2/"
-repository = "https://github.com/semuconsulting/pyubx2"
-changelog = "https://github.com/semuconsulting/pyubx2/blob/master/RELEASE_NOTES.md"
+homepage = "https://github.com/semuconsulting/pymandel"
+documentation = "https://www.semuconsulting.com/pymandel/"
+repository = "https://github.com/semuconsulting/pymandel"
+changelog = "https://github.com/semuconsulting/pymandel/blob/master/RELEASE_NOTES.md"
 
 [project.optional-dependencies]
 test = [
