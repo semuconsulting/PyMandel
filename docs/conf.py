@@ -13,16 +13,15 @@
 import os
 import sys
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+sys.path.insert(0, os.path.abspath("../src"))
 
-sys.path.append(os.path.join(ROOT, "src"))
 from pymandel import version as VERSION
 
 # sys.path.insert(0, os.path.abspath('../pygpsclient'))
 
 # -- Project information -----------------------------------------------------
 
-project = "PyMandel"
+project = "pymandel"
 copyright = "2021, SEMU Consulting"
 author = "SEMU Consulting"
 

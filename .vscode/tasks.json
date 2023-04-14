@@ -1,8 +1,8 @@
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    // These Python project tasks assume you have installed
-    // and configured: setuptools, build, wheel, black, pylint, pytest, pytest-cov, Sphinx and sphinx-rtd-theme
+    // These Python project tasks assume you have installed and configured: 
+    // build, wheel, black, pylint, pytest, pytest-cov, Sphinx, sphinx-rtd-theme
     // Use the Update Toolchain task to install the necessary packages.
     "version": "2.0.0",
     "tasks": [
@@ -15,16 +15,27 @@
                 "pip",
                 "install",
                 "--upgrade",
-                "setuptools",
-                "build",
-                "wheel",
-                "pylint",
-                "pytest",
-                "pytest-cov",
-                "black",
-                "Sphinx",
-                "sphinx-rtd-theme",
+                "--upgrade",
+                "-r",
+                "${workspaceFolder}/requirements_build.txt",
             ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Install Dependencies",
+            "type": "process",
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "-m",
+                "pip",
+                "install",
+                "--upgrade",
+                "-r",
+                "${workspaceFolder}/requirements.txt",
+            ],
+            "options": {
+                "cwd": "src"
+            },
             "problemMatcher": []
         },
         {
@@ -73,18 +84,6 @@
             "problemMatcher": []
         },
         {
-            "label": "PylintError",
-            "type": "process",
-            "command": "${config:python.defaultInterpreterPath}",
-            "args": [
-                "-m",
-                "pylint",
-                "-E",
-                "src/${config:modulename}"
-            ],
-            "problemMatcher": []
-        },
-        {
             "label": "Pylint",
             "type": "process",
             "command": "${config:python.defaultInterpreterPath}",
@@ -105,6 +104,7 @@
                 "build",
                 ".",
                 "--wheel",
+                "--sdist",
             ],
             "problemMatcher": []
         },
@@ -114,7 +114,11 @@
             "command": "${config:python.defaultInterpreterPath}",
             "args": [
                 "-m",
-                "pytest"
+                "pytest",
+                "--cov-report",
+                "html",
+                "--cov=${config:distname}",
+                "tests/",
             ],
             "problemMatcher": []
         },
@@ -123,6 +127,13 @@
             "type": "process",
             "command": "sphinx-apidoc",
             "args": [
+                "--doc-project=${config:modulename}",
+                "--doc-author=semuadmin",
+                "--doc-version=${config:moduleversion}",
+                "--doc-release=${config:moduleversion}",
+                "--ext-autodoc",
+                "--ext-viewcode",
+                "--templatedir=docs",
                 "-f",
                 "-o",
                 "docs",
@@ -150,6 +161,22 @@
             "problemMatcher": []
         },
         {
+            "label": "Sphinx Deploy to S3",
+            "type": "process",
+            "command": "aws",
+            "args": [
+                "s3",
+                "cp",
+                "${workspaceFolder}/docs/_build/html",
+                "s3://www.semuconsulting.com/${config:modulename}/"
+            ],
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Sphinx HTML"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "Install Locally",
             "type": "process",
             "command": "${config:python.defaultInterpreterPath}",
@@ -163,14 +190,23 @@
             ],
             "dependsOrder": "sequence",
             "dependsOn": [
-                //"Update Toolchain",
                 "Clean",
+                "Update Toolchain",
+                "Update Dependencies",
                 "Format",
-                "PylintError",
                 "Pylint",
                 "Test",
                 "Build",
                 "Sphinx HTML"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Benchmark",
+            "type": "process",
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "${workspaceFolder}/examples/benchmark.py",
             ],
             "problemMatcher": []
         },
