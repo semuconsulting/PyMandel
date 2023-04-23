@@ -11,7 +11,7 @@ maintainers = [
   {name = "semuadmin", email = "semuadmin@semuconsulting.com"}
 ]
 description = "Fractal generation GUI application"
-version = "1.0.10"
+version = "1.0.11"
 license = {file = "LICENSE"}
 keywords= [
     "PyMandel",

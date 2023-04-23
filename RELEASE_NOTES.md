@@ -1,5 +1,13 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.11
+
+CHANGES:
+
+1. VSCode and GHA workflows updated - Bandit security analysis added.
+1. Project URLS corrected in pyproject.toml.
+1. No functional changes.
+
 ### RELEASE 1.0.10
 
 ENHANCEMENTS:
