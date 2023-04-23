@@ -1,7 +1,7 @@
-PyMandel
+pymandel
 ========
 
 .. toctree::
    :maxdepth: 4
 
-   PyMandel
+   pymandel

@@ -703,6 +703,7 @@ Classifier: Topic :: Education
 Classifier: Topic :: Utilities
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
+Provides-Extra: deploy
 Provides-Extra: test
 License-File: LICENSE
 

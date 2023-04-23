@@ -13,15 +13,27 @@
 import os
 import sys
 
+# sys.path.clear()
+# paths = [
+#     "/Library/Frameworks/Python.framework/Versions/3.10/bin",
+#     "/Library/Frameworks/Python.framework/Versions/3.10/lib/python310.zip",
+#     "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10",
+#     "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/lib-dynload",
+#     "/Users/steve/Library/Python/3.10/lib/python/site-packages",
+#     "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages",
+#     "../src",
+# ]
+# for p in paths:
+#     sys.path.insert(0, os.path.abspath(p))
+
 sys.path.insert(0, os.path.abspath("../src"))
+print(sys.path)
 
 from pymandel import version as VERSION
 
-# sys.path.insert(0, os.path.abspath('../pygpsclient'))
-
 # -- Project information -----------------------------------------------------
 
-project = "pymandel"
+project = "PyMandel"
 copyright = "2021, SEMU Consulting"
 author = "SEMU Consulting"
 

@@ -15,9 +15,12 @@ Please help us keep our issue list small by adding fixes: #{$ISSUE_NO} to the co
 ## Coding conventions
 
 * This is open source software. We endeavour to make the code as transparent as possible. Favour clarity over brevity.
-* We use Visual Studio Code for development and testing, but you are at liberty to use your preferred IDE.
-* We use [pylint](https://pypi.org/project/pylint/) (>=2.6.0) for code analysis.
-* We use [black](https://pypi.org/project/black/) (>= 20.8) for code formatting and ask that you do the same.
+* We use and recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for development and testing.
+* Code should be documented in accordance with [Sphinx](https://www.sphinx-doc.org/en/master/) docstring conventions.
+* Code should formatted using [black](https://pypi.org/project/black/) (>= 20.8).
+* We use and recommend [pylint](https://pypi.org/project/pylint/) (>=2.6.0) for code analysis.
+* We use and recommend [bandit](https://pypi.org/project/bandit/) (>=1.7) for security vulnerability analysis.
+* Commits should be [signed](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 * PyMandel uses [Numba](http://numba.pydata.org/) for JIT compilation, parallelisation and caching. This affords very significant
 performance enhancements over native interpreted Python, but does necessitate certain coding constraints in the affected module(s) (`mandlebrot.py`) - refer to the Numba documentation for further details.
 
@@ -30,8 +33,8 @@ Please write pytest examples for new code you create and add them to the /tests 
 We test on the following platforms:
 * Windows 11
 * MacOS (Ventura)
-* Linux (Ubuntu Jammy 22.04 LTS)
-* Raspberry Pi OS (32-bit)
+* Linux (Ubuntu Kinetic & Lunar)
+* Raspberry Pi OS (64-bit & 32-bit)
 
 ## Submitting changes
 

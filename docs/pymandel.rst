@@ -1,117 +1,117 @@
-PyMandel package
+pymandel package
 ================
 
 Submodules
 ----------
 
-PyMandel.about\_dialog module
+pymandel.about\_dialog module
 -----------------------------
 
-.. automodule:: PyMandel.about_dialog
+.. automodule:: pymandel.about_dialog
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.app module
+pymandel.app module
 -------------------
 
-.. automodule:: PyMandel.app
+.. automodule:: pymandel.app
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.fractal\_frame module
+pymandel.fractal\_frame module
 ------------------------------
 
-.. automodule:: PyMandel.fractal_frame
+.. automodule:: pymandel.fractal_frame
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.howto\_dialog module
+pymandel.howto\_dialog module
 -----------------------------
 
-.. automodule:: PyMandel.howto_dialog
+.. automodule:: pymandel.howto_dialog
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.mandelbrot module
+pymandel.mandelbrot module
 --------------------------
 
-.. automodule:: PyMandel.mandelbrot
+.. automodule:: pymandel.mandelbrot
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.mandelcli module
+pymandel.mandelcli module
 -------------------------
 
-.. automodule:: PyMandel.mandelcli
+.. automodule:: pymandel.mandelcli
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.menu\_bar module
+pymandel.menu\_bar module
 -------------------------
 
-.. automodule:: PyMandel.menu_bar
+.. automodule:: pymandel.menu_bar
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.settings\_frame module
+pymandel.settings\_frame module
 -------------------------------
 
-.. automodule:: PyMandel.settings_frame
+.. automodule:: pymandel.settings_frame
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.status\_frame module
+pymandel.status\_frame module
 -----------------------------
 
-.. automodule:: PyMandel.status_frame
+.. automodule:: pymandel.status_frame
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.strings module
+pymandel.strings module
 -----------------------
 
-.. automodule:: PyMandel.strings
+.. automodule:: pymandel.strings
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.stringsDE module
+pymandel.stringsDE module
 -------------------------
 
-.. automodule:: PyMandel.stringsDE
+.. automodule:: pymandel.stringsDE
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.stringsEN module
+pymandel.stringsEN module
 -------------------------
 
-.. automodule:: PyMandel.stringsEN
+.. automodule:: pymandel.stringsEN
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.stringsES module
+pymandel.stringsES module
 -------------------------
 
-.. automodule:: PyMandel.stringsES
+.. automodule:: pymandel.stringsES
    :members:
    :undoc-members:
    :show-inheritance:
 
-PyMandel.stringsFR module
+pymandel.stringsFR module
 -------------------------
 
-.. automodule:: PyMandel.stringsFR
+.. automodule:: pymandel.stringsFR
    :members:
    :undoc-members:
    :show-inheritance:
@@ -119,7 +119,7 @@ PyMandel.stringsFR module
 Module contents
 ---------------
 
-.. automodule:: PyMandel
+.. automodule:: pymandel
    :members:
    :undoc-members:
    :show-inheritance:

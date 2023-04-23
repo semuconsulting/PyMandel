@@ -4,7 +4,7 @@
     "python.formatting.provider": "black",
     "python.defaultInterpreterPath": "python3.10",
     "editor.formatOnSave": true,
-    "modulename": "${workspaceFolderBasename}",
-    "distname": "${workspaceFolderBasename}",
+    "modulename": "pymandel",
+    "distname": "pymandel",
     "moduleversion": "1.0.10"
 }
