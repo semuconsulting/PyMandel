@@ -52,6 +52,8 @@ dependencies = [
 
 [project.scripts]
 pymandel = "pymandel.__main__:main"
+mandelcli = "pymandel.mandelcli:main"
+make_colormap = "colormaps.make_colormap:main"
 
 [project.urls]
 homepage = "https://github.com/semuconsulting/pymandel"
