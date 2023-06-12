@@ -21,10 +21,10 @@ You should have received a copy of the GNU General Public License along with PyM
 If not, see <https://www.gnu.org/licenses/>.
 """
 
-from tkinter import Toplevel, Label, Button, LEFT
+from tkinter import LEFT, Button, Label, Toplevel
 from webbrowser import open_new_tab
 
-from pymandel.strings import HELPTXT, COPYRIGHTTXT, DLGHOWTO, GITHUBURL
+from pymandel.strings import COPYRIGHTTXT, DLGHOWTO, GITHUBURL, HELPTXT
 
 
 class HowtoDialog:

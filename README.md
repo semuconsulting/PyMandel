@@ -75,7 +75,7 @@ the Python 3 scripts (bin) and site_packages directories are included in your PA
 
 ### Dependencies
 
-PyMandel is compatible with Python >=3.7 <=3.10 (*as at December 2022, `numba` is not compatible with Python 3.11*).
+PyMandel is compatible with Python >=3.8 <=3.11.
 
 On Windows and MacOS, pip, tkinter and the necessary imaging libraries are generally packaged with Python.  On some Linux distributions like Ubuntu 18+ and Raspberry Pi OS, they may need to be installed separately, e.g.:
 

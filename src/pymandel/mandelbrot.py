@@ -29,20 +29,20 @@ If not, see <https://www.gnu.org/licenses/>.
 """
 # pylint: disable=invalid-name
 
-from math import log, sin, sqrt, pi, floor, ceil
+from math import ceil, floor, log, pi, sin, sqrt
 
-from PIL import Image
-from numba import jit, prange
 import numpy as np
+from numba import jit, prange
+from PIL import Image
 
-from colormaps.cet_colormap import cet_CBC1, cet_CBTC1, cet_C1, cet_C4s, BlueBrown16
+from colormaps.cet_colormap import BlueBrown16, cet_C1, cet_C4s, cet_CBC1, cet_CBTC1
+from colormaps.hsv256_colormap import hsv256
 from colormaps.landscape256_colormap import landscape256
 from colormaps.metallic256_colormap import metallic256
 from colormaps.pastels256_colormap import pastels256
 from colormaps.tropical_colormap import tropical16, tropical256
 from colormaps.twilight256_colormap import twilight256
 from colormaps.twilights512_colormap import twilights512
-from colormaps.hsv256_colormap import hsv256
 
 PERIODCHECK = True  # Turn periodicity check optimisation on/off
 MANDELBROT = 0

@@ -26,23 +26,23 @@ If not, see <https://www.gnu.org/licenses/>.
 from tkinter import Menu
 
 from pymandel.strings import (
-    MENUFILE,
-    MENUOPTIONS,
-    MENUSAVE,
-    MENUEXPORT,
-    MENUIMPORT,
-    MENUEXIT,
-    MENUPLOT,
-    MENUZOOM,
-    MENUSPIN,
-    MENUCAN,
-    MENURST,
-    MENUHIDESE,
-    MENUHIDESB,
-    MENUSHOWAX,
-    MENUHOWTO,
     MENUABOUT,
+    MENUCAN,
+    MENUEXIT,
+    MENUEXPORT,
+    MENUFILE,
     MENUHELP,
+    MENUHIDESB,
+    MENUHIDESE,
+    MENUHOWTO,
+    MENUIMPORT,
+    MENUOPTIONS,
+    MENUPLOT,
+    MENURST,
+    MENUSAVE,
+    MENUSHOWAX,
+    MENUSPIN,
+    MENUZOOM,
 )
 
 

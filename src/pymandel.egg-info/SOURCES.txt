@@ -33,6 +33,7 @@ src/pymandel/stringsFR.py
 src/pymandel.egg-info/PKG-INFO
 src/pymandel.egg-info/SOURCES.txt
 src/pymandel.egg-info/dependency_links.txt
+src/pymandel.egg-info/entry_points.txt
 src/pymandel.egg-info/requires.txt
 src/pymandel.egg-info/top_level.txt
 src/pymandel/resources/pymandel.ico

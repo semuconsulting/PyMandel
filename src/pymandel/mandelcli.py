@@ -28,15 +28,15 @@ You should have received a copy of the GNU General Public License along with PyM
 If not, see <https://www.gnu.org/licenses/>.
 """
 
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, SUPPRESS
+import sys
+from argparse import SUPPRESS, ArgumentDefaultsHelpFormatter, ArgumentParser
 from json import loads
 from math import log, sqrt
-import sys
 from time import time
 
-from pymandel.mandelbrot import Mandelbrot, MANDELBROT, JULIA
-from pymandel.strings import MODULENAME
 from pymandel._version import __version__ as VERSION
+from pymandel.mandelbrot import JULIA, MANDELBROT, Mandelbrot
+from pymandel.strings import MODULENAME
 
 sys.path.append("pymandel")
 sys.path.append("colormaps")

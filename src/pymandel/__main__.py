@@ -23,6 +23,7 @@ If not, see <https://www.gnu.org/licenses/>.
 
 import sys
 from tkinter import Tk
+
 from pymandel.app import App
 
 

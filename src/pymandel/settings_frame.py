@@ -23,78 +23,73 @@ You should have received a copy of the GNU General Public License along with PyM
 If not, see <https://www.gnu.org/licenses/>.
 """
 
+import os
+from json import dump, loads
+from re import match
+from time import gmtime, strftime
 from tkinter import (
-    ttk,
-    Frame,
+    DISABLED,
+    HORIZONTAL,
+    LEFT,
+    NORMAL,
+    RIGHT,
+    VERTICAL,
     Button,
-    Label,
-    Entry,
     Checkbutton,
-    Listbox,
-    Spinbox,
-    Scale,
-    filedialog,
-    Scrollbar,
-    IntVar,
     DoubleVar,
-    StringVar,
+    E,
+    Entry,
+    Frame,
+    IntVar,
+    Label,
+    Listbox,
     N,
     S,
-    E,
+    Scale,
+    Scrollbar,
+    Spinbox,
+    StringVar,
     W,
-    LEFT,
-    RIGHT,
-    HORIZONTAL,
-    VERTICAL,
-    NORMAL,
-    DISABLED,
+    filedialog,
+    ttk,
 )
 
-from time import strftime, gmtime
-
-from re import match
-
-from json import dump, loads
-
-import os
-
+from pymandel.mandelbrot import JULIA, MANDELBROT, MODES, THEMES, VARIANTS
 from pymandel.strings import (
-    MODULENAME,
-    SAVETITLE,
-    VALERROR,
-    SAVEERROR,
-    SETINITTXT,
-    METASAVEERROR,
-    NOIMGERROR,
-    OPENFILEERROR,
     BADJSONERROR,
-    SELTITLE,
-    METAPROMPTTXT,
-    IMGSAVETXT,
-    BTNPLOT,
-    BTNSAVE,
     BTNCAN,
+    BTNPLOT,
     BTNRST,
-    BTNZOOM,
+    BTNSAVE,
     BTNSPIN,
-    LBLMODE,
-    LBLVAR,
+    BTNZOOM,
+    FRMSTXT,
+    IMGSAVETXT,
     LBLAUTO,
-    LBLTHEME,
+    LBLCX,
+    LBLCY,
     LBLEXP,
+    LBLITER,
+    LBLMODE,
     LBLRAD,
     LBLSHIFT,
-    LBLITER,
+    LBLTHEME,
+    LBLVAR,
     LBLZOOM,
     LBLZOOMINC,
     LBLZXOFF,
     LBLZYOFF,
-    LBLCX,
-    LBLCY,
-    FRMSTXT,
+    METAPROMPTTXT,
+    METASAVEERROR,
+    MODULENAME,
+    NOIMGERROR,
+    OPENFILEERROR,
+    SAVEERROR,
+    SAVETITLE,
+    SELTITLE,
+    SETINITTXT,
+    VALERROR,
 )
-
-from pymandel.mandelbrot import MODES, VARIANTS, THEMES, MANDELBROT, JULIA
 
 # Global variables for Entry widget validation
 GOOD = "azure"

@@ -14,8 +14,10 @@ Created on 24 Apr 2020
 """
 
 import sys
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, SUPPRESS
+from argparse import SUPPRESS, ArgumentDefaultsHelpFormatter, ArgumentParser
+
 from PIL import Image
+
 from pymandel._version import __version__ as VERSION
 
 EPILOG = (

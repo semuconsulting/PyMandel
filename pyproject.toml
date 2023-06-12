@@ -11,7 +11,7 @@ maintainers = [
   {name = "semuadmin", email = "semuadmin@semuconsulting.com"}
 ]
 description = "Fractal generation GUI application"
-version = "1.0.11"
+version = "1.0.12"
 license = {file = "LICENSE"}
 keywords= [
     "PyMandel",
@@ -23,7 +23,7 @@ keywords= [
     "numba",
     ]
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 classifiers = [
     "Operating System :: OS Independent",
     "Development Status :: 5 - Production/Stable",
@@ -33,11 +33,10 @@ classifiers = [
     "Environment :: Console",
     "Intended Audience :: End Users/Desktop",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
-    # NB: numba does not yet support Python 3.11
+    "Programming Language :: Python :: 3.11",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Topic :: Multimedia :: Graphics",
     "Topic :: Scientific/Engineering :: Mathematics",
@@ -50,6 +49,9 @@ dependencies = [
     "numpy>=1.21.6",
     "Pillow>=9.3.0",
 ]
+
+[project.scripts]
+pymandel = "pymandel.__main__:main"
 
 [project.urls]
 homepage = "https://github.com/semuconsulting/pymandel"
@@ -76,17 +78,21 @@ test = [
 
 [tool.black]
 line-length = 88
-target-version = ['py37']
+target-version = ['py38']
+
+[tool.isort]
+py_version = 38
+profile = "black"
 
 [tool.bandit]
-exclude_dirs = ["docs", "examples", "tests"]
+exclude_dirs = ["docs", "examples", "references", "tests"]
 skips = []
 
 [tool.pylint]
 jobs = 0
 reports = "y"
 recursive = "y"
-py-version = "3.7"
+py-version = "3.8"
 fail-under = "9.6"
 fail-on = "E,F"
 clear-cache-post-run = "y"

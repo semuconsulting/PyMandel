@@ -24,32 +24,32 @@ If not, see <https://www.gnu.org/licenses/>.
 """
 
 from cmath import polar
-from math import sqrt, log, pi, sin, cos
+from math import cos, log, pi, sin, sqrt
 from platform import system
 from time import time
-from tkinter import Frame, Canvas, NW, BOTH, YES
+from tkinter import BOTH, NW, YES, Canvas, Frame
 
 from PIL import ImageTk
 
 from pymandel.mandelbrot import (
-    Mandelbrot,
-    ptoc,
-    ctop,
-    MODES,
-    VARIANTS,
-    MANDELBROT,
-    JULIA,
-    TRICORN,
     BURNINGSHIP,
+    JULIA,
+    MANDELBROT,
+    MODES,
     STANDARD,
+    TRICORN,
+    VARIANTS,
+    Mandelbrot,
+    ctop,
+    ptoc,
 )
 from pymandel.strings import (
     COMPLETETXT,
+    COORDTXT,
+    FRMTXT,
     INPROGTXT,
     OPCANTXT,
     SAVEERROR,
-    COORDTXT,
-    FRMTXT,
 )
 
 ZOOM = 0

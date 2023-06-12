@@ -23,7 +23,7 @@ You should have received a copy of the GNU General Public License along with PyM
 If not, see <https://www.gnu.org/licenses/>.
 """
 
-from tkinter import Frame, Label, StringVar, W, E
+from tkinter import E, Frame, Label, StringVar, W
 
 
 class StatusFrame(Frame):

@@ -23,22 +23,22 @@ If not, see <https://www.gnu.org/licenses/>.
 
 import os
 from platform import python_version
-from tkinter import Toplevel, Canvas, Label, Button, PhotoImage, NW
+from tkinter import NW, Button, Canvas, Label, PhotoImage, Toplevel
 from webbrowser import open_new_tab
+
 from numba import __version__ as numba_ver
 from numpy import __version__ as numpy_ver
 
+from pymandel._version import __version__
 from pymandel.strings import (
     ABOUTTXT,
-    COPYRIGHTTXT,
-    COLORCETTXT,
-    DLGABOUT,
-    WIKIURL,
-    GITHUBURL,
     CETURL,
+    COLORCETTXT,
+    COPYRIGHTTXT,
+    DLGABOUT,
+    GITHUBURL,
+    WIKIURL,
 )
-
-from pymandel._version import __version__
 
 VERSION = __version__
 DIRNAME = os.path.dirname(__file__)

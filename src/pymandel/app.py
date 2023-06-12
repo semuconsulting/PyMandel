@@ -22,7 +22,7 @@ If not, see <https://www.gnu.org/licenses/>.
 """
 
 import os
-from tkinter import N, S, E, W, PhotoImage
+from tkinter import E, N, PhotoImage, S, W
 
 from pymandel.about_dialog import AboutDialog
 from pymandel.fractal_frame import FractalFrame
@@ -32,14 +32,15 @@ from pymandel.settings_frame import SettingsFrame
 from pymandel.status_frame import StatusFrame
 from pymandel.strings import (
     INTROTXT,
-    MENUHIDESE,
-    MENUSHOWSE,
-    MENUHIDESB,
-    MENUSHOWSB,
-    MENUSHOWAX,
-    MENUHIDEAX,
     JITTXT,
+    MENUHIDEAX,
+    MENUHIDESB,
+    MENUHIDESE,
+    MENUSHOWAX,
+    MENUSHOWSB,
+    MENUSHOWSE,
 )
+
 from ._version import __version__
 
 VERSION = __version__
