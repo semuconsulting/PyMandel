@@ -1,6 +1,6 @@
 # PyMandel
 
-PyMandel is a graphical Mandelbrot and Julia Set rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
+PyMandel is a free, open-source graphical Mandelbrot and Julia Set rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
 
 ![MacOS screenshot](https://github.com/semuconsulting/PyMandel/blob/master/images/burning_julia.png?raw=true)
 
@@ -26,7 +26,7 @@ It also includes both GUI and command line facilities to automatically create se
 ![Contributors](https://img.shields.io/github/contributors/semuconsulting/PyMandel.svg)
 ![Open Issues](https://img.shields.io/github/issues-raw/semuconsulting/PyMandel)
 
-Contributions welcome - please refer to [CONTRIBUTING.MD](https://github.com/semuconsulting/PyMandel/blob/master/CONTRIBUTING.md).
+PyMandel is intended as free, open-source educational fun. We're not looking to compete with the likes of Ultra Fractal © here, but contributions are very welcome - please refer to [CONTRIBUTING.MD](https://github.com/semuconsulting/PyMandel/blob/master/CONTRIBUTING.md).
 
 #### Animated Mandelbrot Zoom sequence
 
