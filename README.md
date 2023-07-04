@@ -1,5 +1,11 @@
 # PyMandel
 
+[Current Status](#currentstatus) |
+[Installation](#installation) |
+[How to Use](#howto) |
+[Command Line Utility](#cli) |
+[Author & License](#author)
+
 PyMandel is a free, open-source graphical Mandelbrot and Julia Set rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
 
 ![MacOS screenshot](https://github.com/semuconsulting/PyMandel/blob/master/images/burning_julia.png?raw=true)
@@ -16,7 +22,7 @@ The application plots fractals in an expandable window and allows the user to sa
 
 It also includes both GUI and command line facilities to automatically create sequences of 'deep zoom' or 'spinning Julia Set' images which can be converted into animated GIF files or short videos using external open source tools (e.g. GIMP or OpenShot).
 
-### Current Status
+## <a name="currentstatus">Current Status</a>
 
 ![Status](https://img.shields.io/pypi/status/PyMandel)
 ![Release](https://img.shields.io/github/v/release/semuconsulting/PyMandel)
@@ -28,7 +34,7 @@ It also includes both GUI and command line facilities to automatically create se
 
 PyMandel is intended as free, open-source educational fun. We're not looking to compete with the likes of Ultra Fractal © here, but contributions are very welcome - please refer to [CONTRIBUTING.MD](https://github.com/semuconsulting/PyMandel/blob/master/CONTRIBUTING.md).
 
-#### Animated Mandelbrot Zoom sequence
+### Animated Mandelbrot Zoom sequence
 
 This 178 frame, 10 fps sequence was automatically generated using the `mandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
 
@@ -36,14 +42,14 @@ This 178 frame, 10 fps sequence was automatically generated using the `mandelcli
 
 ![Zoom Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/zoom.gif?raw=true)
 
-#### Animated Julia Spin sequences
+### Animated Julia Spin sequences
 
 These 400 frame, 20 fps sequences were automatically generated using the GUI's SPIN function and converted into animated GIF files using GIMP. The second sequence illustrates a Julia Set with exponent = 3.
 
 
 ![Spin Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/juliaspin.gif?raw=true) ![Spin Animation Exponent = 3](https://github.com/semuconsulting/PyMandel/blob/master/images/juliaspin_exp3.gif?raw=true)
 
-#### Sample Metadata
+### Sample Metadata
 
 ```
 {"pymandel": {
@@ -174,7 +180,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
-## How To Use
+## <a name="howto">How To Use</a>
 
 * Settings can be entered manually (or imported from a previously saved metadata file) to plot a fractal image using the specified parameters.
 
@@ -248,7 +254,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Zoom Increment. The zoom increment between frames (e.g. an increment of 1.5 means each successive frame is zoomed in 1.5x as much as the previous one; set Zoom Increment < 1 to zoom out). Used for left-click zooms and animations. For animations, the number of iterations is also automatically increased with the zoom level in accordance with a predefined algorithm.
 
-## Command Line Utilities
+## <a name="cli">Command Line Utilities</a>
 
 ### mandelcli.py
 
@@ -275,7 +281,7 @@ make_colormap mapname=mymap input=image.png output=mymap_colormap.py levels=256
 
 Pass `-h` or `-help` for a list of available parameters.
 
-## License
+## <a name="author">Author and License</a>
 
 ![License](https://img.shields.io/github/license/semuconsulting/PyMandel.svg)
 
@@ -283,12 +289,9 @@ GPLv3 License
 
 Copyright (c) 2020, SEMU Consulting
 All rights reserved.
+semuadmin@semuconsulting.com
 
 The HoloViz [Colorcet color maps](https://github.com/holoviz/colorcet) library has been harvested for some of the color rendering themes. These color maps are released under a Creative Commons Attribution 4.0 International Public License (CC-BY) - see [Colorcet License Conditions](https://github.com/holoviz/colorcet/blob/master/LICENSE.txt) for details. ***NB:*** for convenience the selected Colorcet assets (256-depth cyclic color maps) were converted into numpy rgb arrays in colormaps.py and the library itself is not actually used at runtime.
-
-## Author Information
-
-semuadmin@semuconsulting.com
 
 `PyMandel` is maintained entirely by volunteers. If you find it useful, a small donation would be greatly appreciated!
 
