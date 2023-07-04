@@ -30,9 +30,9 @@ PyMandel is intended as free, open-source educational fun. We're not looking to 
 
 #### Animated Mandelbrot Zoom sequence
 
-This 178 frame, 10 fps sequence was automatically generated using the `pymandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
+This 178 frame, 10 fps sequence was automatically generated using the `mandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
 
-`pymandelcli filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
+`mandelcli filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
 
 ![Zoom Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/zoom.gif?raw=true)
 
@@ -252,18 +252,18 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 ### mandelcli.py
 
-`pymandelcli` is a command line equivalent to the GUI's Animate function. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
+`mandelcli` is a command line equivalent to the GUI's Animate function. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
 
 ```shell
-pymandelcli --width 480 --height 480 --frames 20
+mandelcli --width 480 --height 480 --frames 20
 ``` 
-This will produce a sequence of 20 .png images. Type `pymandelcli -h` for a list of available parameters.
+This will produce a sequence of 20 .png images. Type `mandelcli -h` for a list of available parameters.
 
 It can import settings from a previously saved metadata file using the import parameter e.g. `--import filename.json`.
 
 In addition to producing animated sequences, the command line utility can be used to create single images at a much higher pixel resolution than would be available via the GUI application on a standard monitor, though render time may be significant.
 
-** Suggestion ** Use the PyMandel GUI at moderate resolutions to explore fractals and find a location and configuration you like, save the image & metadata, and then use the `pymandelcli` command line utility to import the metadata and create a much higher resolution version of the same image e.g for desktop wallpaper, printing or sharing.
+**Suggestion** Use the PyMandel GUI at moderate resolutions to explore fractals and find a location and configuration you like, save the image & metadata, and then use the `mandelcli` command line utility to import the metadata and create a much higher resolution version of the same image e.g for desktop wallpaper, printing or sharing.
 
 ### make_colormap.py
 
