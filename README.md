@@ -1,5 +1,11 @@
 # PyMandel
 
+[Current Status](#currentstatus) |
+[Installation](#installation) |
+[How to Use](#howto) |
+[Command Line Utility](#cli) |
+[Author & License](#author)
+
 PyMandel is a free, open-source graphical Mandelbrot and Julia Set rendering application written entirely in Python 3 and tkinter 8.6, with metadata import/export, basic animation functionality and performance enhancement via [Numba](http://numba.pydata.org/) JIT compilation, parallelisation and caching.
 
 ![MacOS screenshot](https://github.com/semuconsulting/PyMandel/blob/master/images/burning_julia.png?raw=true)
@@ -16,7 +22,7 @@ The application plots fractals in an expandable window and allows the user to sa
 
 It also includes both GUI and command line facilities to automatically create sequences of 'deep zoom' or 'spinning Julia Set' images which can be converted into animated GIF files or short videos using external open source tools (e.g. GIMP or OpenShot).
 
-### Current Status
+## <a name="currentstatus">Current Status</a>
 
 ![Status](https://img.shields.io/pypi/status/PyMandel)
 ![Release](https://img.shields.io/github/v/release/semuconsulting/PyMandel)
@@ -28,22 +34,22 @@ It also includes both GUI and command line facilities to automatically create se
 
 PyMandel is intended as free, open-source educational fun. We're not looking to compete with the likes of Ultra Fractal © here, but contributions are very welcome - please refer to [CONTRIBUTING.MD](https://github.com/semuconsulting/PyMandel/blob/master/CONTRIBUTING.md).
 
-#### Animated Mandelbrot Zoom sequence
+### Animated Mandelbrot Zoom sequence
 
-This 178 frame, 10 fps sequence was automatically generated using the `mandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 50 seconds to render and save.
+This 178 frame, 10 fps sequence was automatically generated using the `mandelcli` command line utility and converted into an animated GIF file using GIMP. The entire sequence took about 35 seconds to render and save.
 
-`mandelcli filename="zoom" width=400 height=300 frames=178 zoom=0.75 zoominc=1.2 zxoffset=-0.743643887037158704752191506114774 zyoffset=0.131825904205311970493132056385139 theme="Colorcet_CET_C1"`
+`mandelcli --filename zoom --width 400 --height 300 --frames 178 --zoom 0.75 --zoominc 1.2 --zxoffset -0.743643887037158704752191506114774 --zyoffset 0.131825904205311970493132056385139 --theme Colorcet_CET_C1`
 
 ![Zoom Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/zoom.gif?raw=true)
 
-#### Animated Julia Spin sequences
+### Animated Julia Spin sequences
 
 These 400 frame, 20 fps sequences were automatically generated using the GUI's SPIN function and converted into animated GIF files using GIMP. The second sequence illustrates a Julia Set with exponent = 3.
 
 
 ![Spin Animation](https://github.com/semuconsulting/PyMandel/blob/master/images/juliaspin.gif?raw=true) ![Spin Animation Exponent = 3](https://github.com/semuconsulting/PyMandel/blob/master/images/juliaspin_exp3.gif?raw=true)
 
-#### Sample Metadata
+### Sample Metadata
 
 ```
 {"pymandel": {
@@ -98,16 +104,16 @@ sudo apt install tk-devel
 The easiest way to install the latest version of PyMandel is via [pip](http://pypi.python.org/pypi/pip/):
 
 ```shell
-python -m pip install --upgrade PyMandel
+python3 -m pip install --upgrade pymandel
 ```
 
 If required, `PyMandel` can also be installed into a virtual environment, e.g.
 
 ```shell
-python -m pip install --user --upgrade virtualenv
-python -m virtualenv env
+python3 -m pip install --user --upgrade virtualenv
+python3 -m virtualenv env
 source env/bin/activate (or env\Scripts\activate on Windows)
-(env) python -m pip install --upgrade PyMandel
+(env) python3 -m pip install --upgrade pymandel
 ...
 deactivate
 ```
@@ -121,17 +127,17 @@ If desired, you can add a shortcut to this command to your desktop or favourites
 
 Alternatively, if the Python 3 site_packages directory is in your PATH, you can type (all lowercase):
 ```shell
-python -m pymandel
+python3 -m pymandel
 ```
 
 **NB:** if the Python 3 scripts (bin) or site_packages directories are *not* in your PATH, you will need
 to add the fully-qualified path to `pymandel` in the commands above.
 
-**Tip**: to find the site_packages location, type `pip show PyMandel` and look for the `Location:` entry in the response, e.g.
+**Tip**: to find the site_packages location, type `pip3 show pymandel` and look for the `Location:` entry in the response, e.g.
 
-- Linux: `Location: /home/username/.local/lib/python3.10/site-packages`
-- MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages`
-- Windows: `Location: c:\users\username\appdata\roaming\python\python310\lib\site-packages`
+- Linux: `Location: /home/username/.local/lib/python3.11/site-packages`
+- MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages`
+- Windows: `Location: c:\users\username\appdata\roaming\python\python311\lib\site-packages`
 
 **Tip:** To create an application launcher for linux distributions like Ubuntu, create a text file named `pymandel.desktop` with the following content (*edited for your particular environment*) and copy this to the `/home/user/.local/share/applications` folder, e.g.
 
@@ -140,30 +146,28 @@ to add the fully-qualified path to `pymandel` in the commands above.
 Type=Application
 Terminal=false
 Name=PyMandel
-Icon=/home/user/.local/lib/python3.9/site-packages/pygpsclient/resources/pymandel.png
+Icon=/home/user/.local/lib/python3.11/site-packages/pygpsclient/resources/pymandel.png
 Exec=/home/user/.local/bin/pymandel
 ```
 
 ### 2. Manual installation
 
-See [requirements.txt](requirements.txt).
-
 The following Python libraries are required (these will be installed automatically if using pip to install PyMandel):
 
 ```shell
-python -m pip install --upgrade numba numpy Pillow
+python3 -m pip install --upgrade numba numpy Pillow
 ```
 
 To install PyMandel manually, download and unzip this repository and type:
 
 ```shell
-python -m /path_to_folder/foldername/pymandel
+python3 -m /path_to_folder/foldername/pymandel
 ```
 
-e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.7`, type: 
+e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.12`, type: 
 
 ```shell
-python -m /path_to_folder/PyMandel-1.0.7/pymandel
+python3 -m /path_to_folder/PyMandel-1.0.12/pymandel
 ```
 
 ### Performance Optimisations
@@ -174,7 +178,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 1. The very first time the program is used after installation, jit compilation and caching will delay the first plot by a couple of seconds, but thereafter the rendering should start instantly.
 
-## How To Use
+## <a name="howto">How To Use</a>
 
 * Settings can be entered manually (or imported from a previously saved metadata file) to plot a fractal image using the specified parameters.
 
@@ -248,7 +252,7 @@ The application makes use of [Numba](http://numba.pydata.org/) just in time (jit
 
 * Zoom Increment. The zoom increment between frames (e.g. an increment of 1.5 means each successive frame is zoomed in 1.5x as much as the previous one; set Zoom Increment < 1 to zoom out). Used for left-click zooms and animations. For animations, the number of iterations is also automatically increased with the zoom level in accordance with a predefined algorithm.
 
-## Command Line Utilities
+## <a name="cli">Command Line Utilities</a>
 
 ### mandelcli.py
 
@@ -261,7 +265,11 @@ This will produce a sequence of 20 .png images. Type `mandelcli -h` for a list o
 
 It can import settings from a previously saved metadata file using the import parameter e.g. `--import filename.json`.
 
-In addition to producing animated sequences, the command line utility can be used to create single images at a much higher pixel resolution than would be available via the GUI application on a standard monitor, though render time may be significant.
+In addition to producing animated sequences, the command line utility can be used to create single images at a much higher pixel resolution than would be available via the GUI application on a standard monitor, though render time may be significant e.g. this example produces an 8K resolution image which takes about a minute to render:
+
+```shell
+mandelcli --filename 8kres --width 7680 --height 4320 --zoom 207011 --maxiter 7000 --zxoffset -0.7428301078839413 --zyoffset 0.14078514286474172 --theme Tropical256 
+```
 
 **Suggestion** Use the PyMandel GUI at moderate resolutions to explore fractals and find a location and configuration you like, save the image & metadata, and then use the `mandelcli` command line utility to import the metadata and create a much higher resolution version of the same image e.g for desktop wallpaper, printing or sharing.
 
@@ -270,12 +278,12 @@ In addition to producing animated sequences, the command line utility can be use
 `make_colormap` is a simple command line utility for generating PyMandel-compatible numpy RGB arrays from image files containing suitable color gradients (e.g. created using GIMP's gradient tool) or even photographs with interesting color palettes. If PyMandel has been installed using `pip` and the Python 3 scripts (bin) directory is in the user's PATH, it can be invoked thus:
 
 ```shell
-make_colormap mapname=mymap input=image.png output=mymap_colormap.py levels=256
+make_colormap --mapname mymap --input image.png --output mymap_colormap.py --levels 256
 ```
 
 Pass `-h` or `-help` for a list of available parameters.
 
-## License
+## <a name="author">Author and License</a>
 
 ![License](https://img.shields.io/github/license/semuconsulting/PyMandel.svg)
 
@@ -283,12 +291,9 @@ GPLv3 License
 
 Copyright (c) 2020, SEMU Consulting
 All rights reserved.
+semuadmin@semuconsulting.com
 
 The HoloViz [Colorcet color maps](https://github.com/holoviz/colorcet) library has been harvested for some of the color rendering themes. These color maps are released under a Creative Commons Attribution 4.0 International Public License (CC-BY) - see [Colorcet License Conditions](https://github.com/holoviz/colorcet/blob/master/LICENSE.txt) for details. ***NB:*** for convenience the selected Colorcet assets (256-depth cyclic color maps) were converted into numpy rgb arrays in colormaps.py and the library itself is not actually used at runtime.
-
-## Author Information
-
-semuadmin@semuconsulting.com
 
 `PyMandel` is maintained entirely by volunteers. If you find it useful, a small donation would be greatly appreciated!
 

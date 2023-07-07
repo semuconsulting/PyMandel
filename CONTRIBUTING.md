@@ -46,6 +46,9 @@ Always write a clear log message for your commits. One-line messages are fine fo
     > 
     > A paragraph describing what changed and its impact."
 
+Please use the supplied [Pull Request Template](https://github.com/semuconsulting/pymandel/blob/master/.github/pull_request_template.md).
+
+Please sign all commits - see [Signing GitHub Commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) for instructions.
 
 
 Thanks,
