@@ -1,5 +1,11 @@
 # PyMandel Release Notes
 
+### RELEASE 1.0.13
+
+CHANGES:
+
+1. Support for Python 3.12 added - numba>=0.59 now supports 3.12
+
 ### RELEASE 1.0.12
 
 CHANGES:

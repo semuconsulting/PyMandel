@@ -7,7 +7,7 @@ name = "pymandel"
 authors = [{ name = "semuadmin", email = "semuadmin@semuconsulting.com" }]
 maintainers = [{ name = "semuadmin", email = "semuadmin@semuconsulting.com" }]
 description = "Fractal generation GUI application"
-version = "1.0.12"
+version = "1.0.13"
 license = { file = "LICENSE" }
 keywords = [
     "PyMandel",
