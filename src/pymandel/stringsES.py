@@ -5,6 +5,7 @@ Creado el 22 abr 2020
 
 @autor: semuadmin
 """
+
 # pylint: disable=line-too-long
 
 WIKIURL = "https://en.wikipedia.org/wiki/Mandelbrot_set"

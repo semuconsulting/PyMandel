@@ -1,19 +1,15 @@
 [build-system]
-requires = ["setuptools>=64.0", "wheel"]
+requires = ["setuptools>=66.0", "wheel"]
 build-backend = "setuptools.build_meta:__legacy__"
 
 [project]
 name = "pymandel"
-authors = [
-    {name = "semuadmin", email = "semuadmin@semuconsulting.com"},
-]
-maintainers = [
-  {name = "semuadmin", email = "semuadmin@semuconsulting.com"}
-]
+authors = [{ name = "semuadmin", email = "semuadmin@semuconsulting.com" }]
+maintainers = [{ name = "semuadmin", email = "semuadmin@semuconsulting.com" }]
 description = "Fractal generation GUI application"
 version = "1.0.12"
-license = {file = "LICENSE"}
-keywords= [
+license = { file = "LICENSE" }
+keywords = [
     "PyMandel",
     "fractal",
     "Mandelbrot",
@@ -21,7 +17,7 @@ keywords= [
     "Burning Ship",
     "Tricorn",
     "numba",
-    ]
+]
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
@@ -37,18 +33,15 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Topic :: Multimedia :: Graphics",
     "Topic :: Scientific/Engineering :: Mathematics",
     "Topic :: Education",
     "Topic :: Utilities",
-    ]
-
-dependencies = [
-    "numba>=0.56.4",
-    "numpy>=1.21.6",
-    "Pillow>=9.3.0",
 ]
+
+dependencies = ["numba>=0.59.0", "numpy>=1.21.6", "Pillow>=9.3.0"]
 
 [project.scripts]
 pymandel = "pymandel.__main__:main"
@@ -62,12 +55,7 @@ repository = "https://github.com/semuconsulting/pymandel"
 changelog = "https://github.com/semuconsulting/pymandel/blob/master/RELEASE_NOTES.md"
 
 [project.optional-dependencies]
-deploy = [
-    "build",
-    "pip",
-    "setuptools >= 66.0",
-    "wheel"
-]
+deploy = ["build", "pip", "setuptools >= 66.0", "wheel"]
 test = [
     "bandit",
     "black",
@@ -114,7 +102,8 @@ disable = """
     too-few-public-methods,
     too-many-public-methods,
     too-many-locals,
-    invalid-name
+    invalid-name,
+    missing-module-docstring
 """
 
 [tool.pytest.ini_options]

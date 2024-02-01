@@ -81,12 +81,12 @@ the Python 3 scripts (bin) and site_packages directories are included in your PA
 
 ### Dependencies
 
-PyMandel is compatible with Python >=3.8 <=3.11.
+PyMandel is compatible with Python >=3.8 <=3.12.
 
 On Windows and MacOS, pip, tkinter and the necessary imaging libraries are generally packaged with Python.  On some Linux distributions like Ubuntu 18+ and Raspberry Pi OS, they may need to be installed separately, e.g.:
 
 ```shell
-sudo apt install python3-pip python3-tk python3-pil python3-pil.imagetk
+sudo apt install python3-pip python3-tk python3-pil python3-pil.imagetk libjpeg-dev zlib1g-dev
 ```
 
 If you're installing Python 3 from source, you may also need to install the tkinter development library (refer to http://wiki.python.org/moin/TkInter for further details):
@@ -135,9 +135,9 @@ to add the fully-qualified path to `pymandel` in the commands above.
 
 **Tip**: to find the site_packages location, type `pip3 show pymandel` and look for the `Location:` entry in the response, e.g.
 
-- Linux: `Location: /home/username/.local/lib/python3.11/site-packages`
-- MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages`
-- Windows: `Location: c:\users\username\appdata\roaming\python\python311\lib\site-packages`
+- Linux: `Location: /home/username/.local/lib/python3.12/site-packages`
+- MacOS: `Location: /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages`
+- Windows: `Location: c:\users\username\appdata\roaming\python\python312\lib\site-packages`
 
 **Tip:** To create an application launcher for linux distributions like Ubuntu, create a text file named `pymandel.desktop` with the following content (*edited for your particular environment*) and copy this to the `/home/user/.local/share/applications` folder, e.g.
 

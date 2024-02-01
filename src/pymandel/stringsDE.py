@@ -5,6 +5,7 @@ Erstellt am 22. April 2020
 
 @author: semuadmin
 """
+
 # pylint: disable=line-too-long
 
 WIKIURL = "https://de.wikipedia.org/wiki/Mandelbrot-Menge"

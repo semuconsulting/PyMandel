@@ -27,6 +27,7 @@ See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with PyMandel.
 If not, see <https://www.gnu.org/licenses/>.
 """
+
 # pylint: disable=invalid-name
 
 from math import ceil, floor, log, pi, sin, sqrt

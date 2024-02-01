@@ -5,6 +5,7 @@ Créé le 22 avr 2020
 
 @author: semuadmin
 """
+
 # pylint: disable=line-too-long
 
 WIKIURL = "https://fr.wikipedia.org/wiki/Ensemble_de_Mandelbrot"
