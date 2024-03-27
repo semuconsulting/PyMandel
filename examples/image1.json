@@ -1,0 +1,20 @@
+{
+    "pymandel": {
+        "filename": "/Users/stevensmith/Downloads/image1.png",
+        "created": "Dec 20 2021 10:47:59 UTC",
+        "settype": "Mandelbrot",
+        "setvar": "Standard",
+        "zoom": 2026.361984069263,
+        "zoominc": 2.0,
+        "frames": 1,
+        "escradius": 256.0,
+        "exponent": 2,
+        "maxiter": 3806,
+        "zxoffset": -0.7354376318026655,
+        "zyoffset": 0.24566056532643427,
+        "cxoffset": 0.0,
+        "cyoffset": 0.0,
+        "theme": "Colorcet_CET_C4s",
+        "shift": 0
+    }
+}

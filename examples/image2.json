@@ -1,0 +1,20 @@
+{
+    "pymandel": {
+        "filename": "/Users/stevensmith/Downloads/image2.png",
+        "created": "Dec 20 2021 10:48:16 UTC",
+        "settype": "Julia",
+        "setvar": "Standard",
+        "zoom": 0.75,
+        "zoominc": 2.0,
+        "frames": 1,
+        "escradius": 256.0,
+        "exponent": 2,
+        "maxiter": 143,
+        "zxoffset": 0.0,
+        "zyoffset": 0.0,
+        "cxoffset": 0.33959455336109307,
+        "cyoffset": 0.03453027229567589,
+        "theme": "Tropical16",
+        "shift": 0
+    }
+}

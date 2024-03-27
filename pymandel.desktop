@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=PyMandel
+Icon=/home/user/.local/lib/python3.9/site-packages/pymandel/resources/pymandel.png
+Exec=/home/user/.local/bin/pymandel
