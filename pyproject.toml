@@ -19,7 +19,7 @@ keywords = [
     "numba",
 ]
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
     "Operating System :: OS Independent",
     "Development Status :: 5 - Production/Stable",
@@ -29,7 +29,6 @@ classifiers = [
     "Environment :: Console",
     "Intended Audience :: End Users/Desktop",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -68,10 +67,10 @@ test = [
 
 [tool.black]
 line-length = 88
-target-version = ['py38']
+target-version = ['py39']
 
 [tool.isort]
-py_version = 38
+py_version = 39
 profile = "black"
 
 [tool.bandit]
@@ -82,7 +81,7 @@ skips = []
 jobs = 0
 reports = "y"
 recursive = "y"
-py-version = "3.8"
+py-version = "3.9"
 fail-under = "9.6"
 fail-on = "E,F"
 clear-cache-post-run = "y"

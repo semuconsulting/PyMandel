@@ -32,8 +32,8 @@ Please write pytest examples for new code you create and add them to the /tests 
 
 We test on the following platforms:
 * Windows 11
-* MacOS (Ventura)
-* Linux (Ubuntu Kinetic & Lunar)
+* MacOS (Sequoia)
+* Linux (Ubuntu 24.04 Noble Numbat)
 * Raspberry Pi OS (64-bit & 32-bit)
 
 ## Submitting changes
