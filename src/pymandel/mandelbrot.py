@@ -275,6 +275,7 @@ def sel_colormap(i, za, radius, shift, theme):
     Select from indexed colormap theme
     """
 
+    r = g = b = 0
     if theme == "Colorcet_CET_CBC1":
         r, g, b = get_colormap(i, za, radius, shift, cet_CBC1)
     elif theme == "Colorcet_CET_CBTC1":
@@ -349,6 +350,7 @@ def hsv_to_rgb(h, s, v):
     Convert HSV values (in range 0-1) to RGB (in range 0-255).
     """
 
+    r = g = b = 0
     v = int(v * 255)
     if s == 0.0:
         return v, v, v
