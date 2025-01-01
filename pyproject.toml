@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta:__legacy__"
 
 [project]
 name = "pymandel"
+dynamic = ["version"]
 authors = [{ name = "semuadmin", email = "semuadmin@semuconsulting.com" }]
 maintainers = [{ name = "semuadmin", email = "semuadmin@semuconsulting.com" }]
 description = "Fractal generation GUI application"
-version = "1.0.13"
 license = { file = "LICENSE" }
 keywords = [
     "PyMandel",
@@ -64,6 +64,9 @@ test = [
     "Sphinx",
     "sphinx-rtd-theme",
 ]
+
+[tool.setuptools.dynamic]
+version = { attr = "pymandel._version.__version__" }
 
 [tool.black]
 line-length = 88
