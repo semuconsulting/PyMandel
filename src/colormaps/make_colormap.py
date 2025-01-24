@@ -48,37 +48,35 @@ def make_colormap(**kwargs):
         print(f"Invalid image mode {mode} - must be RGB or RGBA")
 
     levels = int(kwargs.get("levels", image.width))
-    if levels > image.width:
-        levels = image.width
+    levels = min(levels, image.width)
     outfile = kwargs.get("output", mapname + str(levels) + "_colormap.py")
 
-    file = open(outfile, "a", encoding="utf-8")
-    file.write("from numpy import array\n\n")
-    file.write(
-        "#****************************************************************************************\n"
-        f"# {str(levels)}-level colormap created by make_colormap utility from file {infile}\n"
-        "#****************************************************************************************\n"
-    )
-    file.write(mapname + " = array([ \\\n")
+    with open(outfile, "a", encoding="utf-8") as file:
+        file.write("from numpy import array\n\n")
+        file.write(
+            "#****************************************************************************************\n"
+            f"# {str(levels)}-level colormap created by make_colormap utility from file {infile}\n"
+            "#****************************************************************************************\n"
+        )
+        file.write(mapname + " = array([ \\\n")
 
-    for x_axis in range(levels):
-        pix = int(x_axis * image.width / levels)
-        if x_axis == levels - 1:
-            end = "]])\n"
-        elif x_axis % 4 == 3:
-            end = "],\n"
-        else:
-            end = "],"
-        if mode == "RGBA":
-            red, grn, blu, alpha = image.getpixel((pix, 0))
-        else:
-            red, grn, blu = image.getpixel((pix, 0))
-        file.write("[" + str(red) + "," + str(grn) + "," + str(blu) + end)
+        for x_axis in range(levels):
+            pix = int(x_axis * image.width / levels)
+            if x_axis == levels - 1:
+                end = "]])\n"
+            elif x_axis % 4 == 3:
+                end = "],\n"
+            else:
+                end = "],"
+            if mode == "RGBA":
+                red, grn, blu, alpha = image.getpixel((pix, 0))
+            else:
+                red, grn, blu = image.getpixel((pix, 0))
+            file.write("[" + str(red) + "," + str(grn) + "," + str(blu) + end)
 
-    image.close()
-    file.close()
+        image.close()
 
-    print(str(levels) + "-level colormap file " + outfile + " created")
+        print(str(levels) + "-level colormap file " + outfile + " created")
 
 
 def main():
