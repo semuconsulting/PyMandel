@@ -83,7 +83,7 @@ the Python 3 scripts (bin) and site_packages directories are included in your PA
 
 ### Dependencies
 
-PyMandel is compatible with Python >=3.9 <=3.12. **NB:** PyMandel does not currently support Python 3.13 due to the dependent `numba` library.
+PyMandel is compatible with Python 3.9 - 3.13.
 
 On Windows and MacOS, pip, tkinter and the necessary imaging libraries are generally packaged with Python.  On some Linux distributions like Ubuntu 18+ and Raspberry Pi OS, they may need to be installed separately, e.g.:
 
@@ -150,26 +150,6 @@ Terminal=false
 Name=PyMandel
 Icon=/home/user/.local/lib/python3.11/site-packages/pygpsclient/resources/pymandel.png
 Exec=/home/user/.local/bin/pymandel
-```
-
-### 2. Manual installation
-
-The following Python libraries are required (these will be installed automatically if using pip to install PyMandel):
-
-```shell
-python3 -m pip install --upgrade numba numpy Pillow
-```
-
-To install PyMandel manually, download and unzip this repository and type:
-
-```shell
-python3 -m /path_to_folder/foldername/pymandel
-```
-
-e.g. if you downloaded and unzipped to a folder named `PyMandel-1.0.12`, type: 
-
-```shell
-python3 -m /path_to_folder/PyMandel-1.0.12/pymandel
 ```
 
 ### Performance Optimisations

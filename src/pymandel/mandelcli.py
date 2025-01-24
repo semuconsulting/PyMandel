@@ -78,8 +78,7 @@ class BatchMandelbrot:
         self._theme = kwargs.get("theme", "Default")
         self._shift = int(kwargs.get("shift", 0))
         self._startframe = int(kwargs.get("startframe", 1))
-        if self._startframe > self._frames:
-            self._startframe = self._frames
+        self._startframe = min(self._startframe, self._frames)
         self._zoom = float(kwargs.get("zoom", 0.75))
         self._startzoom = float(
             kwargs.get(
