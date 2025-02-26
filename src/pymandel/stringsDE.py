@@ -13,7 +13,7 @@ GITHUBURL = "https://github.com/semuconsulting/PyMandel"
 CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
 MODULENAME = "pymandel"
 
-COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020\nGPLv3 lizenz. Alle Rechte vorbehalten"
+COPYRIGHTTXT = "\u00a9 SEMU Consulting 2020\nGPLv3 lizenz. Alle Rechte vorbehalten"
 
 COLORCETTXT = "HoloViz Colorcet-Farbkarten verfügbar unter der Lizenz\nCreative Commons Attribution (CC_BY)"
 
@@ -25,7 +25,7 @@ HELPTXT = (
     + "Klicken Sie mit der linken Maustaste, ziehen Sie sie und lassen Sie sie los - zoomen Sie in einen gezeichneten rechteckigen Bereich.\n"
     + "Linksklick - Vergrößern Sie die Cursorposition um den Betrag des Zoominkrements.\n"
     + "Umschalt & Linksklick - Verkleinern.\n"
-    + "Drücken Sie im Julia-Modus nach links \u25C0 oder rechts \u25B6, um das Julia-Set um seinen Ursprung zu drehen.\n\n"
+    + "Drücken Sie im Julia-Modus nach links \u25c0 oder rechts \u25b6, um das Julia-Set um seinen Ursprung zu drehen.\n\n"
     + "ZEICHNEN-Taste - Plotten Sie das Bild mit den aktuellen Einstellungen.\n"
     + "Abbrechen-Schaltfläche - Bricht den aktuellen Plotvorgang ab.\n"
     + "Reset-Taste - Setzt die Parameter auf die Standardwerte zurück.\n"

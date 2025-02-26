@@ -13,7 +13,7 @@ GITHUBURL = "https://github.com/semuconsulting/PyMandel"
 CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
 MODULENAME = "pymandel"
 
-COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020\nGPLv3 License. All Rights Reserved"
+COPYRIGHTTXT = "\u00a9 SEMU Consulting 2020\nGPLv3 License. All Rights Reserved"
 
 COLORCETTXT = "HoloViz Colorcet color maps available under\nCreative Commons Attribution (CC_BY) license"
 
@@ -30,7 +30,7 @@ HELPTXT = (
     + "Shift & Left-click - zoom out.\n"
     + "Alt-L or Ctrl-L & Left-click - switch to Julia mode and plot the Julia set corresponding to that cursor (cx, cy offset) location.\n"
     + "Right-click - centre the image at the cursor location.\n"
-    + "Press Left \u25C0 or Right \u25B6 arrow keys in Julia mode to rotate the Julia Set about its origin.\n\n"
+    + "Press Left \u25c0 or Right \u25b6 arrow keys in Julia mode to rotate the Julia Set about its origin.\n\n"
     + "PLOT button - plot the image using current settings.\n"
     + "Cancel button - cancel the current plot operation.\n"
     + "Reset button - reset the parameters to the default values.\n"

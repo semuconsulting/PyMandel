@@ -14,7 +14,7 @@ CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
 MODULENAME = "pymandel"
 
 COPYRIGHTTXT = (
-    "\u00A9 SEMU Consulting 2020 \nGPLv3 Licencia. Todos los derechos reservados"
+    "\u00a9 SEMU Consulting 2020 \nGPLv3 Licencia. Todos los derechos reservados"
 )
 
 COLORCETTXT = "Mapas de color HoloViz Colorcet disponibles bajo licencia de\nCreative Commons Attribution (CC_BY)"
@@ -27,7 +27,7 @@ HELPTXT = (
     + "Clic izquierdo, arrastre y suelte: amplíe un área rectangular dibujada.\n"
     + "Clic izquierdo - acerca la ubicación del cursor por la cantidad de incremento de zoom.\n"
     + "Shift y Clic izquierdo - alejar.\n"
-    + "Presione Izquierda \u25C0 o Derecha \u25B6 en modo Julia para rotar el Conjunto Julia sobre su origen.\n\n"
+    + "Presione Izquierda \u25c0 o Derecha \u25b6 en modo Julia para rotar el Conjunto Julia sobre su origen.\n\n"
     + "Botón TRAZER - trazar la imagen con la configuración actual.\n"
     + "Botón Guardar: guarda la imagen que se muestra actualmente como un archivo .png junto con sus metadatos asociados como un archivo .json.\n"
     + "Botón Cancelar: cancela la operación de trazado actual.\n"

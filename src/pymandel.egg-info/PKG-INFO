@@ -705,17 +705,21 @@ Classifier: Topic :: Utilities
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: numba>=0.58.0
-Requires-Dist: numpy>=1.21.6
+Requires-Dist: numba>=0.61.0
+Requires-Dist: numpy<2.2.0,>=2.1.0
 Requires-Dist: Pillow>=9.3.0
 Provides-Extra: deploy
 Requires-Dist: build; extra == "deploy"
+Requires-Dist: packaging>=24.2; extra == "deploy"
 Requires-Dist: pip; extra == "deploy"
-Requires-Dist: setuptools>=66.0; extra == "deploy"
+Requires-Dist: setuptools>=66.0.0; extra == "deploy"
+Requires-Dist: twine>=6.1.0; extra == "deploy"
 Requires-Dist: wheel; extra == "deploy"
 Provides-Extra: test
 Requires-Dist: bandit; extra == "test"
 Requires-Dist: black; extra == "test"
+Requires-Dist: certifi; extra == "test"
+Requires-Dist: isort; extra == "test"
 Requires-Dist: pylint; extra == "test"
 Requires-Dist: pytest; extra == "test"
 Requires-Dist: pytest-cov; extra == "test"

@@ -13,7 +13,7 @@ GITHUBURL = "https://github.com/semuconsulting/PyMandel"
 CETURL = "https://github.com/holoviz/colorcet/blob/master/LICENSE.txt"
 MODULENAME = "pymandel"
 
-COPYRIGHTTXT = "\u00A9 SEMU Consulting 2020\nGPLv3 License. Tous droits réservés"
+COPYRIGHTTXT = "\u00a9 SEMU Consulting 2020\nGPLv3 License. Tous droits réservés"
 
 COLORCETTXT = "Cartes de couleurs HoloViz Colorcet disponibles sous la licence\nCreative Commons Attribution (CC_BY)"
 
@@ -25,7 +25,7 @@ HELPTXT = (
     + "Faites un clic gauche, faites glisser et relâchez - zoomez sur une zone rectangulaire dessinée.\n"
     + "Clic gauche - zoomer à l'emplacement du curseur de la valeur de l'incrément de zoom.\n"
     + "Maj et Clic gauche - zoom arrière.\n"
-    + "Appuyez sur Gauche \u25C0 ou Droite \u25B6 en mode Julia pour faire pivoter l'ensemble Julia autour de son origine.\n\n"
+    + "Appuyez sur Gauche \u25c0 ou Droite \u25b6 en mode Julia pour faire pivoter l'ensemble Julia autour de son origine.\n\n"
     + "Bouton TRACER - trace l'image en utilisant les paramètres actuels.\n"
     + "Bouton Annuler - annule l'opération de tracé en cours.\n"
     + "Bouton de réinitialisation - réinitialise les paramètres aux valeurs par défaut.\n"
