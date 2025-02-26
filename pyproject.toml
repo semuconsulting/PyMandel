@@ -41,7 +41,7 @@ classifiers = [
     "Topic :: Utilities",
 ]
 
-dependencies = ["numba>=0.58.0", "numpy>=1.21.6", "Pillow>=9.3.0"]
+dependencies = ["numba>=0.61.0", "numpy>=2.1.0,<2.2.0", "Pillow>=9.3.0"]
 
 [project.scripts]
 pymandel = "pymandel.__main__:main"
@@ -55,10 +55,19 @@ repository = "https://github.com/semuconsulting/pymandel"
 changelog = "https://github.com/semuconsulting/pymandel/blob/master/RELEASE_NOTES.md"
 
 [project.optional-dependencies]
-deploy = ["build", "pip", "setuptools >= 66.0", "wheel"]
+deploy = [
+    "build",
+    "packaging>=24.2",
+    "pip",
+    "setuptools>=66.0.0",
+    "twine>=6.1.0",
+    "wheel",
+]
 test = [
     "bandit",
     "black",
+    "certifi",
+    "isort",
     "pylint",
     "pytest",
     "pytest-cov",
